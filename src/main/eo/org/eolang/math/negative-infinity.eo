@@ -24,8 +24,8 @@
 +alias org.eolang.math.nan
 +rt jvm org.eolang:eo-runtime:0.0.0
 
-# Positive infinity
-[] > positive-infinity
+# Negative infinity
+[] > negative-infinity
   # Tests that $ = x
   [x] > eq
     eq. > @
@@ -38,25 +38,25 @@
 
   # Tests that $ < x
   [x] > less
-    FALSE > @
+    not. > @
+      or. > @
+        x.as-bytes.eq (nan.as-bytes) # x is nan
+        ^.eq x # x is negative-infinity
 
   # Tests that $ ≤ x
   [x] > leq
-    ^.eq x > @
+    not > @
+      eq. > @
+        x.as-bytes
+        nan.as-bytes
 
   # Tests that $ > x
   [x] > greater
-    not. > @
-      or.
-        x.as-bytes.eq (nan.as-bytes) # x is nan
-        ^.eq x # x is positive-infinity
+    FALSE > @
 
   # Tests that $ ≥ x
   [x] > geq
-    not. > @
-      eq.
-        x.as-bytes
-        nan.as-bytes
+    ^.eq x > @
 
   # Multiplication of $ and x
   #[x] > mul
@@ -70,11 +70,11 @@
 
   # Negation of $
   [] > neg
-    negative-infinity > @
+    positive-infinity > @
 
   # Sign of $ (-1.0, 0.0, or 1.0)
   [] > signum
-    1.0 > @
+    -1.0 > @
 
   # Difference between $ and x
   #[x] > sub
@@ -93,17 +93,17 @@
 
   # Absolute value of $ (i.e., with no sign)
   [] > abs
-    ^ > @
+    positive-infinity > @
 
   # Converts this to bytes
   [] > as-bytes
-    7F-80-00-00 > @
+    FF-80-00-00 > @
 
   # Converts this to int
   [] > as-int
     [] > @
-      "You can't convert +∞ to int" > msg
+      "You can't convert -∞ to int" > msg
 
   # Converts this to string
   [] > as-string
-    "+∞" > @
+    "-∞" > @

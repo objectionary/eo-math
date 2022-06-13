@@ -55,8 +55,14 @@
         ^.cos
         sine
 
-  # Coverts this from radians to degrees
+  # Converts this from radians to degrees
   [] > as-degrees
     div. > @
       ^.mul 180.0
       pi
+
+  # Converts this from degrees to radians
+  [] > as-radians
+    div. > @
+      ^.mul pi
+      180.0

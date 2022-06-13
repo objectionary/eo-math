@@ -101,3 +101,25 @@
     180.0
     as-degrees.
       angle pi
+
+[] > zero-degrees-as-radians
+  eq. > @
+    0.0
+    as-radians.
+      angle 0.0
+
+[] > one-eighty-as-radians
+  eq. > @
+    pi
+    as-radians.
+      angle 180.0
+
+[] > pi-as-degrees-and-back-as-radians
+  eq. > @
+    pi
+    (angle (angle pi).as-degrees).as-radians
+
+[] > one-eighty-as-radians-and-back-as-degrees
+  eq. > @
+    180.0
+    (angle (angle 180.0).as-radians).as-degrees

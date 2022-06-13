@@ -51,38 +51,38 @@
 
 [] > nan-mul
   and. > @
-    (nan.mul 42).msg.eq "You can't manipulate with NaN"
-    (nan.mul nan).msg.eq "You can't manipulate with NaN"
+    (nan.mul 42).as-bytes.eq (nan.as-bytes)
+    (nan.mul nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-div
   and. > @
-    (nan.div 42).msg.eq "You can't manipulate with NaN"
-    (nan.div nan).msg.eq "You can't manipulate with NaN"
+    (nan.div 42).as-bytes.eq (nan.as-bytes)
+    (nan.div nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-add
   and. > @
-    (nan.add 42).msg.eq "You can't manipulate with NaN"
-    (nan.add nan).msg.eq "You can't manipulate with NaN"
+    (nan.add 42).as-bytes.eq (nan.as-bytes)
+    (nan.add nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-sub
   and. > @
-    (nan.sub 42).msg.eq "You can't manipulate with NaN"
-    (nan.sub nan).msg.eq "You can't manipulate with NaN"
+    (nan.sub 42).as-bytes.eq (nan.as-bytes)
+    (nan.sub nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-signum
   eq. > @
-    "You can't manipulate with NaN"
-    nan.signum.msg
+    nan.signum.as-bytes
+    nan.as-bytes
 
 [] > nan-pow
   and. > @
-    (nan.pow 2).msg.eq "You can't manipulate with NaN"
-    (nan.pow nan).msg.eq "You can't manipulate with NaN"
+    (nan.pow 2).as-bytes.eq (nan.as-bytes)
+    (nan.pow nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-abs
   eq. > @
-    "You can't manipulate with NaN"
-    nan.abs.msg
+    nan.abs.as-bytes
+    nan.as-bytes
 
 [] > nan-as-bytes
   eq. > @

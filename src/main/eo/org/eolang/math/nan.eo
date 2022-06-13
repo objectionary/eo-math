@@ -51,43 +51,35 @@
 
   # Multiplication of $ and x
   [x] > mul
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Sum of $ and x
   [x] > add
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Negation of $
   [] > neg
-    [] > @
-      "You can't manipulate with NaN" > msg
+     ^ > @
 
   # Sign of $ (-1.0, 0.0, or 1.0)
   [] > signum
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Difference between $ and x
   [x] > sub
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # x'th power of $
   [x] > pow
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Quotient of the division of $ by x
   [x] > div
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Absolute value of $ (i.e., with no sign)
   [] > abs
-    [] > @
-      "You can't manipulate with NaN" > msg
+    ^ > @
 
   # Converts this to bytes
   [] > as-bytes

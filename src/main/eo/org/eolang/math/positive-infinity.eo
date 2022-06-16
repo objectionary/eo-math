@@ -59,14 +59,26 @@
         nan.as-bytes
 
   # Multiplication of $ and x
-  #[x] > mul
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > mul
+    if. > @
+      or.
+        x.as-bytes.eq (nan.as-bytes)
+        x.eq 0.0
+      nan
+      if.
+        x.eq negative-infinity
+        negative-infinity
+        ^
+
 
   # Sum of $ and x
-  #[x] > add
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > add
+    if. > @
+      or.
+        x.as-bytes.eq (nan.as-bytes)
+        x.eq negative-infinity
+      nan
+      ^
 
   # Negation of $
   [] > neg
@@ -77,9 +89,8 @@
     1.0 > @
 
   # Difference between $ and x
-  #[x] > sub
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > sub
+    ^.add (x.neg) > @
 
   # x'th power of $
   #[x] > pow
@@ -87,9 +98,14 @@
   #    "You can't manipulate with NaN" > msg
 
   # Quotient of the division of $ by x
-  #[x] > div
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > div
+    if. > @
+      or.
+        x.as-bytes.eq (nan.as-bytes)
+        x.eq negative-infinity
+        x.eq ^
+      nan
+      ^
 
   # Absolute value of $ (i.e., with no sign)
   [] > abs

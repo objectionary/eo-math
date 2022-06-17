@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!--
-    The MIT License (MIT)
-    Copyright (c) 2022 Yegor Bugayenko
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-    The above copyright notice and this permission notice shall be included
-    in all copies or substantial portions of the Software.
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-    -->
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2021-2022 Yegor Bugayenko
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -29,13 +33,13 @@
     <artifactId>eo-math</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>eo-hamcrest</name>
-    <description>Hamcrest matchers for EOLANG</description>
+    <name>eo-math</name>
+    <description>Collection of math wrappers for int and float for EO Programming Language</description>
     <url>https://github.com/objectionary/eo-math</url>
     <inceptionYear>2022</inceptionYear>
     <organization>
         <name>EO</name>
-        <url>https://github.com/maxonfjvipon/eo-math</url>
+        <url>https://github.com/objectionary/eo-math</url>
     </organization>
     <licenses>
         <license>
@@ -44,49 +48,53 @@
             <distribution>site</distribution>
         </license>
     </licenses>
-<!--    <developers>-->
-<!--        <developer>-->
-<!--            <id>1</id>-->
-<!--            <name>Max Trunnikov</name>-->
-<!--            <email>mtrunnkov@gmail.com</email>-->
-<!--            <organization>yegor256.com</organization>-->
-<!--            <organizationUrl>https://www.yegor256.com</organizationUrl>-->
-<!--            <roles>-->
-<!--                <role>Developer</role>-->
-<!--            </roles>-->
-<!--            <timezone>+3</timezone>-->
-<!--        </developer>-->
-<!--    </developers>-->
-<!--    <issueManagement>-->
-<!--        <system>GitHub</system>-->
-<!--        <url>https://github.com/objectionary/eo-hamcrest/issues</url>-->
-<!--    </issueManagement>-->
-<!--    <scm>-->
-<!--        <connection>scm:git:git@github.com:objectionary/eo-hamcrest.git</connection>-->
-<!--        <developerConnection>scm:git:git@github.com:objectionary/eo-hamcrest.git</developerConnection>-->
-<!--        <url>https://github.com/objectionary/eo-hamcrest</url>-->
-<!--    </scm>-->
-<!--    <ciManagement>-->
-<!--        <system>rultor</system>-->
-<!--        <url>https://www.rultor.com/s/eo-hamcrest</url>-->
-<!--    </ciManagement>-->
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>Max Trunnikov</name>
+            <email>mtrunnikov@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+3</timezone>
+        </developer>
+        <developer>
+            <id>2</id>
+            <name>Yegor Bugayenko</name>
+            <email>yegor256@gmail.com</email>
+            <organization>yegor256.com</organization>
+            <organizationUrl>https://www.yegor256.com</organizationUrl>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>+3</timezone>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/objectionary/eo-math/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:objectionary/eo-math.git</connection>
+        <developerConnection>scm:git:git@github.com:objectionary/eo-math.git</developerConnection>
+        <url>https://github.com/objectionary/eo-math</url>
+    </scm>
+    <ciManagement>
+        <system>rultor</system>
+        <url>https://www.rultor.com/s/eo-math</url>
+    </ciManagement>
     <distributionManagement>
         <site>
             <id>github-pages</id>
-            <url>https://github.com/objectionary/eo</url>
+            <url>https://github.com/objectionary/eo-math</url>
         </site>
     </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.eolang</groupId>
             <artifactId>eo-runtime</artifactId>
-            <version>0.22.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.6.2</version>
-            <scope>test</scope>
+            <version>0.23.10</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -100,7 +108,7 @@
             <plugin>
                 <groupId>org.eolang</groupId>
                 <artifactId>eo-maven-plugin</artifactId>
-                <version>0.22.2</version>
+                <version>0.23.8</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -133,4 +141,22 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>qulice</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.qulice</groupId>
+                        <artifactId>qulice-maven-plugin</artifactId>
+                        <configuration>
+                            <excludes combine.children="append">
+                                <exclude>pmd:.*</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

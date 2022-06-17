@@ -37,29 +37,29 @@
     (^.eq x).not > @
 
   # Tests that $ < x
-  [x] > less
+  [x] > lt
     not. > @
       or. > @
         x.as-bytes.eq (nan.as-bytes) # x is nan
         ^.eq x # x is negative-infinity
 
   # Tests that $ ≤ x
-  [x] > leq
+  [x] > lte
     not > @
       eq. > @
         x.as-bytes
         nan.as-bytes
 
   # Tests that $ > x
-  [x] > greater
+  [x] > gt
     FALSE > @
 
   # Tests that $ ≥ x
-  [x] > geq
+  [x] > gte
     ^.eq x > @
 
   # Multiplication of $ and x
-  [x] > mul
+  [x] > times
     if. > @
       or.
         x.as-bytes.eq (nan.as-bytes)
@@ -71,7 +71,7 @@
         ^
 
   # Sum of $ and x
-  [x] > add
+  [x] > plus
     if. > @
       or.
         x.as-bytes.eq (nan.as-bytes)
@@ -88,8 +88,8 @@
     -1.0 > @
 
   # Difference between $ and x
-  [x] > sub
-    ^.add (x.neg) > @
+  [x] > minus
+    ^.plus (x.neg) > @
 
   # x'th power of $
   #[x] > pow

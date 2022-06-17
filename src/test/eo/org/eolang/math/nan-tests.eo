@@ -34,40 +34,45 @@
     (nan.neq 42).eq TRUE
     (nan.neq nan).eq TRUE
 
-[] > nan-leq
+[] > nan-lt
   and. > @
-    (nan.leq 42).eq FALSE
-    (nan.leq nan).eq FALSE
+    (nan.lt 42).eq FALSE
+    (nan.lt nan).eq FALSE
 
-[] > nan-greater
+[] > nan-lte
   and. > @
-    (nan.greater 42).eq FALSE
-    (nan.greater nan).eq FALSE
+    (nan.lte 42).eq FALSE
+    (nan.lte nan).eq FALSE
 
-[] > nan-geq
+[] > nan-gt
   and. > @
-    (nan.geq 42).eq FALSE
-    (nan.geq nan).eq FALSE
+    (nan.gt 42).eq FALSE
+    (nan.gt nan).eq FALSE
 
-[] > nan-mul
+[] > nan-gte
   and. > @
-    (nan.mul 42).as-bytes.eq (nan.as-bytes)
-    (nan.mul nan).as-bytes.eq (nan.as-bytes)
+    (nan.gte 42).eq FALSE
+    (nan.gte nan).eq FALSE
+
+[] > nan-times
+  and. > @
+    (nan.times 42).as-bytes.eq (nan.as-bytes)
+    (nan.times nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-div
   and. > @
     (nan.div 42).as-bytes.eq (nan.as-bytes)
     (nan.div nan).as-bytes.eq (nan.as-bytes)
 
-[] > nan-add
+[] > nan-plus
   and. > @
-    (nan.add 42).as-bytes.eq (nan.as-bytes)
-    (nan.add nan).as-bytes.eq (nan.as-bytes)
+    (nan.plus 42).as-bytes.eq (nan.as-bytes)
+    (nan.plus nan).as-bytes.eq (nan.as-bytes)
 
-[] > nan-sub
+[] > nan-minus
   and. > @
-    (nan.sub 42).as-bytes.eq (nan.as-bytes)
-    (nan.sub nan).as-bytes.eq (nan.as-bytes)
+    (nan.minus 42).as-bytes.eq (nan.as-bytes)
+    (nan.minus nan).as-bytes.eq (nan.as-bytes)
 
 [] > nan-signum
   eq. > @

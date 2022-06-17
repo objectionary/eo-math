@@ -34,27 +34,27 @@
     TRUE > @
 
   # Tests that $ < x
-  [x] > less
+  [x] > lt
     FALSE > @
 
   # Tests that $ ≤ x
-  [x] > leq
+  [x] > lte
     FALSE > @
 
   # Tests that $ > x
-  [x] > greater
+  [x] > gt
     FALSE > @
 
   # Tests that $ ≥ x
-  [x] > geq
+  [x] > gte
     FALSE > @
 
   # Multiplication of $ and x
-  [x] > mul
+  [x] > times
     ^ > @
 
   # Sum of $ and x
-  [x] > add
+  [x] > plus
     ^ > @
 
   # Negation of $
@@ -66,7 +66,7 @@
     ^ > @
 
   # Difference between $ and x
-  [x] > sub
+  [x] > minus
     ^ > @
 
   # x'th power of $

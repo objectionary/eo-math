@@ -58,11 +58,11 @@
   # Converts this from radians to degrees
   [] > as-degrees
     div. > @
-      ^.mul 180.0
+      ^.times 180.0
       pi
 
   # Converts this from degrees to radians
   [] > as-radians
     div. > @
-      ^.mul pi
+      ^.times pi
       180.0

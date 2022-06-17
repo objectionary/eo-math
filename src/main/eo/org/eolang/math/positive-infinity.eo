@@ -93,9 +93,17 @@
     ^.plus (x.neg) > @
 
   # x'th power of $
-  #[x] > pow
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > pow
+    if. > @
+      x.gt 0.0
+      ^
+      if.
+        x.lt 0.0
+        0.0
+        if.
+          x.eq 0.0
+          1.0
+          nan
 
   # Quotient of the division of $ by x
   [x] > div
@@ -106,6 +114,10 @@
         x.eq ^
       nan
       ^
+
+  # Remainder of $
+  [] > mod
+    nan > @
 
   # Absolute value of $ (i.e., with no sign)
   [] > abs

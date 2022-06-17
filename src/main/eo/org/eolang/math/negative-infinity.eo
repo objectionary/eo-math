@@ -92,9 +92,30 @@
     ^.plus (x.neg) > @
 
   # x'th power of $
-  #[x] > pow
-  #  [] > @
-  #    "You can't manipulate with NaN" > msg
+  [x] > pow
+    if. > @
+      x.lt 0.0
+      0.0
+      if.
+        x.eq 0.0
+        1
+        if.
+          x.gt 0.0
+          if.
+            not-int x # not-integer => float => odd
+            negative-infinity
+            if. # integer
+              (x.as-int.mod 2).eq 0 # even
+              positive-infinity
+              negative-infinity
+          nan
+
+    [x] > not-int
+      x.as-int > as-integer!
+      and. > @
+        as-integer.as-float.lt x
+        (as-integer.plus 1).as-float.gt x
+
 
   # Quotient of the division of $ by x
   [x] > div
@@ -105,6 +126,10 @@
         x.eq positive-infinity
       nan
       ^
+
+  # Remainder of $
+  [] > mod
+    nan > @
 
   # Absolute value of $ (i.e., with no sign)
   [] > abs

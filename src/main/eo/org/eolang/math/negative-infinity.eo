@@ -40,14 +40,14 @@
   # Tests that $ < x
   [x] > lt
     not. > @
-      or. > @
+      or.
         x.as-bytes.eq (nan.as-bytes)
         ^.eq x
 
   # Tests that $ ≤ x
   [x] > lte
     not. > @
-      eq. > @
+      eq.
         x.as-bytes
         nan.as-bytes
 

@@ -9,9 +9,10 @@ import org.eolang.XmirObject;
 
 /**
  * Sin.
+ * @since 0.0.1
  */
 @XmirObject(oname = "angle.sin")
-public class EOangle$EOsin extends PhDefault {
+public final class EOangle$EOsin extends PhDefault {
 
     public EOangle$EOsin(final Phi sigma) {
         super(sigma);

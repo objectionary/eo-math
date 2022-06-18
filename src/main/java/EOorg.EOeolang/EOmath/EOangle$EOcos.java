@@ -9,9 +9,10 @@ import org.eolang.XmirObject;
 
 /**
  * Cos.
+ * @since 0.0.1
  */
 @XmirObject(oname = "angle.cos")
-public class EOangle$EOcos extends PhDefault {
+public final class EOangle$EOcos extends PhDefault {
 
     public EOangle$EOcos(final Phi sigma) {
         super(sigma);

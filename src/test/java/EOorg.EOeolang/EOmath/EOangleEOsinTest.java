@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link EOangle}
+ * @since 0.0.1
  */
 public final class EOangleEOsinTest {
 

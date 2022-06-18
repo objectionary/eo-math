@@ -40,8 +40,8 @@
   [x] > lt
     not. > @
       or. > @
-        x.as-bytes.eq (nan.as-bytes) # x is nan
-        ^.eq x # x is negative-infinity
+        x.as-bytes.eq (nan.as-bytes)
+        ^.eq x
 
   # Tests that $ ≤ x
   [x] > lte
@@ -102,10 +102,10 @@
         if.
           x.gt 0.0
           if.
-            not-int x # not-integer => float => odd
+            not-int x
             negative-infinity
-            if. # integer
-              (x.as-int.mod 2).eq 0 # even
+            if.
+              (x.as-int.mod 2).eq 0
               positive-infinity
               negative-infinity
           nan

@@ -48,8 +48,8 @@
   [x] > gt
     not. > @
       or.
-        x.as-bytes.eq (nan.as-bytes) # x is nan
-        ^.eq x # x is positive-infinity
+        x.as-bytes.eq (nan.as-bytes)
+        ^.eq x
 
   # Tests that $ ≥ x
   [x] > gte

@@ -14,53 +14,53 @@ public final class EOangleEOcosTest {
 
     @Test
     public void cos0() {
-        final double cos0 = Math.cos(0);
+        final double result = Math.cos(0);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOcos(
                     new Data.ToPhi((double) 0)
                 )
             ).take(Double.class),
-            Matchers.equalTo(cos0)
+            Matchers.equalTo(result)
         );
     }
 
     @Test
     public void cosPi() {
-        final double cosPi = Math.cos(Math.PI);
+        final double result = Math.cos(Math.PI);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOcos(
                     new Data.ToPhi(Math.PI)
                 )
             ).take(Double.class),
-            Matchers.equalTo(cosPi)
+            Matchers.equalTo(result)
         );
     }
 
     @Test
     public void cosPiDiv2() {
-        final double cosPiDiv2 = Math.cos(Math.PI / 2);
+        final double result = Math.cos(Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOcos(
                     new Data.ToPhi(Math.PI / 2)
                 )
             ).take(Double.class),
-            Matchers.equalTo(cosPiDiv2)
+            Matchers.equalTo(result)
         );
     }
 
     @Test
     public void cosMinusPiDiv2() {
-        final double cosMinPiDiv2 = Math.cos(-Math.PI / 2);
+        final double result = Math.cos(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOcos(
                     new Data.ToPhi(-Math.PI / 2)
                 )
             ).take(Double.class),
-            Matchers.equalTo(cosMinPiDiv2)
+            Matchers.equalTo(result)
         );
     }
 }

@@ -70,7 +70,6 @@
         negative-infinity
         ^
 
-
   # Sum of $ and x
   [x] > plus
     if. > @

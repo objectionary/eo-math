@@ -3,10 +3,10 @@ name: mvn
 "on":
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   maven-build:
     runs-on: ${{ matrix.os }}

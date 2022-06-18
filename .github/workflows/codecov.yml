@@ -3,7 +3,7 @@ name: codecov
 "on":
   push:
     branches:
-      - master
+      - main
 jobs:
   codecov:
     runs-on: ubuntu-latest

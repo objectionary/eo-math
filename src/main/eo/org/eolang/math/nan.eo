@@ -59,7 +59,7 @@
 
   # Negation of $
   [] > neg
-     ^ > @
+    ^ > @
 
   # Sign of $ (-1.0, 0.0, or 1.0)
   [] > signum

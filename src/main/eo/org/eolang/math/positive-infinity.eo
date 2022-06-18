@@ -22,6 +22,7 @@
 
 +package org.eolang.math
 +alias org.eolang.math.nan
++alias org.eolang.math.negative-infinity
 +rt jvm org.eolang:eo-runtime:0.0.0
 
 # Positive infinity
@@ -48,8 +49,8 @@
   [x] > gt
     not. > @
       or.
-        x.as-bytes.eq (nan.as-bytes) # x is nan
-        ^.eq x # x is positive-infinity
+        x.as-bytes.eq (nan.as-bytes)
+        ^.eq x
 
   # Tests that $ ≥ x
   [x] > gte
@@ -69,7 +70,6 @@
         x.eq negative-infinity
         negative-infinity
         ^
-
 
   # Sum of $ and x
   [x] > plus

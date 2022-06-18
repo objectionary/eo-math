@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public final class EOangleEOsinTest {
 
     @Test
-    public void sin0() {
+    public void sinZero() {
         final double result = Math.sin(0);
         MatcherAssert.assertThat(
             new Dataized(
@@ -39,7 +39,7 @@ public final class EOangleEOsinTest {
     }
 
     @Test
-    public void sinPiDiv2() {
+    public void sinPiDivTwo() {
         final double result = Math.sin(Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
@@ -52,7 +52,7 @@ public final class EOangleEOsinTest {
     }
 
     @Test
-    public void sinMinusPiDiv2() {
+    public void sinMinusPiDivTwo() {
         final double result = Math.sin(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(

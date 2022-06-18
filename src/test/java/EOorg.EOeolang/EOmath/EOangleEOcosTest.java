@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public final class EOangleEOcosTest {
 
     @Test
-    public void cos0() {
+    public void cosZero() {
         final double result = Math.cos(0);
         MatcherAssert.assertThat(
             new Dataized(
@@ -39,7 +39,7 @@ public final class EOangleEOcosTest {
     }
 
     @Test
-    public void cosPiDiv2() {
+    public void cosPiDivTwo() {
         final double result = Math.cos(Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
@@ -52,7 +52,7 @@ public final class EOangleEOcosTest {
     }
 
     @Test
-    public void cosMinusPiDiv2() {
+    public void cosMinusPiDivTwo() {
         final double result = Math.cos(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(

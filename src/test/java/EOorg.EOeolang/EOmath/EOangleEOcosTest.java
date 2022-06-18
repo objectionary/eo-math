@@ -53,14 +53,14 @@ public final class EOangleEOcosTest {
 
     @Test
     public void cosMinusPiDiv2() {
-        final double cosMinusPiDiv2 = Math.cos(-Math.PI / 2);
+        final double cosMinPiDiv2 = Math.cos(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOcos(
                     new Data.ToPhi(-Math.PI / 2)
                 )
             ).take(Double.class),
-            Matchers.equalTo(cosMinusPiDiv2)
+            Matchers.equalTo(cosMinPiDiv2)
         );
     }
 }

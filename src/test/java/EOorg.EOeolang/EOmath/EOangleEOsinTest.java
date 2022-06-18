@@ -53,14 +53,14 @@ public final class EOangleEOsinTest {
 
     @Test
     public void sinMinusPiDiv2() {
-        final double sinMinusPiDiv2 = Math.sin(-Math.PI / 2);
+        final double sinMinPiDiv2 = Math.sin(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(
                 new EOangle$EOsin(
                     new Data.ToPhi(-Math.PI / 2)
                 )
             ).take(Double.class),
-            Matchers.equalTo(sinMinusPiDiv2)
+            Matchers.equalTo(sinMinPiDiv2)
         );
     }
 }

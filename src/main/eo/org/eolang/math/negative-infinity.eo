@@ -46,7 +46,7 @@
 
   # Tests that $ ≤ x
   [x] > lte
-    not > @
+    not. > @
       eq. > @
         x.as-bytes
         nan.as-bytes

@@ -130,7 +130,7 @@
   # Converts this to int
   [] > as-int
     [] > @
-      "You can't convert +∞ to int" > msg
+      "You can't convert +infinity to int" > msg
 
   # Converts this to string
   [] > as-string

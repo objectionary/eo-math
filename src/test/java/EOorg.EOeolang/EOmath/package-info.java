@@ -21,34 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-// @checkstyle PackageNameCheck (1 line)
-package EOorg.EOeolang.EOmath;
-
-import org.eolang.AtComposite;
-import org.eolang.Data;
-import org.eolang.Param;
-import org.eolang.PhDefault;
-import org.eolang.Phi;
-import org.eolang.XmirObject;
 
 /**
- * Sin.
+ * Math, tests.
  *
  * @since 0.0.1
- * @checkstyle TypeNameCheck (100 lines)
+ * @checkstyle PackageNameCheck (5 lines)
  */
-@XmirObject(oname = "angle.sin")
-public final class EOangle$EOsin extends PhDefault {
-
-    /**
-     * Ctor.
-     * @param sigma The \sigma
-     * @checkstyle BracketsStructureCheck (200 lines)
-     */
-    public EOangle$EOsin(final Phi sigma) {
-        super(sigma);
-        this.add("φ", new AtComposite(this, rho -> new Data.ToPhi(
-            Math.sin(new Param(rho).strong(Double.class))
-        )));
-    }
-}
+package EOorg.EOeolang.EOmath;

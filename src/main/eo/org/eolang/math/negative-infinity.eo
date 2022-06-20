@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2016-2022 Yegor Bugayenko
+# Copyright (c) 2021-2022 Max Trunnikov
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -40,14 +40,14 @@
   # Tests that $ < x
   [x] > lt
     not. > @
-      or. > @
+      or.
         x.as-bytes.eq (nan.as-bytes)
         ^.eq x
 
   # Tests that $ ≤ x
   [x] > lte
-    not > @
-      eq. > @
+    not. > @
+      eq.
         x.as-bytes
         nan.as-bytes
 
@@ -142,7 +142,7 @@
   # Converts this to int
   [] > as-int
     [] > @
-      "You can't convert -∞ to int" > msg
+      "You can not convert negative infinity to int" > msg
 
   # Converts this to string
   [] > as-string

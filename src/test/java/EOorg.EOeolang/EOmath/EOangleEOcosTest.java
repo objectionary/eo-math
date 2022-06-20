@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Yegor Bugayenko
+ * Copyright (c) 2021-2022 Max Trunnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
 import org.eolang.Data;
@@ -32,7 +32,9 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test case for {@link EOangle}
+ *
  * @since 0.0.1
+ * @checkstyle TypeNameCheck (100 lines)
  */
 public final class EOangleEOcosTest {
 

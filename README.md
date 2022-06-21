@@ -1,42 +1,42 @@
 <img src="https://www.yegor256.com/images/books/elegant-objects/cactus.svg" height="100px" />
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
+[![DevOps By Rultor.com](http://www.rultor.com/b/objectionary/eo-math)](http://www.rultor.com/p/objectionary/eo-math)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
-[//]: # ([![mvn]&#40;https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml/badge.svg&#41;]&#40;https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml&#41;)
-[//]: # ([![codecov]&#40;https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg&#41;]&#40;https://codecov.io/gh/cqfn/eo&#41;)
-[//]: # ([![Hits-of-Code]&#40;https://hitsofcode.com/github/graur/eo-hamcrest?branch=main&#41;]&#40;https://hitsofcode.com/github/graur/eo-hamcrest/view?branch=main&#41;)
-[//]: # (![Lines of code]&#40;https://img.shields.io/tokei/lines/github/Graur/eo-hamcrest&#41;)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/main/LICENSE.txt)
+[![mvn](https://github.com/objectionary/eo-math/actions/workflows/mvn.yml/badge.svg?branch=master)](https://github.com/objectionary/eo-math/actions/workflows/mvn.yml)
+[![PDD status](http://www.0pdd.com/svg?name=objectionary/eo-math)](http://www.0pdd.com/p?name=objectionary/eo-math)
+[![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
+[![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-math.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-math)
 
-This is a collection of wrappers for int and float
+[![Hits-of-Code](https://hitsofcode.com/github/objectionary/eo-math)](https://hitsofcode.com/view/github/objectionary/eo-math)
+![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-math)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/objectionary/eo-math/blob/master/LICENSE.txt)
 
-[//]: # (### Constants)
+[EOLANG](https://www.eolang.org) objects for trigonometry and floating point opeartions.
 
-[//]: # ()
-[//]: # (The [π]&#40;https://en.wikipedia.org/wiki/Pi&#41; number.)
+This is how you can manipulate with `sin`, `cos`, `tan` and `ctan` via `angle`:
 
-[//]: # (```)
+```
++alias org.eolang.math.pi
++alias org.eolang.math.angle
 
-[//]: # (# The PI number)
+(angle pi).cos > cos-pi
+(angle (angle 30).as-radians).sin > thirty-degees-sin
+(angle (pi.div 3.0)).tan > pi-div-two-tan
+```
 
-[//]: # ([] > pi)
+You are welcome to add more primitives to this lib. You can see what we need in the lib in [the paper](https://arxiv.org/abs/2206.02585).
 
-[//]: # (  3.14159265358979323846 > @)
+## How to Contribute
 
-[//]: # (```)
+Fork repository, make changes, send us a pull request.
+We will review your changes and apply them to the `master` branch shortly,
+provided they don't violate our quality standards. To avoid frustration,
+before sending us your pull request please run full Maven build:
 
-[//]: # (The [E]&#40;https://en.wikipedia.org/wiki/E_&#40;mathematical_constant&#41;&#41; constant:)
+```bash
+$ mvn clean install -Pqulice
+```
 
-[//]: # (```)
-
-[//]: # (# The Euler's number)
-
-[//]: # ([] > e)
-
-[//]: # (  2.7182818284590452354 > @)
-
-[//]: # (```)
-
-[//]: # ([NaN]&#40;https://en.wikipedia.org/wiki/NaN&#41; – Not a number, behaves accordingly to [IEEE 754]&#40;https://en.wikipedia.org/wiki/IEEE_754&#41;)
-
+You will need Maven 3.3+ and Java 8+.

@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2022 Yegor Bugayenko
+ * Copyright (c) 2022 Max Trunnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * SOFTWARE
  */
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
@@ -32,23 +32,23 @@ import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * Cos.
+ * Sin.
  *
  * @since 0.0.1
  * @checkstyle TypeNameCheck (100 lines)
  */
-@XmirObject(oname = "angle.cos")
-public final class EOangle$EOcos extends PhDefault {
+@XmirObject(oname = "angle.sin")
+public final class EOangle$EOsin extends PhDefault {
 
     /**
      * Ctor.
      * @param sigma The \sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
-    public EOangle$EOcos(final Phi sigma) {
+    public EOangle$EOsin(final Phi sigma) {
         super(sigma);
         this.add("φ", new AtComposite(this, rho -> new Data.ToPhi(
-            Math.cos(new Param(rho).strong(Double.class))
+            Math.sin(new Param(rho).strong(Double.class))
         )));
     }
 }

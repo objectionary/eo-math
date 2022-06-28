@@ -26,8 +26,8 @@
 +rt jvm org.eolang:eo-runtime:0.0.0
 
 # The angle in radians
-[x] > angle
-  x > @
+[f] > angle
+  f > @
 
   # Sine of $
   [] > sin /float

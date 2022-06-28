@@ -23,48 +23,39 @@
 +package org.eolang.math
 +home https://github.com/objectionary/eo
 +version 0.0.0
-+alias org.eolang.math.angle
-+alias org.eolang.math.number
 +alias org.eolang.hamcrest.assert-that
++alias org.eolang.math.random
 +junit
 
-[] > sin-zero
+[] > two-random-numbers-without-const
+  random > r
   assert-that > @
-    angle 0.0
-    .sin
-    $.equal-to 0.0
+    r
+    $.not
+      $.equal-to r
 
-[] > sin-pi-div-2
+[] > two-random-numbers-with-const
+  random > r!
   assert-that > @
-    angle 1.5707963267948966
-    .sin
-    $.equal-to 1.0
+    r
+    $.equal-to r
 
-[] > sin-pi-as-int
+[] > two-random-numbers-with-phi
+  random.@ > r
   assert-that > @
-    number
-      angle 3.141592653589793
-      .sin
-    .as-int
-    $.equal-to 0
+    r
+    $.equal-to r
 
-[] > cos-zero
+[] > two-random-numbers-with-increment-with-const
+  random.plus 3.1416 > r!
   assert-that > @
-    angle 0.0
-    .cos
-    $.equal-to 1.0
+    r
+    $.equal-to r
 
-[] > cos-pi-div-2-as-int
+[] > two-random-numbers-with-increment
+  random.plus 3.1416 > r
   assert-that > @
-    number
-      angle 1.5707963267948966
-      .cos
-    .as-int
-    $.equal-to 0
-
-[] > cos-pi
-  assert-that > @
-    angle 3.141592653589793
-    .cos
-    $.equal-to -1.0
+    r
+    $.not
+      $.equal-to r
 

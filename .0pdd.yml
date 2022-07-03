@@ -1,0 +1,9 @@
+errors:
+  - mtrunnikov@gmail.com
+alerts:
+  github:
+    - maxonfjvipon
+
+tags:
+  - pdd
+  - bug

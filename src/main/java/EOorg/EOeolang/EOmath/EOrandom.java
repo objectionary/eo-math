@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Yegor Bugayenko
+ * Copyright (c) 2022 Max Trunnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,26 +19,39 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * SOFTWARE
  */
-
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
-
-import org.eolang.*;
 
 import java.security.SecureRandom;
 import java.util.Random;
+import org.eolang.AtComposite;
+import org.eolang.Data;
+import org.eolang.PhDefault;
+import org.eolang.Phi;
+import org.eolang.XmirObject;
 
 /**
  * RANDOM.
  *
+ * @checkstyle TypeNameCheck (100 lines)
  * @since 0.1
  */
 @XmirObject(oname = "random")
-final public class EOrandom extends PhDefault {
+public final class EOrandom extends PhDefault {
 
+    /**
+     * Random.
+     */
     private static final Random RND = new SecureRandom();
 
+    /**
+     * Ctor.
+     *
+     * @param sigma The \sigma
+     * @checkstyle BracketsStructureCheck (200 lines)
+     */
     public EOrandom(final Phi sigma) {
         super(sigma);
         this.add("φ", new AtComposite(this, self -> new Data.ToPhi(

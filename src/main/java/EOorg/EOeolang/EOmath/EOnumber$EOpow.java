@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Yegor Bugayenko
+ * Copyright (c) 2022 Max Trunnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,29 +19,43 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * SOFTWARE
  */
-
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
 import EOorg.EOeolang.EOerror;
-import org.eolang.*;
+import org.eolang.AtComposite;
+import org.eolang.AtFree;
+import org.eolang.Data;
+import org.eolang.Param;
+import org.eolang.PhDefault;
+import org.eolang.PhWith;
+import org.eolang.Phi;
+import org.eolang.XmirObject;
 
 /**
  * POW.
  *
+ * @checkstyle TypeNameCheck (100 lines)
  * @since 0.23
  */
 @XmirObject(oname = "number.pow")
-final public class EOnumber$EOpow extends PhDefault {
+public final class EOnumber$EOpow extends PhDefault {
 
+    /**
+     * Ctor.
+     *
+     * @param sigma The \sigma
+     * @checkstyle BracketsStructureCheck (200 lines)
+     */
     public EOnumber$EOpow(final Phi sigma) {
         super(sigma);
         this.add("x", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
             final Phi number = rho.attr("ρ").get();
             final Object base = new Param(number, "n").weak();
-            Phi phi;
+            final Phi phi;
             if (base instanceof Double) {
                 final double self = (Double) base;
                 final double pow = new Param(rho, "x").strong(Double.class);

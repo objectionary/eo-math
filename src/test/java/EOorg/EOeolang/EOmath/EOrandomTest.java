@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Yegor Bugayenko
+ * Copyright (c) 2022 Max Trunnikov
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,8 +19,9 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * SOFTWARE
  */
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
 import org.eolang.Dataized;
@@ -32,7 +33,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test case for {@link EOrandom}.
  *
- * @since 0.1
+ * @since 0.1.0
  */
 public final class EOrandomTest {
 

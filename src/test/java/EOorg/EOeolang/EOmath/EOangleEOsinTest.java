@@ -1,3 +1,27 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2022 Max Trunnikov
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE
+ */
+// @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
 import org.eolang.Data;
@@ -8,18 +32,20 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link EOangle$EOsin}
+ * Test case for {@link EOangle$EOsin}.
+ *
+ * @since 0.0.1
  */
 public final class EOangleEOsinTest {
 
     @Test
-    public void sin0() {
+    public void sinZero() {
         final Phi angle = new EOangle(Phi.Φ);
         angle.attr("f").put(new Data.ToPhi(0.0d));
-        final double sin0 = Math.sin(0.0d);
+        final double res = Math.sin(0.0d);
         MatcherAssert.assertThat(
             new Dataized(new EOangle$EOsin(angle)).take(Double.class),
-            Matchers.equalTo(sin0)
+            Matchers.equalTo(res)
         );
     }
 
@@ -27,32 +53,32 @@ public final class EOangleEOsinTest {
     public void sinPi() {
         final Phi angle = new EOangle(Phi.Φ);
         angle.attr("f").put(new Data.ToPhi(Math.PI));
-        final double sinPi = Math.sin(Math.PI);
+        final double res = Math.sin(Math.PI);
         MatcherAssert.assertThat(
             new Dataized(new EOangle$EOsin(angle)).take(Double.class),
-            Matchers.equalTo(sinPi)
+            Matchers.equalTo(res)
         );
     }
 
     @Test
-    public void sinPiDiv2() {
+    public void sinPiDivTwo() {
         final Phi angle = new EOangle(Phi.Φ);
         angle.attr("f").put(new Data.ToPhi(Math.PI / 2));
-        final double sinPiDiv2 = Math.sin(Math.PI / 2);
+        final double res = Math.sin(Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(new EOangle$EOsin(angle)).take(Double.class),
-            Matchers.equalTo(sinPiDiv2)
+            Matchers.equalTo(res)
         );
     }
 
     @Test
-    public void sinMinusPiDiv2() {
+    public void sinMinusPiDivTwo() {
         final Phi angle = new EOangle(Phi.Φ);
         angle.attr("f").put(new Data.ToPhi(-Math.PI / 2));
-        final double sinMinusPiDiv2 = Math.sin(-Math.PI / 2);
+        final double res = Math.sin(-Math.PI / 2);
         MatcherAssert.assertThat(
             new Dataized(new EOangle$EOsin(angle)).take(Double.class),
-            Matchers.equalTo(sinMinusPiDiv2)
+            Matchers.equalTo(res)
         );
     }
 }

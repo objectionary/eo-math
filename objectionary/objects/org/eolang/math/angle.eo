@@ -23,11 +23,11 @@
 +package org.eolang.math
 +alias org.eolang.math.pi
 +alias org.eolang.math.nan
-+rt jvm org.eolang:eo-runtime:0.0.2
++rt jvm org.eolang:eo-runtime:0.1.0
 
 # The angle in radians
-[x] > angle
-  x > @
+[f] > angle
+  f > @
 
   # Sine of $
   [] > sin /float

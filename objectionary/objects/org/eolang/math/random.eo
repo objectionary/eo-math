@@ -21,8 +21,8 @@
 # SOFTWARE.
 
 +package org.eolang.math
++home https://github.com/objectionary/eo
++version 0.1.0
 +rt jvm org.eolang:eo-runtime:0.1.0
 
-# The Euler's number
-[] > e
-  2.7182818284590452354 > @
+[] > random /float

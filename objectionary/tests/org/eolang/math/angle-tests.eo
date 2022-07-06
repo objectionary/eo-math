@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2021-2022 Max Trunnikov
+# Copyright (c) 2016-2022 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,105 +21,50 @@
 # SOFTWARE.
 
 +package org.eolang.math
++home https://github.com/objectionary/eo
++version 0.1.0
 +alias org.eolang.math.angle
-+alias org.eolang.math.pi
-+alias org.eolang.math.nan
++alias org.eolang.math.number
++alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > phi-equals-to-angle-free-arg
-  eq. > @
-    angle 42
-    42
-
 [] > sin-zero
-  eq. > @
-    0.0
-    (angle 0.0).sin
+  assert-that > @
+    angle 0.0
+    .sin
+    $.equal-to 0.0
+
+[] > sin-pi-div-2
+  assert-that > @
+    angle 1.5707963267948966
+    .sin
+    $.equal-to 1.0
 
 [] > sin-pi-as-int
-  eq. > @
-    0
-    as-int.
-      sin.
-        angle pi
-
-[] > sin-pi-div-two
-  eq. > @
-    1.0
-    sin.
-      angle
-        pi.div 2.0
+  assert-that > @
+    number
+      angle 3.141592653589793
+      .sin
+    .as-int
+    $.equal-to 0
 
 [] > cos-zero
-  eq. > @
-    1.0
-    cos.
-      angle 0.0
+  assert-that > @
+    angle 0.0
+    .cos
+    $.equal-to 1.0
+
+[] > cos-pi-div-2-as-int
+  assert-that > @
+    number
+      angle 1.5707963267948966
+      .cos
+    .as-int
+    $.equal-to 0
 
 [] > cos-pi
-  eq. > @
-    -1.0
-    cos.
-      angle pi
+  assert-that > @
+    angle 3.141592653589793
+    .cos
+    $.equal-to -1.0
 
-[] > cos-pi-div-two-as-int
-  eq. > @
-    0
-    (angle (pi.div 2.0)).cos.as-int
-
-[] > tan-zero
-  eq. > @
-    0.0
-    tan.
-      angle 0.0
-
-[] > tan-pi-as-int
-  eq. > @
-    0
-    as-int.
-      tan.
-        angle pi
-
-[] > ctan-zero-returns-nan
-  eq. > @
-    nan.as-bytes
-    (angle 0.0).ctan.as-bytes
-
-[] > ctan-pi-div-two-as-int
-  eq. > @
-    0
-    (angle (pi.div 2.0)).ctan.as-int
-
-[] > zero-radians-as-degrees
-  eq. > @
-    0.0
-    as-degrees.
-      angle 0.0
-
-[] > pi-as-degrees
-  eq. > @
-    180.0
-    as-degrees.
-      angle pi
-
-[] > zero-degrees-as-radians
-  eq. > @
-    0.0
-    as-radians.
-      angle 0.0
-
-[] > one-eighty-as-radians
-  eq. > @
-    pi
-    as-radians.
-      angle 180.0
-
-[] > pi-as-degrees-and-back-as-radians
-  eq. > @
-    pi
-    (angle (angle pi).as-degrees).as-radians
-
-[] > one-eighty-as-radians-and-back-as-degrees
-  eq. > @
-    180.0
-    (angle (angle 180.0).as-radians).as-degrees

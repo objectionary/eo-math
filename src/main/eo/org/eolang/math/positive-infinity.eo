@@ -129,7 +129,8 @@
 
   # Converts this to int
   [] > as-int
-    "You can not convert positive infinity to int" > msg
+    [] > @
+      "You can not convert positive infinity to int" > msg
 
   # Converts this to string
   [] > as-string

@@ -24,21 +24,23 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
+import EOorg.EOeolang.EOerror;
 import org.eolang.AtComposite;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * Cos.
+ * As-float.
  *
  * @checkstyle TypeNameCheck (100 lines)
- * @since 0.0.1
+ * @since 0.23
  */
-@XmirObject(oname = "angle.cos")
-public final class EOangle$EOcos extends PhDefault {
+@XmirObject(oname = "number.as-float")
+public final class EOnumber$EOas_float extends PhDefault {
 
     /**
      * Ctor.
@@ -46,10 +48,29 @@ public final class EOangle$EOcos extends PhDefault {
      * @param sigma The \sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
-    public EOangle$EOcos(final Phi sigma) {
+    public EOnumber$EOas_float(final Phi sigma) {
         super(sigma);
-        this.add("φ", new AtComposite(this, rho -> new Data.ToPhi(
-            Math.cos(new Param(rho.attr("ρ").get(), "f").strong(Double.class))
-        )));
+        this.add("φ", new AtComposite(this, rho -> {
+            final Phi number = rho.attr("ρ").get();
+            final Object obj = new Param(number, "n").weak();
+            final Phi phi;
+            if (obj instanceof Double) {
+                phi = new Data.ToPhi(obj);
+            } else if (obj instanceof Long) {
+                phi = new Data.ToPhi(((Long) obj).doubleValue());
+            } else {
+                phi = new PhWith(
+                    new EOerror(Phi.Φ), "msg",
+                    new Data.ToPhi(
+                        String.format(
+                            "Wrong number's %s argument in number.as-float operation",
+                            obj
+                        )
+                    )
+                );
+            }
+            return phi;
+        }));
     }
+
 }

@@ -24,7 +24,6 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
-import org.eolang.Data;
 import org.eolang.Dataized;
 import org.eolang.Phi;
 import org.hamcrest.MatcherAssert;
@@ -32,53 +31,23 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link EOangle$EOcos}.
+ * Test case for {@link EOrandom}.
  *
- * @since 0.0.1
+ * @since 0.1.0
  */
-public final class EOangleEOcosTest {
+public final class EOrandomTest {
 
     @Test
-    public void cosZero() {
-        final Phi angle = new EOangle(Phi.Φ);
-        angle.attr("f").put(new Data.ToPhi(0.0d));
-        final double res = Math.cos(0.0d);
+    public void readsTwice() {
+        final Phi rnd = new EOrandom(Phi.Φ);
         MatcherAssert.assertThat(
-            new Dataized(new EOangle$EOcos(angle)).take(Double.class),
-            Matchers.equalTo(res)
+            new Dataized(rnd).take(Double.class),
+            Matchers.not(
+                Matchers.equalTo(
+                    new Dataized(rnd).take(Double.class)
+                )
+            )
         );
     }
 
-    @Test
-    public void cosPi() {
-        final Phi angle = new EOangle(Phi.Φ);
-        angle.attr("f").put(new Data.ToPhi(Math.PI));
-        final double res = Math.cos(Math.PI);
-        MatcherAssert.assertThat(
-            new Dataized(new EOangle$EOcos(angle)).take(Double.class),
-            Matchers.equalTo(res)
-        );
-    }
-
-    @Test
-    public void cosPiDivTwo() {
-        final Phi angle = new EOangle(Phi.Φ);
-        angle.attr("f").put(new Data.ToPhi(Math.PI / 2));
-        final double res = Math.cos(Math.PI / 2);
-        MatcherAssert.assertThat(
-            new Dataized(new EOangle$EOcos(angle)).take(Double.class),
-            Matchers.equalTo(res)
-        );
-    }
-
-    @Test
-    public void cosMinusPiDivTwo() {
-        final Phi angle = new EOangle(Phi.Φ);
-        angle.attr("f").put(new Data.ToPhi(-Math.PI / 2));
-        final double res = Math.cos(-Math.PI / 2);
-        MatcherAssert.assertThat(
-            new Dataized(new EOangle$EOcos(angle)).take(Double.class),
-            Matchers.equalTo(res)
-        );
-    }
 }

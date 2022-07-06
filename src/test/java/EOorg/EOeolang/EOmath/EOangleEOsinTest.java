@@ -26,67 +26,59 @@ package EOorg.EOeolang.EOmath;
 
 import org.eolang.Data;
 import org.eolang.Dataized;
+import org.eolang.Phi;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link EOangle}.
+ * Test case for {@link EOangle$EOsin}.
  *
  * @since 0.0.1
- * @checkstyle TypeNameCheck (100 lines)
  */
 public final class EOangleEOsinTest {
 
     @Test
     public void sinZero() {
-        final double result = Math.sin(0);
+        final Phi angle = new EOangle(Phi.Φ);
+        angle.attr("f").put(new Data.ToPhi(0.0d));
+        final double res = Math.sin(0.0d);
         MatcherAssert.assertThat(
-            new Dataized(
-                new EOangle$EOsin(
-                    new Data.ToPhi((double) 0)
-                )
-            ).take(Double.class),
-            Matchers.equalTo(result)
+            new Dataized(new EOangle$EOsin(angle)).take(Double.class),
+            Matchers.equalTo(res)
         );
     }
 
     @Test
     public void sinPi() {
-        final double result = Math.sin(Math.PI);
+        final Phi angle = new EOangle(Phi.Φ);
+        angle.attr("f").put(new Data.ToPhi(Math.PI));
+        final double res = Math.sin(Math.PI);
         MatcherAssert.assertThat(
-            new Dataized(
-                new EOangle$EOsin(
-                    new Data.ToPhi(Math.PI)
-                )
-            ).take(Double.class),
-            Matchers.equalTo(result)
+            new Dataized(new EOangle$EOsin(angle)).take(Double.class),
+            Matchers.equalTo(res)
         );
     }
 
     @Test
     public void sinPiDivTwo() {
-        final double result = Math.sin(Math.PI / 2);
+        final Phi angle = new EOangle(Phi.Φ);
+        angle.attr("f").put(new Data.ToPhi(Math.PI / 2));
+        final double res = Math.sin(Math.PI / 2);
         MatcherAssert.assertThat(
-            new Dataized(
-                new EOangle$EOsin(
-                    new Data.ToPhi(Math.PI / 2)
-                )
-            ).take(Double.class),
-            Matchers.equalTo(result)
+            new Dataized(new EOangle$EOsin(angle)).take(Double.class),
+            Matchers.equalTo(res)
         );
     }
 
     @Test
     public void sinMinusPiDivTwo() {
-        final double result = Math.sin(-Math.PI / 2);
+        final Phi angle = new EOangle(Phi.Φ);
+        angle.attr("f").put(new Data.ToPhi(-Math.PI / 2));
+        final double res = Math.sin(-Math.PI / 2);
         MatcherAssert.assertThat(
-            new Dataized(
-                new EOangle$EOsin(
-                    new Data.ToPhi(-Math.PI / 2)
-                )
-            ).take(Double.class),
-            Matchers.equalTo(result)
+            new Dataized(new EOangle$EOsin(angle)).take(Double.class),
+            Matchers.equalTo(res)
         );
     }
 }

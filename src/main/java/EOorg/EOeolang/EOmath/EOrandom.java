@@ -24,21 +24,27 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
+import java.security.SecureRandom;
+import java.util.Random;
 import org.eolang.AtComposite;
 import org.eolang.Data;
-import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * Cos.
+ * RANDOM.
  *
  * @checkstyle TypeNameCheck (100 lines)
- * @since 0.0.1
+ * @since 0.1
  */
-@XmirObject(oname = "angle.cos")
-public final class EOangle$EOcos extends PhDefault {
+@XmirObject(oname = "random")
+public final class EOrandom extends PhDefault {
+
+    /**
+     * Random.
+     */
+    private static final Random RND = new SecureRandom();
 
     /**
      * Ctor.
@@ -46,10 +52,11 @@ public final class EOangle$EOcos extends PhDefault {
      * @param sigma The \sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
-    public EOangle$EOcos(final Phi sigma) {
+    public EOrandom(final Phi sigma) {
         super(sigma);
-        this.add("φ", new AtComposite(this, rho -> new Data.ToPhi(
-            Math.cos(new Param(rho.attr("ρ").get(), "f").strong(Double.class))
+        this.add("φ", new AtComposite(this, self -> new Data.ToPhi(
+            EOrandom.RND.nextDouble()
         )));
     }
+
 }

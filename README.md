@@ -22,8 +22,8 @@ This is how you can manipulate with `sin`, `cos`, `tan` and `ctan` via `angle`:
 +alias org.eolang.math.angle
 
 (angle pi).cos > cos-pi
-(angle (angle 30).as-radians).sin > thirty-degees-sin
-(angle (pi.div 3.0)).tan > pi-div-two-tan
+(angle (angle 30).as-radians).sin > thirty-degrees-sin
+(angle (pi.div 3.0)).tan > pi-div-three-tan
 ```
 
 You are welcome to add more primitives to this lib. You can see what we need in the lib in [the paper](https://arxiv.org/abs/2206.02585).

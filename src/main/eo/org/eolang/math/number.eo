@@ -57,10 +57,9 @@
 
   # Checking if number is NaN
   [] > is-nan
-    if. > @
-      eq.
-        ^.n.as-bytes
-        7F-C0-00-00
+    eq. > @
+      ^.n.as-bytes
+      7F-C0-00-00
 
   [x] > xor
     if. > @

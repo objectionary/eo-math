@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 +package org.eolang.math
-+rt jvm org.eolang:eo-runtime:0.1.0
++rt jvm org.eolang:eo-runtime:0.1.1
 
 # Not a number
 [] > nan

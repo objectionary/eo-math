@@ -23,7 +23,7 @@
 +package org.eolang.math
 +alias org.eolang.math.nan
 +alias org.eolang.math.negative-infinity
-+rt jvm org.eolang:eo-runtime:0.1.0
++rt jvm org.eolang:eo-runtime:0.1.1
 
 # Positive infinity
 [] > positive-infinity

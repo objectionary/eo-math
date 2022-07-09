@@ -22,8 +22,8 @@
 
 +package org.eolang.math
 +home https://github.com/objectionary/eo
-+version 0.1.0
-+rt jvm org.eolang:eo-runtime:0.1.0
++version 0.1.1
++rt jvm org.eolang:eo-runtime:0.1.1
 
 [n] > number
 
@@ -57,10 +57,9 @@
 
   # Checking if number is NaN
   [] > is-nan
-    if. > @
-      eq.
-        ^.n.as-bytes
-        7F-C0-00-00
+    eq. > @
+      ^.n.as-bytes
+      7F-C0-00-00
 
   [x] > xor
     if. > @

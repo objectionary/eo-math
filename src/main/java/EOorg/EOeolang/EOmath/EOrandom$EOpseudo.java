@@ -24,30 +24,48 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
-import org.eolang.Dataized;
+import org.eolang.AtComposite;
+import org.eolang.Data;
+import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Test;
+import org.eolang.XmirObject;
 
 /**
- * Test case for {@link EOrandom}.
+ * Pseudo-seed.
  *
- * @since 0.1.0
+ * @checkstyle TypeNameCheck (100 lines)
+ * @since 0.1.2
  */
-public final class EOrandomTest {
+@XmirObject(oname = "random.pseudo")
+public final class EOrandom$EOpseudo extends PhDefault {
 
-    @Test
-    public void readsTwice() {
-        final Phi rnd = new EOrandom(Phi.Φ);
-        MatcherAssert.assertThat(
-            new Dataized(rnd).take(Double.class),
-            Matchers.not(
-                Matchers.equalTo(
-                    new Dataized(rnd).take(Double.class)
-                )
+    /**
+     * Ctor.
+     *
+     * @param sigma Sigma
+     */
+    public EOrandom$EOpseudo(final Phi sigma) {
+        super(sigma);
+        this.add(
+            "φ",
+            new AtComposite(
+                this,
+                self -> {
+                    final int thirtyfive = 35;
+                    final int fiftythree = 53;
+                    final int seventeen = 17;
+                    return new PhWith(
+                        new EOrandom(self),
+                        "seed",
+                        new Data.ToPhi(
+                            ((System.nanoTime() << thirtyfive) & ((1L << fiftythree) - 1))
+                                + ((System.nanoTime() << seventeen) & ((1L << thirtyfive) - 1))
+                                + (System.nanoTime() & ((1L << seventeen) - 1))
+                        )
+                    );
+                }
             )
         );
     }
-
 }

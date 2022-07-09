@@ -45,32 +45,38 @@ public final class EOnumber$EOas_float extends PhDefault {
     /**
      * Ctor.
      *
-     * @param sigma The \sigma
+     * @param sigma Sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
     public EOnumber$EOas_float(final Phi sigma) {
         super(sigma);
-        this.add("φ", new AtComposite(this, rho -> {
-            final Phi number = rho.attr("ρ").get();
-            final Object obj = new Param(number, "n").weak();
-            final Phi phi;
-            if (obj instanceof Double) {
-                phi = new Data.ToPhi(obj);
-            } else if (obj instanceof Long) {
-                phi = new Data.ToPhi(((Long) obj).doubleValue());
-            } else {
-                phi = new PhWith(
-                    new EOerror(Phi.Φ), "msg",
-                    new Data.ToPhi(
-                        String.format(
-                            "Wrong number's %s argument in number.as-float operation",
-                            obj
-                        )
-                    )
-                );
-            }
-            return phi;
-        }));
+        this.add(
+            "φ",
+            new AtComposite(
+                this,
+                rho -> {
+                    final Phi number = rho.attr("ρ").get();
+                    final Object obj = new Param(number, "n").weak();
+                    final Phi phi;
+                    if (obj instanceof Double) {
+                        phi = new Data.ToPhi(obj);
+                    } else if (obj instanceof Long) {
+                        phi = new Data.ToPhi(((Long) obj).doubleValue());
+                    } else {
+                        phi = new PhWith(
+                            new EOerror(Phi.Φ), "msg",
+                            new Data.ToPhi(
+                                String.format(
+                                    "Wrong number's %s argument in number.as-float operation",
+                                    obj
+                                )
+                            )
+                        );
+                    }
+                    return phi;
+                }
+            )
+        );
     }
 
 }

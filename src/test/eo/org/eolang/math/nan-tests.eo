@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 +package org.eolang.math
++home https://github.com/objectionary/eo-math
++version 0.0.0
 +alias org.eolang.math.nan
 +junit
 

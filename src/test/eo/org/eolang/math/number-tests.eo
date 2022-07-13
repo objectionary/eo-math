@@ -40,6 +40,12 @@
     $.equal-to TRUE
     "check is-int of negative int"
 
+[] > check-is-nan
+  assert-that > @
+    (number nan).is-nan
+    $.equal-to TRUE
+    "check is nan of nan"
+
 [] > check-is-int-with-zero
   assert-that > @
     (number 0).is-int

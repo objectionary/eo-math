@@ -22,9 +22,10 @@
 
 +package org.eolang.math
 +home https://github.com/objectionary/eo-math
-+version 0.1.2
++version 0.1.3
 +alias org.eolang.math.number
 +alias org.eolang.math.nan
++alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +junit
 
@@ -272,7 +273,7 @@
           quotient dividend divisor
         remainder dividend divisor
   reducei. > @
-    dividends
+    list dividends
     TRUE
     [a i el]
       and. > @
@@ -417,4 +418,3 @@
     number 0
     .signum
     $.equal-to 0
-

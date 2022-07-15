@@ -94,7 +94,7 @@ SOFTWARE
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.23.10</version>
+      <version>0.24.0</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -108,7 +108,7 @@ SOFTWARE
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.23.8</version>
+        <version>0.24.0</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -116,10 +116,15 @@ SOFTWARE
               <goal>register</goal>
               <goal>assemble</goal>
               <goal>transpile</goal>
+              <goal>copy</goal>
               <goal>unplace</goal>
               <goal>unspile</goal>
-              <goal>copy</goal>
             </goals>
+            <configuration>
+              <keepBinaries>
+                <glob>EOorg/EOeolang/EOmath/**</glob>
+              </keepBinaries>
+            </configuration>
           </execution>
           <execution>
             <id>test-compile</id>
@@ -130,6 +135,7 @@ SOFTWARE
               <goal>transpile</goal>
             </goals>
             <configuration>
+              <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
               <addSourcesRoot>false</addSourcesRoot>

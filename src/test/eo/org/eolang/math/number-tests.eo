@@ -25,6 +25,7 @@
 +version 0.0.0
 +alias org.eolang.math.number
 +alias org.eolang.math.nan
++alias org.eolang.math.positive-infinity
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +junit
@@ -315,46 +316,51 @@
           ((number n).mod 2).eq 0
     $.equal-to 5
 
-[] > pow-test
+[] > power-test
   assert-that > @
     number 2
-    .pow 4
-    $.equal-to 16
+    .power 4
+    $.equal-to 16.0
+
+[] > power-of-nan
+  eq. > @
+    ((number nan).power 2).as-bytes
+    nan.as-bytes
+
+[] > power-nan
+  eq. > @
+    ((number 10).power nan).as-bytes
+    nan.as-bytes
 
 [] > power-is-zero
   assert-that > @
     number 2
-    .pow 0
-    $.equal-to 1
+    .power 0
+    $.equal-to 1.0
 
 [] > power-is-negative
   assert-that > @
-    number 984782
-    .pow -12341
-    $.equal-to 0
+    number 2
+    .power -1
+    $.equal-to 0.5
 
 [] > power-of-two
   assert-that > @
     number 3
-    .pow 2
-    $.equal-to 9
-
-[] > power-of-big-number
-  assert-that > @
-    number 999999999
-    .pow 5
-    $.equal-to 9223372036854775807
+    .power 2
+    $.equal-to 9.0
 
 [] > power-of-zero
   assert-that > @
     number 0
-    .pow 145
-    $.equal-to 0
+    .power 145
+    $.equal-to 0.0
 
 [] > negative-power-of-zero
   assert-that > @
-    ((number 0).pow -567).msg
-    $.equal-to "0 cannot be raised to a negative power"
+    number 0
+    .power -11
+    $.equal-to positive-infinity
 
 # Checks that number.as-float works properly
 [] > as-float-works

@@ -23,6 +23,9 @@
 +package org.eolang.math
 +home https://github.com/objectionary/eo-math
 +version 0.0.0
++alias org.eolang.math.positive-infinity
++alias org.eolang.math.nan
++alias org.eolang.switch
 +rt jvm org.eolang:eo-math:0.0.0
 
 [n] > number
@@ -155,7 +158,41 @@
         value.neg
 
   # Make ^.n power x
-  [x] > pow /?
+  [x] > power
+    (number x).as-float > x-as-float!
+    as-float > self-as-float!
+    [y] > pow
+      if. > @
+        y.gt 0.0
+        times.
+          self-as-float
+          ^.pow (y.minus 1.0)
+        1.0
+    switch > @
+      *
+        or.
+          (number x).is-nan
+          is-nan
+        nan
+      *
+        x-as-float.eq 0.0
+        1.0
+      *
+        x-as-float.lt 0.0
+        if.
+          self-as-float.eq 0.0
+          positive-infinity
+          div.
+            1.0
+            pow
+              neg.
+                x-as-float
+      *
+        x-as-float.gt 0.0
+        if.
+          self-as-float.eq 0.0
+          0.0
+          pow x-as-float
 
   # Converts ^.n to float
   [] > as-float /float

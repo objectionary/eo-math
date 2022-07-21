@@ -332,6 +332,11 @@
     ((number 10).power nan).as-bytes
     nan.as-bytes
 
+[] > power-nan-of-nan
+  eq. > @
+    ((number nan).power nan).as-bytes
+    nan.as-bytes
+
 [] > power-is-zero
   assert-that > @
     number 2
@@ -361,6 +366,47 @@
     number 0
     .power -11
     $.equal-to positive-infinity
+
+[] > pow-test
+  assert-that > @
+    number 2
+    .pow 4
+    $.equal-to 16
+
+[] > pow-is-zero
+  assert-that > @
+    number 2
+    .pow 0
+    $.equal-to 1
+
+[] > pow-is-negative
+  assert-that > @
+    number 984782
+    .pow -12341
+    $.equal-to 0
+
+[] > pow-of-two
+  assert-that > @
+    number 3
+    .pow 2
+    $.equal-to 9
+
+[] > pow-of-big-number
+  assert-that > @
+    number 999999999
+    .pow 5
+    $.equal-to 9223372036854775807
+
+[] > pow-of-zero
+  assert-that > @
+    number 0
+    .pow 145
+    $.equal-to 0
+
+[] > negative-pow-of-zero
+  assert-that > @
+    ((number 0).pow -567).msg
+    $.equal-to "0 cannot be raised to a negative power"
 
 # Checks that number.as-float works properly
 [] > as-float-works

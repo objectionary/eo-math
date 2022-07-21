@@ -29,19 +29,19 @@
 +rt jvm org.eolang:eo-math:0.0.0
 
 [n] > number
-
+  n > @
   # Checking type of the number's decorator.
   # If $.n is int, return true, otherwise false.
   [] > is-int
     if. > @
       eq.
-        ^.n
+        ^
         0
       FALSE
       eq.
         div.
-          ^.n
-          ^.n
+          ^
+          ^
         1
 
   # Checking type of the number's decorator.
@@ -49,19 +49,19 @@
   [] > is-float
     if. > @
       eq.
-        ^.n
+        ^
         0.0
       TRUE
       eq.
         div.
-          ^.n
-          ^.n
+          ^
+          ^
         1.0
 
   # Checking if number is NaN
   [] > is-nan
     eq. > @
-      ^.n.as-bytes
+      ^.as-bytes
       7F-C0-00-00
 
   [x] > xor
@@ -69,7 +69,7 @@
       is-int
       as-int.
         xor.
-          ^.n.as-bytes
+          ^.as-bytes
           x.as-bytes
       []
         "xor cannot be applied to float" > msg
@@ -79,7 +79,7 @@
       is-int
       as-int.
         or.
-          ^.n.as-bytes
+          ^.as-bytes
           x.as-bytes
       []
         "or cannot be applied to float" > msg
@@ -89,7 +89,7 @@
       is-int
       as-int.
         and.
-          ^.n.as-bytes
+          ^.as-bytes
           x.as-bytes
       []
         "and cannot be applied to float" > msg
@@ -100,7 +100,7 @@
       is-int
       as-int.
         left.
-          ^.n.as-bytes
+          ^.as-bytes
           x
       []
         "left cannot be applied to float" > msg
@@ -111,18 +111,18 @@
       is-int
       as-int.
         right.
-          ^.n.as-bytes
+          ^.as-bytes
           x
       []
         "right cannot be applied to float" > msg
 
   # Tests that $.n ≠ x
   [x] > neq
-    (^.n.eq x).not > @
+    (^.eq x).not > @
 
   # Calculate MOD
   [x] > mod
-    ^.n > dividend
+    ^ > dividend
     x > divisor
 
     if. > @
@@ -145,33 +145,41 @@
 
   # Absolute value of $.n (i.e., with no sign)
   [] > abs
-    ^.n > value
     if. > @
       is-int
       if.
-        value.gte 0
-        value
-        value.neg
+        ^.gte 0
+        ^
+        ^.neg
       if.
-        value.gte 0.0
-        value
-        value.neg
+        ^.gte 0.0
+        ^
+        ^.neg
+
+  # Make ^.n power x
+  [x] > pow /?
 
   # Make ^.n power x
   [x] > power
-    (number x).as-float > x-as-float!
+    if. > x-as-float!
+      (number x).is-nan > x-is-nan!
+      nan
+      (number x).as-float
+
     as-float > self-as-float!
-    [y] > pow
+
+    [y] > powf
       if. > @
         y.gt 0.0
         times.
           self-as-float
-          ^.pow (y.minus 1.0)
+          ^.powf (y.minus 1.0)
         1.0
+
     switch > @
       *
         or.
-          (number x).is-nan
+          x-is-nan
           is-nan
         nan
       *
@@ -184,7 +192,7 @@
           positive-infinity
           div.
             1.0
-            pow
+            powf
               neg.
                 x-as-float
       *
@@ -192,7 +200,7 @@
         if.
           self-as-float.eq 0.0
           0.0
-          pow x-as-float
+          powf x-as-float
 
   # Converts ^.n to float
   [] > as-float /float
@@ -209,16 +217,16 @@
     if. > @
       is-int
       if.
-        ^.n.lt 0
+        ^.lt 0
         -1
         if.
-          ^.n.eq 0
+          ^.eq 0
           0
           1
       if.
-        ^.n.lt 0.0
+        ^.lt 0.0
         -1.0
         if.
-          ^.n.eq 0.0
+          ^.eq 0.0
           0.0
           1.0

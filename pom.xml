@@ -36,6 +36,11 @@ SOFTWARE
   <name>eo-math</name>
   <description>Math Primitives for EO Programming Language</description>
   <url>https://github.com/objectionary/eo-math</url>
+  <properties>
+    <eolang.version>0.24.0</eolang.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <inceptionYear>2022</inceptionYear>
   <organization>
     <name>EO</name>
@@ -94,7 +99,13 @@ SOFTWARE
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.25.0</version>
+      <version>${eolang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.6.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -108,7 +119,7 @@ SOFTWARE
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.24.0</version>
+        <version>${eolang.version}</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -116,9 +127,9 @@ SOFTWARE
               <goal>register</goal>
               <goal>assemble</goal>
               <goal>transpile</goal>
-              <goal>copy</goal>
               <goal>unplace</goal>
               <goal>unspile</goal>
+              <goal>copy</goal>
             </goals>
             <configuration>
               <keepBinaries>

@@ -131,11 +131,6 @@ SOFTWARE
               <goal>unspile</goal>
               <goal>copy</goal>
             </goals>
-            <configuration>
-              <keepBinaries>
-                <glob>EOorg/EOeolang/EOmath/**</glob>
-              </keepBinaries>
-            </configuration>
           </execution>
           <execution>
             <id>test-compile</id>

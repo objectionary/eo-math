@@ -27,7 +27,7 @@ SOFTWARE
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.59.0</version>
+    <version>0.57.2</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-math</artifactId>
@@ -110,7 +110,7 @@ SOFTWARE
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>5.8.2</version>
+      <version>5.6.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -141,7 +141,6 @@ SOFTWARE
               <goal>transpile</goal>
             </goals>
             <configuration>
-              <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
               <addSourcesRoot>false</addSourcesRoot>

@@ -119,8 +119,7 @@
 
     if. > @
       divisor.eq 0
-      []
-        "mod by zero" > msg
+      error "mod by zero"
       if.
         dividend.gt 0
         abs-mod

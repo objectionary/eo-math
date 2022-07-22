@@ -98,8 +98,14 @@
 
 [] > nan-as-int
   eq. > @
+    try
+      []
+        nan.as-int > @
+      [e]
+        e > @
+      []
+        FALSE > @
     "You can't convert NaN to int"
-    nan.as-int.msg
 
 [] > nan-as-string
   eq. > @

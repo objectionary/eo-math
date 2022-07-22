@@ -20,11 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+package org.eolang.math
-+home https://github.com/objectionary/eo-math
-+version 0.0.0
 +alias org.eolang.math.nan
++home https://github.com/objectionary/eo-math
 +junit
++package org.eolang.math
++version 0.0.0
 
 [] > nan-eq
   and. > @

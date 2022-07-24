@@ -26,19 +26,18 @@
 +alias org.eolang.math.number
 +rt jvm org.eolang:eo-math:0.0.0
 
+# Get float value for current seed
+# Divide seed to maximum possible value of the seed
 [seed] > random
 
-  # Get float value for current seed
-  # Divide seed to maximum possible value of the seed
-  [] > @
-    div. > @
-      as-float.
-        number seed
-      as-float.
-        number
-          left.
-            number 1
-            53
+  div. > @
+    as-float.
+      number seed
+    as-float.
+      number
+        left.
+          number 1
+          53
 
   # Next random.
   # Formula is based on linear congruential pseudorandom number generator, as defined by

@@ -20,11 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+package org.eolang.math
-+home https://github.com/objectionary/eo-math
-+version 0.1.4
 +alias org.eolang.math.pi
++home https://github.com/objectionary/eo-math
 +junit
++package org.eolang.math
++version 0.1.5
 
 [] > the-pi-number-is-correct
   eq. > @

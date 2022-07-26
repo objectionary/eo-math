@@ -20,10 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+package org.eolang.math
 +home https://github.com/objectionary/eo-math
-+version 0.1.4
-+rt jvm org.eolang:eo-math:0.1.4
++package org.eolang.math
++rt jvm org.eolang:eo-math:0.1.5
++version 0.1.5
 
 [n] > number
 

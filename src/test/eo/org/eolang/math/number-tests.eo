@@ -20,15 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+package org.eolang.math
-+home https://github.com/objectionary/eo-math
-+version 0.0.0
-+alias org.eolang.math.number
-+alias org.eolang.math.nan
-+alias org.eolang.math.positive-infinity
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
++alias org.eolang.math.nan
++alias org.eolang.math.number
++home https://github.com/objectionary/eo-math
 +junit
++package org.eolang.math
++version 0.0.0
 
 [] > check-is-int-positive-int
   assert-that > @
@@ -316,94 +315,43 @@
           ((number n).mod 2).eq 0
     $.equal-to 5
 
-[] > power-test
-  assert-that > @
-    number 2
-    .power 4
-    $.equal-to 16.0
-
-[] > power-of-nan
-  eq. > @
-    ((number nan).power 2).as-bytes
-    nan.as-bytes
-
-[] > power-nan
-  eq. > @
-    ((number 10).power nan).as-bytes
-    nan.as-bytes
-
-[] > power-nan-of-nan
-  eq. > @
-    ((number nan).power nan).as-bytes
-    nan.as-bytes
-
-[] > power-is-zero
-  assert-that > @
-    number 2
-    .power 0
-    $.equal-to 1.0
-
-[] > power-is-negative
-  assert-that > @
-    number 2
-    .power -1
-    $.equal-to 0.5
-
-[] > power-of-two
-  assert-that > @
-    number 3
-    .power 2
-    $.equal-to 9.0
-
-[] > power-of-zero
-  assert-that > @
-    number 0
-    .power 145
-    $.equal-to 0.0
-
-[] > negative-power-of-zero
-  assert-that > @
-    number 0
-    .power -11
-    $.equal-to positive-infinity
-
 [] > pow-test
   assert-that > @
     number 2
     .pow 4
     $.equal-to 16
 
-[] > pow-is-zero
+[] > power-is-zero
   assert-that > @
     number 2
     .pow 0
     $.equal-to 1
 
-[] > pow-is-negative
+[] > power-is-negative
   assert-that > @
     number 984782
     .pow -12341
     $.equal-to 0
 
-[] > pow-of-two
+[] > power-of-two
   assert-that > @
     number 3
     .pow 2
     $.equal-to 9
 
-[] > pow-of-big-number
+[] > power-of-big-number
   assert-that > @
     number 999999999
     .pow 5
     $.equal-to 9223372036854775807
 
-[] > pow-of-zero
+[] > power-of-zero
   assert-that > @
     number 0
     .pow 145
     $.equal-to 0
 
-[] > negative-pow-of-zero
+[] > negative-power-of-zero
   assert-that > @
     ((number 0).pow -567).msg
     $.equal-to "0 cannot be raised to a negative power"

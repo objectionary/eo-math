@@ -20,28 +20,25 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+package org.eolang.math
 +home https://github.com/objectionary/eo-math
-+version 0.0.0
-+alias org.eolang.math.positive-infinity
-+alias org.eolang.math.nan
-+alias org.eolang.switch
++package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
++version 0.0.0
 
 [n] > number
-  n > @
+
   # Checking type of the number's decorator.
   # If $.n is int, return true, otherwise false.
   [] > is-int
     if. > @
       eq.
-        ^
+        ^.n
         0
       FALSE
       eq.
         div.
-          ^
-          ^
+          ^.n
+          ^.n
         1
 
   # Checking type of the number's decorator.
@@ -49,19 +46,19 @@
   [] > is-float
     if. > @
       eq.
-        ^
+        ^.n
         0.0
       TRUE
       eq.
         div.
-          ^
-          ^
+          ^.n
+          ^.n
         1.0
 
   # Checking if number is NaN
   [] > is-nan
     eq. > @
-      ^.as-bytes
+      ^.n.as-bytes
       7F-C0-00-00
 
   [x] > xor
@@ -69,7 +66,7 @@
       is-int
       as-int.
         xor.
-          ^.as-bytes
+          ^.n.as-bytes
           x.as-bytes
       []
         "xor cannot be applied to float" > msg
@@ -79,7 +76,7 @@
       is-int
       as-int.
         or.
-          ^.as-bytes
+          ^.n.as-bytes
           x.as-bytes
       []
         "or cannot be applied to float" > msg
@@ -89,7 +86,7 @@
       is-int
       as-int.
         and.
-          ^.as-bytes
+          ^.n.as-bytes
           x.as-bytes
       []
         "and cannot be applied to float" > msg
@@ -100,7 +97,7 @@
       is-int
       as-int.
         left.
-          ^.as-bytes
+          ^.n.as-bytes
           x
       []
         "left cannot be applied to float" > msg
@@ -111,18 +108,18 @@
       is-int
       as-int.
         right.
-          ^.as-bytes
+          ^.n.as-bytes
           x
       []
         "right cannot be applied to float" > msg
 
   # Tests that $.n ≠ x
   [x] > neq
-    (^.eq x).not > @
+    (^.n.eq x).not > @
 
   # Calculate MOD
   [x] > mod
-    ^ > dividend
+    ^.n > dividend
     x > divisor
 
     if. > @
@@ -145,62 +142,20 @@
 
   # Absolute value of $.n (i.e., with no sign)
   [] > abs
+    ^.n > value
     if. > @
       is-int
       if.
-        ^.gte 0
-        ^
-        ^.neg
+        value.gte 0
+        value
+        value.neg
       if.
-        ^.gte 0.0
-        ^
-        ^.neg
+        value.gte 0.0
+        value
+        value.neg
 
   # Make ^.n power x
   [x] > pow /?
-
-  # Make ^.n power x
-  [x] > power
-    if. > x-as-float!
-      (number x).is-nan > x-is-nan!
-      nan
-      (number x).as-float
-
-    as-float > self-as-float!
-
-    [y] > powf
-      if. > @
-        y.gt 0.0
-        times.
-          self-as-float
-          ^.powf (y.minus 1.0)
-        1.0
-
-    switch > @
-      *
-        or.
-          x-is-nan
-          is-nan
-        nan
-      *
-        x-as-float.eq 0.0
-        1.0
-      *
-        x-as-float.lt 0.0
-        if.
-          self-as-float.eq 0.0
-          positive-infinity
-          div.
-            1.0
-            powf
-              neg.
-                x-as-float
-      *
-        x-as-float.gt 0.0
-        if.
-          self-as-float.eq 0.0
-          0.0
-          powf x-as-float
 
   # Converts ^.n to float
   [] > as-float /float
@@ -217,16 +172,16 @@
     if. > @
       is-int
       if.
-        ^.lt 0
+        ^.n.lt 0
         -1
         if.
-          ^.eq 0
+          ^.n.eq 0
           0
           1
       if.
-        ^.lt 0.0
+        ^.n.lt 0.0
         -1.0
         if.
-          ^.eq 0.0
+          ^.n.eq 0.0
           0.0
           1.0

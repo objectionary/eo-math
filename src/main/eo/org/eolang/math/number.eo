@@ -33,7 +33,7 @@
     if. > @
       eq.
         ^.n
-        0
+        0.0
       TRUE
       eq.
         div.
@@ -48,7 +48,7 @@
       eq.
         ^.n
         0.0
-      TRUE
+      FALSE
       eq.
         div.
           ^.n

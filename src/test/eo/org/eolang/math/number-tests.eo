@@ -47,16 +47,28 @@
     $.equal-to TRUE
     "check is nan of nan"
 
-[] > check-is-int-with-zero
+[] > check-is-int-with-int-zero
   assert-that > @
     (number 0).is-int
     $.equal-to TRUE
-    "check is-int of zero"
+    "check is-int of int zero"
 
-[] > check-is-float-with-zero
+[] > check-is-int-with-float-zero
+  assert-that > @
+    (number 0.0).is-int
+    $.equal-to TRUE
+    "check is-int of float zero"
+
+[] > check-is-float-with-int-zero
+  assert-that > @
+    (number 0).is-float
+    $.equal-to FALSE
+    "check is-float of int zero"
+
+[] > check-is-float-with-float-zero
   assert-that > @
     (number 0.0).is-float
-    $.equal-to TRUE
+    $.equal-to FALSE
     "check is-int of zero"
 
 [] > check-is-int-positive-float

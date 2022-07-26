@@ -50,7 +50,7 @@
 [] > check-is-int-with-zero
   assert-that > @
     (number 0).is-int
-    $.equal-to FALSE
+    $.equal-to TRUE
     "check is-int of zero"
 
 [] > check-is-float-with-zero

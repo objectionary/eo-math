@@ -34,7 +34,7 @@
       eq.
         ^.n
         0
-      FALSE
+      TRUE
       eq.
         div.
           ^.n

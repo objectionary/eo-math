@@ -33,7 +33,7 @@
     ^.n > value!
     if. > @
       eq.
-        ^.n
+        value
         0
       try
         []
@@ -56,7 +56,7 @@
     ^.n > value!
     if. > @
       eq.
-        ^.n
+        value
         0.0
       try
         []

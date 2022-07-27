@@ -40,9 +40,10 @@
           eq. > @
             value.plus 1
             1
-        [ex] > def!
+        [ex]
           FALSE > @
-        def
+        []
+          FALSE > @
       eq.
         div.
           value
@@ -62,9 +63,10 @@
           eq. > @
             value.plus 1.0
             1.0
-        [ex] > def!
+        [ex]
           FALSE > @
-        def
+        []
+          FALSE > @
       eq.
         div.
           value

@@ -30,7 +30,7 @@
   # Checking type of the number's decorator.
   # If $.n is int, return true, otherwise false.
   [] > is-int
-    ^.n > value
+    ^.n > value!
     if. > @
       eq.
         ^.n
@@ -53,7 +53,7 @@
   # Checking type of the number's decorator.
   # If $.n is float, return true, otherwise false.
   [] > is-float
-    ^.n > value
+    ^.n > value!
     if. > @
       eq.
         ^.n
@@ -137,8 +137,8 @@
 
   # Calculate MOD
   [x] > mod
-    ^.n > dividend
-    x > divisor
+    ^.n > dividend!
+    x > divisor!
 
     if. > @
       divisor.eq 0
@@ -160,7 +160,7 @@
 
   # Absolute value of $.n (i.e., with no sign)
   [] > abs
-    ^.n > value
+    ^.n > value!
     if. > @
       is-int
       if.

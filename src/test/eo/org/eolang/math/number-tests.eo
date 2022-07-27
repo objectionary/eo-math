@@ -56,7 +56,7 @@
 [] > check-is-int-with-float-zero
   assert-that > @
     (number 0.0).is-int
-    $.equal-to TRUE
+    $.equal-to FALSE
     "check is-int of float zero"
 
 [] > check-is-float-with-int-zero
@@ -68,7 +68,7 @@
 [] > check-is-float-with-float-zero
   assert-that > @
     (number 0.0).is-float
-    $.equal-to FALSE
+    $.equal-to TRUE
     "check is-int of zero"
 
 [] > check-is-int-positive-float

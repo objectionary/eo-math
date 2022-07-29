@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.try
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -32,46 +31,32 @@
   [] > is-int
     ^.n > value!
     if. > @
-      eq.
-        value
-        0
-      try
-        []
-          eq. > @
-            value.plus 1
-            1
-        [ex]
-          FALSE > @
-        []
-          FALSE > @
-      eq.
-        div.
-          value
-          value
-        1
+      value.eq 0
+      TRUE
+      if.
+        value.eq 0.0
+        FALSE
+        eq.
+          div.
+            value
+            value
+          1
 
   # Checking type of the number's decorator.
   # If $.n is float, return true, otherwise false.
   [] > is-float
     ^.n > value!
     if. > @
-      eq.
-        value
-        0.0
-      try
-        []
-          eq. > @
-            value.plus 1.0
-            1.0
-        [ex]
-          FALSE > @
-        []
-          FALSE > @
-      eq.
-        div.
-          value
-          value
-        1.0
+      value.eq 0.0
+      TRUE
+      if.
+        value.eq 0
+        FALSE
+        eq.
+          div.
+            value
+            value
+          1.0
 
   # Checking if number is NaN
   [] > is-nan

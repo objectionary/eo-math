@@ -169,7 +169,6 @@ SOFTWARE
             <configuration>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>
-                <exclude>checkstyle:.*</exclude>
               </excludes>
             </configuration>
           </plugin>

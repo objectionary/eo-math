@@ -6,7 +6,7 @@
 
 [![mvn](https://github.com/objectionary/eo-math/actions/workflows/mvn.yml/badge.svg?branch=master)](https://github.com/objectionary/eo-math/actions/workflows/mvn.yml)
 [![PDD status](http://www.0pdd.com/svg?name=objectionary/eo-math)](http://www.0pdd.com/p?name=objectionary/eo-math)
-[![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
+[![codecov](https://codecov.io/gh/objectionary/eo-math/branch/master/graph/badge.svg)](https://codecov.io/gh/objectionary/eo-math)
 [![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-math.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-math)
 
 [![Hits-of-Code](https://hitsofcode.com/github/objectionary/eo-math)](https://hitsofcode.com/view/github/objectionary/eo-math)

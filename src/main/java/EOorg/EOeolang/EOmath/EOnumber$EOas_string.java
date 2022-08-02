@@ -27,6 +27,7 @@ package EOorg.EOeolang.EOmath;
 import EOorg.EOeolang.EOerror;
 import org.eolang.AtComposite;
 import org.eolang.Data;
+import org.eolang.ExFailure;
 import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.PhWith;
@@ -63,13 +64,10 @@ public final class EOnumber$EOas_string extends PhDefault {
                     } else if (obj instanceof Long) {
                         phi = new Data.ToPhi(Long.toString((Long) obj));
                     } else {
-                        phi = new PhWith(
-                            new EOerror(Phi.Φ), "msg",
-                            new Data.ToPhi(
-                                String.format(
-                                    "Wrong number's %s argument in number.as-string operation",
-                                    obj
-                                )
+                        throw new ExFailure(
+                            String.format(
+                                "Wrong number's %s argument in number.as-string operation",
+                                obj
                             )
                         );
                     }

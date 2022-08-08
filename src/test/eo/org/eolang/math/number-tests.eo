@@ -64,7 +64,7 @@
   assert-that > @
     (number 0.0).is-float
     $.equal-to TRUE
-    "check is-int of zero"
+    "check is-float of float zero"
 
 [] > check-is-int-positive-float
   assert-that > @

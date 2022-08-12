@@ -94,7 +94,7 @@ SOFTWARE
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.25.5</version>
+      <version>0.26.0</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -106,9 +106,14 @@ SOFTWARE
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration combine.self="override"/>
+      </plugin>
+      <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.25.5</version>
+        <version>0.26.0</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -155,7 +160,7 @@ SOFTWARE
           <plugin>
             <groupId>com.qulice</groupId>
             <artifactId>qulice-maven-plugin</artifactId>
-            <version>0.21.0</version>
+            <version>0.21.1</version>
             <configuration>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>

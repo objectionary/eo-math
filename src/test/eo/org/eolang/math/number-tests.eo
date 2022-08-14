@@ -24,6 +24,8 @@
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.math.nan
 +alias org.eolang.math.number
++alias org.eolang.math.positive-infinity
++alias org.eolang.math.negative-infinity
 +alias org.eolang.nop
 +home https://github.com/objectionary/eo-math
 +junit
@@ -445,3 +447,55 @@
     number 0
     .signum
     $.equal-to 0
+
+[] > ceil-nan
+  assert-that > @
+    as-bytes.
+      ceil.
+        number nan
+    $.equal-to (nan.as-bytes)
+
+[] > ceil-positive-infinity
+  assert-that > @
+    number positive-infinity
+    .ceil
+    $.equal-to positive-infinity
+
+[] > ceil-negative-infinity
+  assert-that > @
+    number negative-infinity
+    .ceil
+    $.equal-to negative-infinity
+
+[] > ceil-int-zero
+  assert-that > @
+    number 0
+    .ceil
+    $.equal-to 0
+
+[] > ceil-any-int
+  assert-that > @
+    and.
+      (number 1).ceil.eq 1
+      (number 10).ceil.eq 10
+      (number -1).ceil.eq -1
+      (number -42).ceil.eq -42
+    $.equal-to TRUE
+
+[] > ceil-float-zero
+  assert-that > @
+    number 0.0
+    .ceil
+    $.equal-to 0
+
+[] > ceil-positive-float
+  assert-that > @
+    number 1.234
+    .ceil
+    $.equal-to 2
+
+[] > ceil-negative-float
+  assert-that > @
+    number -1.234
+    .ceil
+    $.equal-to -1

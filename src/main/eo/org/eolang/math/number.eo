@@ -20,10 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.switch
 +alias org.eolang.math.positive-infinity
 +alias org.eolang.math.negative-infinity
-+alias org.eolang.math.nan
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -66,7 +64,7 @@
   [] > is-nan
     eq. > @
       ^.n.as-bytes
-      nan.as-bytes
+      7F-C0-00-00
 
   [x] > xor
     if. > @
@@ -158,31 +156,23 @@
   # Round ^.n up
   [] > ceil
     ^.n > value!
-    switch > @
-      *
+    if. > @
+      or.
         is-nan
-        nan
-      *
         is-int
-        value
-      *
         eq.
           value
           positive-infinity
-        positive-infinity
-      *
         eq.
           value
           negative-infinity
-        negative-infinity
-      *
-        is-float
-        []
-          as-int > self-as-int!
-          if. > @
-            value.lte 0.0
-            self-as-int
-            self-as-int.plus 1
+      value
+      []
+        as-int > self-as-int!
+        if. > @
+          value.lte 0.0
+          self-as-int
+          self-as-int.plus 1
 
   # Make ^.n power x
   [x] > pow /?

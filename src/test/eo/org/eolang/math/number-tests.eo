@@ -473,14 +473,17 @@
     .ceil
     $.equal-to 0
 
-[] > ceil-any-int
+[] > ceil-positive-int
   assert-that > @
-    and.
-      (number 1).ceil.eq 1
-      (number 10).ceil.eq 10
-      (number -1).ceil.eq -1
-      (number -42).ceil.eq -42
-    $.equal-to TRUE
+    number 42
+    .ceil
+    $.equal-to 42
+
+[] > ceil-negative-int
+  assert-that > @
+    number -35
+    .ceil
+    $.equal-to 35
 
 [] > ceil-float-zero
   assert-that > @
@@ -490,12 +493,12 @@
 
 [] > ceil-positive-float
   assert-that > @
-    number 1.234
+    number 12.234
     .ceil
-    $.equal-to 2
+    $.equal-to 13
 
 [] > ceil-negative-float
   assert-that > @
-    number -1.234
+    number -34.234
     .ceil
-    $.equal-to -1
+    $.equal-to -34

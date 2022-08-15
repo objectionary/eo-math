@@ -180,10 +180,12 @@
   [x] > pow /?
 
   # Make ^.n power x
-  # @todo #21:30 min. Add ability to raise number to float power. `exp` and `ln`
-  #  objects needed
+  # @todo #21:30 min. Add an ability to raise a number to float power.
+  #  `exp` and `ln` objects are needed.  sqr(n,x) = exp(n * ln(x))
   #
-  # @todo #21:30 min. Improve performance to be able to work with large numbers
+  # @todo #21:30 min. Improve performance to be able to work with big numbers.
+  #  Should use binary exponentiation. It allows to raise any number to the n'th
+  #  power in O(log n) multiplications
   [x] > power
     as-float > self-as-float!
 

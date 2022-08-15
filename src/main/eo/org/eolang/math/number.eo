@@ -22,6 +22,8 @@
 
 +alias org.eolang.math.positive-infinity
 +alias org.eolang.math.negative-infinity
++alias org.eolang.math.nan
++alias org.eolang.switch
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -176,6 +178,74 @@
 
   # Make ^.n power x
   [x] > pow /?
+
+  # Make ^.n power x
+  # @todo #21:30 min. Add ability to raise number to float power. `exp` and `ln`
+  #  objects needed
+  #
+  # @todo #21:30 min. Improve performance to be able to work with large numbers
+  [x] > power
+    as-float > self-as-float!
+
+    and. > both-are-int!
+      (number x).is-int
+      is-int
+
+    if. > x-as-float!
+      (number x).is-nan > x-is-nan!
+      nan
+      (number x).as-float
+
+    [y] > powf
+      if. > @
+        y.gt 0.0
+        times.
+          self-as-float
+          ^.powf (y.minus 1.0)
+        1.0
+
+    [y] > powi
+      if. > @
+        y.gt 0
+        times.
+          ^.^.n
+          ^.powi (y.minus 1)
+        1
+
+    switch > @
+      *
+        or.
+          x-is-nan
+          is-nan
+        nan
+      *
+        x-as-float.eq 0.0
+        if.
+          both-are-int
+          1
+          1.0
+      *
+        x-as-float.lt 0.0
+        if.
+          self-as-float.eq 0.0
+          positive-infinity
+          div.
+            1.0
+            powf
+              neg.
+                x-as-float
+      *
+        x-as-float.gt 0.0
+        if.
+          self-as-float.eq 0.0
+          if.
+            both-are-int
+            0
+            0.0
+          if.
+            both-are-int
+            powi x
+            powf x-as-float
 
   # Converts ^.n to float
   [] > as-float /float

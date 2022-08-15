@@ -345,37 +345,37 @@
     .pow 4
     $.equal-to 16
 
-[] > power-is-zero
+[] > pow-is-zero
   assert-that > @
     number 2
     .pow 0
     $.equal-to 1
 
-[] > power-is-negative
+[] > pow-is-negative
   assert-that > @
     number 984782
     .pow -12341
     $.equal-to 0
 
-[] > power-of-two
+[] > pow-of-two
   assert-that > @
     number 3
     .pow 2
     $.equal-to 9
 
-[] > power-of-big-number
+[] > pow-of-big-number
   assert-that > @
     number 999999999
     .pow 5
     $.equal-to 9223372036854775807
 
-[] > power-of-zero
+[] > pow-of-zero
   assert-that > @
     number 0
     .pow 145
     $.equal-to 0
 
-[] > negative-power-of-zero
+[] > negative-pow-of-zero
   assert-that > @
     try
       []
@@ -384,6 +384,147 @@
         e > @
       nop
     $.equal-to "0 cannot be raised to a negative power"
+
+[] > power-int-of-int-test
+  assert-that > @
+    number 2
+    .power 4
+    $.equal-to 16
+
+[] > power-int-of-float-test
+  assert-that > @
+    number 2.0
+    .power 4
+    $.equal-to 16.0
+
+[] > power-float-of-int-test
+  assert-that > @
+    number 2
+    .power 4.0
+    $.equal-to 16.0
+
+[] > power-float-of-float-test
+  assert-that > @
+    number 2.0
+    .power 4.0
+    $.equal-to 16.0
+
+[] > power-of-nan
+  eq. > @
+    ((number nan).power 2).as-bytes
+    nan.as-bytes
+
+[] > power-nan
+  eq. > @
+    ((number 10).power nan).as-bytes
+    nan.as-bytes
+
+[] > power-nan-of-nan
+  eq. > @
+    ((number nan).power nan).as-bytes
+    nan.as-bytes
+
+[] > power-is-int-zero-of-int
+  assert-that > @
+    number 2
+    .power 0
+    $.equal-to 1
+
+[] > power-is-float-zero-of-int
+  assert-that > @
+    number 2
+    .power 0.0
+    $.equal-to 1
+
+[] > power-is-int-zero-of-float
+  assert-that > @
+    number 2.2
+    .power 0
+    $.equal-to 1.0
+
+[] > power-is-float-zero-of-float
+  assert-that > @
+    number 2.2
+    .power 0.0
+    $.equal-to 1.0
+
+[] > power-is-int-negative-of-int
+  assert-that > @
+    number 2
+    .power -1
+    $.equal-to 0.5
+
+[] > power-is-int-negative-of-float
+  assert-that > @
+    number 2.0
+    .power -1
+    $.equal-to 0.5
+
+[] > power-is-float-negative-of-int
+  assert-that > @
+    number 2
+    .power -1.0
+    $.equal-to 0.5
+
+[] > power-is-float-negative-of-float
+  assert-that > @
+    number 2.0
+    .power -1.0
+    $.equal-to 0.5
+
+[] > power-of-two
+  assert-that > @
+    number 3
+    .power 2
+    $.equal-to 9
+
+[] > int-power-of-int-zero
+  assert-that > @
+    number 0
+    .power 145
+    $.equal-to 0
+
+[] > float-power-of-int-zero
+  assert-that > @
+    number 0
+    .power 145.2
+    $.equal-to 0.0
+
+[] > int-power-of-float-zero
+  assert-that > @
+    number 0.0
+    .power 145
+    $.equal-to 0
+
+[] > float-power-of-float-zero
+  assert-that > @
+    number 0.0
+    .power 145.2
+    $.equal-to 0.0
+
+[] > negative-int-power-of-int-zero
+  assert-that > @
+    number 0
+    .power -11
+    $.equal-to positive-infinity
+
+[] > negative-float-power-of-int-zero
+  assert-that > @
+    number 0
+    .power -11.2
+    $.equal-to positive-infinity
+
+[] > negative-int-power-of-float-zero
+  assert-that > @
+    number 0.0
+    .power -11
+    $.equal-to positive-infinity
+
+[] > negative-float-power-of-float-zero
+  assert-that > @
+    number 0.0
+    .power -11.2
+    $.equal-to positive-infinity
 
 # Checks that number.as-float works properly
 [] > as-float-works

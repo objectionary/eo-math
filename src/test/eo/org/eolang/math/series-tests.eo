@@ -58,20 +58,20 @@
     25 > num
     12
     -2
-    assert-that > @
-      series xs
-      .max
-      $.equal-to num
+  assert-that > @
+    series xs
+    .max
+    $.equal-to num
 
 [] > max-of-array-is-in-the-center
   * > xs
     12
     25 > num
     -2
-    assert-that > @
-      series xs
-      .max
-      $.equal-to num
+  assert-that > @
+    series xs
+    .max
+    $.equal-to num
 
 [] > max-of-array-is-last
   * > xs
@@ -88,20 +88,20 @@
     -2 > num
     12
     25
-    assert-that > @
-      series xs
-      .min
-      $.equal-to num
+  assert-that > @
+    series xs
+    .min
+    $.equal-to num
 
 [] > min-of-array-is-in-the-center
   * > xs
     24
     -2 > num
     10
-    assert-that > @
-      series xs
-      .min
-      $.equal-to num
+  assert-that > @
+    series xs
+    .min
+    $.equal-to num
 
 [] > min-of-array-is-last
   * > xs

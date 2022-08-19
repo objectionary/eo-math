@@ -39,76 +39,76 @@
 
 [] > max-of-one-item-array
   * > xs
-    42 > num
+    42
   assert-that > @
     series xs
     .max
-    $.equal-to num
+    $.equal-to 42
 
 [] > min-of-one-item-array
   * > xs
-    10 > num
+    42
   assert-that > @
     series xs
     .min
-    $.equal-to num
+    $.equal-to 42
 
 [] > max-of-array-is-first
   * > xs
-    25 > num
+    25
     12
     -2
   assert-that > @
     series xs
     .max
-    $.equal-to num
+    $.equal-to 25
 
 [] > max-of-array-is-in-the-center
   * > xs
     12
-    25 > num
+    25
     -2
   assert-that > @
     series xs
     .max
-    $.equal-to num
+    $.equal-to 25
 
 [] > max-of-array-is-last
   * > xs
     -2
     5
-    22 > num
+    22
   assert-that > @
     series xs
     .max
-    $.equal-to num
+    $.equal-to 22
 
 [] > min-of-array-is-first
   * > xs
-    -2 > num
+    4
     12
     25
   assert-that > @
     series xs
     .min
-    $.equal-to num
+    $.equal-to 4
 
 [] > min-of-array-is-in-the-center
   * > xs
     24
-    -2 > num
+    3
     10
   assert-that > @
     series xs
     .min
-    $.equal-to num
+    $.equal-to 3
 
 [] > min-of-array-is-last
   * > xs
     12
     5
-    -2 > num
+    2
   assert-that > @
     series xs
     .min
-    $.equal-to num
+    $.equal-to 2

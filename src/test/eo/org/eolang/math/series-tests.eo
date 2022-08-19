@@ -87,7 +87,6 @@
   * > xs
     4
     12
-    25
   assert-that > @
     series xs
     .min
@@ -106,7 +105,6 @@
 [] > min-of-array-is-last
   * > xs
     12
-    5
     2
   assert-that > @
     series xs

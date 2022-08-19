@@ -40,7 +40,7 @@
       self-as-list.is-empty
       []
         "Can't get max of empty array" > msg
-      reduced. > @
+      reduced.
         self-as-list
         self-as-list.at 0
         [max item]
@@ -57,7 +57,7 @@
       self-as-list.is-empty
       []
         "Can't get min of empty array" > msg
-      reduced. > @
+      reduced.
         self-as-list
         self-as-list.at 0
         [min item]

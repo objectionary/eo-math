@@ -32,7 +32,7 @@
     (series *).max.msg
     $.equal-to "Can't get max of empty array"
 
-[] > max-of-empty-array
+[] > min-of-empty-array
   assert-that > @
     (series *).min.msg
     $.equal-to "Can't get min of empty array"

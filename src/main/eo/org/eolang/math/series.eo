@@ -40,15 +40,14 @@
       self-as-list.is-empty
       []
         "Can't get max of empty array" > msg
-      []
-        reduced. > @
-          self-as-list
-          self-as-list.at 0
-          [max item]
-            if. > @
-              item.gt max
-              item
-              max
+      reduced. > @
+        self-as-list
+        self-as-list.at 0
+        [max item]
+          if. > @
+            item.gt max
+            item
+            max
 
   # Find min element in the array
   [] > min
@@ -58,12 +57,11 @@
       self-as-list.is-empty
       []
         "Can't get min of empty array" > msg
-      []
-        reduced. > @
-          self-as-list
-          self-as-list.at 0
-          [min item]
-            if. > @
-              item.lt min
-              item
-              min
+      reduced. > @
+        self-as-list
+        self-as-list.at 0
+        [min item]
+          if. > @
+            item.lt min
+            item
+            min

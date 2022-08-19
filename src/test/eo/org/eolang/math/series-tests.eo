@@ -87,6 +87,7 @@
   * > xs
     4
     12
+    10
   assert-that > @
     series xs
     .min

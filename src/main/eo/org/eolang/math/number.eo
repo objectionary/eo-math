@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.math.positive-infinity
++alias org.eolang.math.negative-infinity
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -71,8 +73,7 @@
         xor.
           ^.n.as-bytes
           x.as-bytes
-      []
-        "xor cannot be applied to float" > msg
+      error "xor cannot be applied to float"
 
   [x] > or
     if. > @
@@ -81,8 +82,7 @@
         or.
           ^.n.as-bytes
           x.as-bytes
-      []
-        "or cannot be applied to float" > msg
+      error "or cannot be applied to float"
 
   [x] > and
     if. > @
@@ -91,8 +91,7 @@
         and.
           ^.n.as-bytes
           x.as-bytes
-      []
-        "and cannot be applied to float" > msg
+      error "and cannot be applied to float"
 
   # Calculate bitwise left shift
   [x] > left
@@ -102,8 +101,7 @@
         left.
           ^.n.as-bytes
           x
-      []
-        "left cannot be applied to float" > msg
+      error "left cannot be applied to float"
 
   # Calculate bitwise right shift
   [x] > right
@@ -113,8 +111,7 @@
         right.
           ^.n.as-bytes
           x
-      []
-        "right cannot be applied to float" > msg
+      error "right cannot be applied to float"
 
   # Tests that $.n ≠ x
   [x] > neq
@@ -127,8 +124,7 @@
 
     if. > @
       divisor.eq 0
-      []
-        "mod by zero" > msg
+      error "mod by zero"
       if.
         dividend.gt 0
         abs-mod
@@ -156,6 +152,27 @@
         value.gte 0.0
         value
         value.neg
+
+  # Round ^.n up
+  [] > ceil
+    ^.n > value!
+    if. > @
+      or.
+        is-nan
+        is-int
+        eq.
+          value
+          positive-infinity
+        eq.
+          value
+          negative-infinity
+      value
+      []
+        as-int > self-as-int!
+        if. > @
+          value.lte 0.0
+          self-as-int
+          self-as-int.plus 1
 
   # Make ^.n power x
   [x] > pow /?

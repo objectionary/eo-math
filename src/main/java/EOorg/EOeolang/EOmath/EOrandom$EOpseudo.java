@@ -59,9 +59,9 @@ public final class EOrandom$EOpseudo extends PhDefault {
                         new EOrandom(self),
                         "seed",
                         new Data.ToPhi(
-                            ((System.nanoTime() << thirtyfive) & ((1L << fiftythree) - 1))
-                                + ((System.nanoTime() << seventeen) & ((1L << thirtyfive) - 1))
-                                + (System.nanoTime() & ((1L << seventeen) - 1))
+                            (System.nanoTime() << thirtyfive & (1L << fiftythree) - 1L)
+                                + (System.nanoTime() << seventeen & (1L << thirtyfive) - 1L)
+                                + (System.nanoTime() & (1L << seventeen) - 1L)
                         )
                     );
                 }

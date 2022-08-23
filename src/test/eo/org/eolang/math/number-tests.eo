@@ -24,6 +24,8 @@
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.math.nan
 +alias org.eolang.math.number
++alias org.eolang.math.positive-infinity
++alias org.eolang.math.negative-infinity
 +alias org.eolang.nop
 +home https://github.com/objectionary/eo-math
 +junit
@@ -92,9 +94,12 @@
 
 [] > xor-float-3-6
   assert-that > @
-    number 3.0
-    .xor 6.0
-    .msg
+    try
+      []
+        (number 3.0).xor 6.0 > @
+      [e]
+        e > @
+      nop
     $.equal-to
       "xor cannot be applied to float"
 
@@ -106,9 +111,12 @@
 
 [] > or-float-1-2
   assert-that > @
-    number 1.0
-    .or 2.0
-    .msg
+    try
+      []
+        (number 1.0).or 2.0 > @
+      [e]
+        e > @
+      nop
     $.equal-to
       "or cannot be applied to float"
 
@@ -120,9 +128,12 @@
 
 [] > and-float-3-6
   assert-that > @
-    number 3.0
-    .and 6.0
-    .msg
+    try
+      []
+        (number 3.0).and 6.0 > @
+      [e]
+        e > @
+      nop
     $.equal-to
       "and cannot be applied to float"
 
@@ -134,9 +145,12 @@
 
 [] > left-float-1-2
   assert-that > @
-    number 1.0
-    .left 2
-    .msg
+    try
+      []
+        (number 1.0).left 2 > @
+      [e]
+        e > @
+      nop
     $.equal-to
       "left cannot be applied to float"
 
@@ -148,9 +162,12 @@
 
 [] > right-float-8-2
   assert-that > @
-    number 8.0
-    .right 2
-    .msg
+    try
+      []
+        (number 8.0).right 2 > @
+      [e]
+        e > @
+      nop
     $.equal-to
       "right cannot be applied to float"
 
@@ -366,7 +383,12 @@
 
 [] > negative-power-of-zero
   assert-that > @
-    ((number 0).pow -567).msg
+    try
+      []
+        ((number 0).pow -567).msg > @
+      [e]
+        e > @
+      nop
     $.equal-to "0 cannot be raised to a negative power"
 
 # Checks that number.as-float works properly
@@ -431,3 +453,58 @@
     number 0
     .signum
     $.equal-to 0
+
+[] > ceil-nan
+  assert-that > @
+    as-bytes.
+      ceil.
+        number nan
+    $.equal-to (nan.as-bytes)
+
+[] > ceil-positive-infinity
+  assert-that > @
+    number positive-infinity
+    .ceil
+    $.equal-to positive-infinity
+
+[] > ceil-negative-infinity
+  assert-that > @
+    number negative-infinity
+    .ceil
+    $.equal-to negative-infinity
+
+[] > ceil-int-zero
+  assert-that > @
+    number 0
+    .ceil
+    $.equal-to 0
+
+[] > ceil-positive-int
+  assert-that > @
+    number 42
+    .ceil
+    $.equal-to 42
+
+[] > ceil-negative-int
+  assert-that > @
+    number -35
+    .ceil
+    $.equal-to -35
+
+[] > ceil-float-zero
+  assert-that > @
+    number 0.0
+    .ceil
+    $.equal-to 0
+
+[] > ceil-positive-float
+  assert-that > @
+    number 12.234
+    .ceil
+    $.equal-to 13
+
+[] > ceil-negative-float
+  assert-that > @
+    number -34.234
+    .ceil
+    $.equal-to -34

@@ -316,7 +316,7 @@
 
 # @todo #42:30min We need to remove this
 #  nop object after objectionary/home
-#  was released and EO version will
+#  was released and after EO version will
 #  be up to 0.28.0
 [] > mod-into-while-and-seq-objects
   [condition body] > while-loop

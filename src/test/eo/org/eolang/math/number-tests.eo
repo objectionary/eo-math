@@ -56,12 +56,6 @@
     $.equal-to TRUE
     "check is-int of int zero"
 
-[] > check-is-int-with-float-zero
-  nop > @
-
-[] > check-is-float-with-int-zero
-  nop > @
-
 [] > check-is-float-with-float-zero
   assert-that > @
     (number 0.0).is-float
@@ -337,7 +331,7 @@
         seq
           n.write (n.plus 1)
           ((number n).mod 2).eq 0
-    $.equal-to 5
+    $.equal-to FALSE
 
 [] > pow-test
   assert-that > @
@@ -502,3 +496,9 @@
     number -34.234
     .ceil
     $.equal-to -34
+
+[] > check-is-int-with-float-zero
+  assert-that > @
+    (number 0.0).is-int
+    $.equal-to FALSE
+    "check is-int of int zero"

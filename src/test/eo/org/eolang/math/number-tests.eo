@@ -315,9 +315,9 @@
     $.equal-to 0
 
 # @todo #42:30min We need to remove this
-#  nop object after objectionary home
+#  nop object after objectionary/home
 #  was released and EO version will
-#  be 0.28.0
+#  be up to 0.28.0
 [] > mod-into-while-and-seq-objects
   [condition body] > while-loop
     while. > @

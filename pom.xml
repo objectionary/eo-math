@@ -77,8 +77,7 @@ SOFTWARE
   </issueManagement>
   <scm>
     <connection>scm:git:git@github.com:objectionary/eo-math.git</connection>
-    <developerConnection>scm:git:git@github.com:objectionary/eo-math.git
-        </developerConnection>
+    <developerConnection>scm:git:git@github.com:objectionary/eo-math.git</developerConnection>
     <url>https://github.com/objectionary/eo-math</url>
   </scm>
   <ciManagement>
@@ -149,15 +148,11 @@ SOFTWARE
             </goals>
             <configuration>
               <scope>test</scope>
-              <sourcesDir>${project.basedir}/src/test/eo
-                            </sourcesDir>
-              <targetDir>${project.build.directory}/eo-test
-                            </targetDir>
+              <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
+              <targetDir>${project.build.directory}/eo-test</targetDir>
               <addSourcesRoot>false</addSourcesRoot>
               <addTestSourcesRoot>true</addTestSourcesRoot>
-              <generatedDir>
-                                ${project.build.directory}/generated-test-sources
-                            </generatedDir>
+              <generatedDir>${project.build.directory}/generated-test-sources</generatedDir>
             </configuration>
           </execution>
         </executions>

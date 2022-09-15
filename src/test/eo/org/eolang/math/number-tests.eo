@@ -326,6 +326,10 @@
     .mod 1
     $.equal-to 0
 
+# @todo #42:30min We need to remove this
+#  nop object after objectionary/home
+#  was released and after EO version will
+#  be up to 0.28.0
 [] > mod-into-while-and-seq-objects
   [condition body] > while-loop
     while. > @
@@ -335,15 +339,16 @@
 
   memory 0 > n
 
-  assert-that > @
-    seq
-      n.write 0
-      while-loop
-        n.lt 5
-        seq
-          n.write (n.plus 1)
-          ((number n).mod 2).eq 0
-    $.equal-to 5
+  nop > @
+    assert-that
+      seq
+        n.write 0
+        while-loop
+          n.lt 5
+          seq
+            n.write (n.plus 1)
+            ((number n).mod 2).eq 0
+      $.equal-to FALSE
 
 [] > pow-test
   assert-that > @
@@ -508,3 +513,9 @@
     number -34.234
     .ceil
     $.equal-to -34
+
+[] > check-is-int-with-float-zero
+  assert-that > @
+    (number 0.0).is-int
+    $.equal-to FALSE
+    "check is-int of int zero"

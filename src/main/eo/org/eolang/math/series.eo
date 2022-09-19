@@ -62,6 +62,6 @@
         self-as-list.at 0
         [min item]
           if. > @
-            item.lt min
+            min.gt item
             item
             min

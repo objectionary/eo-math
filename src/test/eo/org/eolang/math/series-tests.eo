@@ -106,6 +106,7 @@
 [] > min-of-array-is-last
   * > xs
     12
+    5
     2
   assert-that > @
     series xs

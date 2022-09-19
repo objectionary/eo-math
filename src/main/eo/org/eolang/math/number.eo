@@ -29,7 +29,7 @@
 
 [n] > number
   # Checking type of the number's decorator.
-  # If $.n is int, return true, otherwise false
+  # If $.n is int, return true, otherwise false.
   [] > is-int
     ^.n > value!
     if. > @

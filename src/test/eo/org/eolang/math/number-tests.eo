@@ -44,31 +44,31 @@
     $.equal-to TRUE
     "check is-int of negative int"
 
-[] > check-is-nan
+[] > check-is-nan-of-nan
   assert-that > @
     (number nan).is-nan
     $.equal-to TRUE
     "check is nan of nan"
 
-[] > check-is-int-with-int-zero
+[] > check-is-int-of-int-zero
   assert-that > @
     (number 0).is-int
     $.equal-to TRUE
     "check is-int of int zero"
 
-[] > check-is-int-with-float-zero
+[] > check-is-int-of-float-zero
   assert-that > @
     (number 0.0).is-int
     $.equal-to FALSE
     "check is-int of int zero"
 
-[] > check-is-float-with-int-zero
+[] > check-is-float-of-int-zero
   assert-that > @
     (number 0).is-float
     $.equal-to FALSE
     "check is-float of int zero"
 
-[] > check-is-float-with-float-zero
+[] > check-is-float-of-float-zero
   assert-that > @
     (number 0.0).is-float
     $.equal-to TRUE
@@ -80,7 +80,7 @@
     $.equal-to FALSE
     "check is-int of positive float"
 
-[] > check-is-int-negative-float
+[] > check-is-int-of-negative-float
   assert-that > @
     (number -88.3).is-int
     $.equal-to FALSE

@@ -29,12 +29,22 @@
 
 [] > max-of-empty-array
   assert-that > @
-    (series *).max.msg
+    try
+      []
+        (series *).max > @
+      [e]
+        e > @
+      nop
     $.equal-to "Can't get max of empty array"
 
 [] > min-of-empty-array
   assert-that > @
-    (series *).min.msg
+    try
+      []
+        (series *).min > @
+      [e]
+        e > @
+      nop
     $.equal-to "Can't get min of empty array"
 
 [] > max-of-one-item-array

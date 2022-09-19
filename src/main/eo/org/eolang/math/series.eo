@@ -38,8 +38,7 @@
 
     if. > @
       self-as-list.is-empty
-      []
-        "Can't get max of empty array" > msg
+      error "Can't get max of empty array"
       reduced.
         self-as-list
         self-as-list.at 0
@@ -55,8 +54,7 @@
 
     if. > @
       self-as-list.is-empty
-      []
-        "Can't get min of empty array" > msg
+      error "Can't get min of empty array"
       reduced.
         self-as-list
         self-as-list.at 0

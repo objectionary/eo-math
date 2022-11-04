@@ -277,3 +277,64 @@
           ^.n.eq 0.0
           0.0
           1.0
+
+  # Take logarithm of ^.n
+  # @todo #53:30min. Remove unnecessary checks and move some of them to ln
+  #  when ln is implemented in EO and Double.NaN, Double.POSITIVE_INFINITY,
+  #  Double.NEGATIVE_INFINITY are converted to eolang objects.
+  [base] > log
+    number base > base-as-number!
+
+    if. > @
+      or.
+        is-nan
+        base-as-number.is-nan
+      nan
+      []
+        base-as-number.as-float > base-as-float!
+        as-float > self-as-float!
+
+        switch > @
+          *
+            or.
+              self-as-float.lt 0.0
+              base-as-float.lt 0.0
+              and.
+                self-as-float.eq 1.0 > self-is-one!
+                base-as-float.eq 1.0 > base-is-one!
+              and.
+                self-as-float.eq positive-infinity > self-is-inf!
+                or. > base-is-zero-or-inf!
+                  base-as-float.eq positive-infinity > base-is-inf!
+                  base-as-float.eq 0.0 > base-is-zero!
+              and.
+                self-as-float.eq 0.0
+                base-is-zero-or-inf
+            nan
+          *
+            and.
+              self-is-inf
+              base-is-one
+            positive-infinity
+          *
+            and.
+              self-as-float.eq negative-infinity
+              base-is-one
+            negative-infinity
+          *
+            and.
+              self-is-one
+              or.
+                base-is-inf
+                base-is-zero
+              0.0
+          *
+            TRUE
+            div.
+              (number self-as-float).ln
+              (number base-as-float).ln
+
+  # Natural logarithm of ^.n
+  # @todo #53:30min. Ln should be implemented in EO when there is an object or
+  #  an atorm that can calculate a series.
+  [] > ln /float

@@ -278,6 +278,24 @@
           0.0
           1.0
 
+  # @todo #56:90 min. Implement sin using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement cos using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement tg using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement exp using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # Computes series buy the numbers for start and finish
+  # terms and function of coefficient of nth term.
   [start finish f] > taylor
     ^.n > value!
     memory start > iterator

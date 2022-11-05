@@ -311,7 +311,8 @@
           product.write
             plus.
               product
-              f
-                i
-                value
+              times.
+                f
+                  i
+                power i
           product

@@ -662,10 +662,8 @@
     number 1
     0
     3
-    [num value]
-      times. > @
-        num
-        value
+    [num]
+      num > @
   assert-that > @
     result
     $.equal-to 6
@@ -675,10 +673,8 @@
     number 1.0
     0
     3
-    [num value]
-      times. > @
-        (number num).as-float
-        value
+    [num]
+      (number num).as-float > @
   assert-that > @
     result
     $.equal-to 6.0
@@ -686,14 +682,11 @@
 # The sum of a geometric progression
 [] > taylor-check-3
   taylor. > sum!
-    number 1.0
+    number 2.0
     0
     13
-    [i value]
-      value.div > @
-        power.
-          number 2.0
-          i
+    [i]
+      1.0 > @
   assert-that > @
     2.0.minus
       sum

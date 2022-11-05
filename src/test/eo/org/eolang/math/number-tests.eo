@@ -655,3 +655,46 @@
     (number 0.0).is-int
     $.equal-to FALSE
     "check is-int of int zero"
+
+# 1*0 + 1*1 + 1*2 == 3
+[] > taylor-check-1
+  taylor. > result
+    number 1
+    0
+    3
+    [num value]
+      times. > @
+        num
+        value
+  assert-that > @
+    result
+    $.equal-to 6
+
+[] > taylor-check-2
+  taylor. > result
+    number 1.0
+    0
+    3
+    [num value]
+      times. > @
+        (number num).as-float
+        value
+  assert-that > @
+    result
+    $.equal-to 6.0
+
+# The sum of a geometric progression
+[] > taylor-check-3
+  taylor. > sum!
+    number 1.0
+    0
+    13
+    [i value]
+      value.div > @
+        power.
+          number 2.0
+          i
+  assert-that > @
+    2.0.minus
+      sum
+    $.less-than 0.00013

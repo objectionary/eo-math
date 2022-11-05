@@ -277,3 +277,23 @@
           ^.n.eq 0.0
           0.0
           1.0
+
+  [start finish f] > taylor
+    ^.n > value!
+    memory start > iterator
+    memory > product
+      value.minus value
+    while. > @
+      lt.
+        iterator
+        finish
+      [i]
+        seq > @
+          iterator.write i
+          product.write
+            plus.
+              product
+              f
+                i
+                value
+          product

@@ -301,18 +301,23 @@
     memory start > iterator
     memory > product
       value.minus value
+    memory > current-power
+      power start
     while. > @
       lt.
         iterator
         finish
       [i]
         seq > @
-          iterator.write i
+          iterator.write
+            iterator.plus 1
           product.write
             plus.
               product
               times.
                 f
                   i
-                power i
+                current-power
+          current-power.write
+            current-power.times value
           product

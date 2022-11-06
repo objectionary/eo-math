@@ -682,12 +682,14 @@
 # The sum of a geometric progression
 [] > taylor-check-3
   taylor. > sum!
-    number 2.0
+    number 0.5
     0
-    13
+    30
     [i]
       1.0 > @
   assert-that > @
     2.0.minus
       sum
-    $.less-than 0.00013
+    $.all-of
+      $.less-than 0.00000001
+      $.greater-than 0.0

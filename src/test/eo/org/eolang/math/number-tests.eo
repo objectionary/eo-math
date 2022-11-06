@@ -654,4 +654,4 @@
   assert-that > @
     (number 0.0).is-int
     $.equal-to FALSE
-    "check is-int of int zero"
+    "check i s-int of int zero"

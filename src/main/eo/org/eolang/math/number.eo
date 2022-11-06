@@ -182,6 +182,10 @@
   # Make ^.n power x
   # @todo #21:30 min. Add an ability to raise a number to float power.
   #  `exp` and `ln` objects are needed.  sqr(n,x) = exp(n * ln(x))
+  #
+  # @todo #51:30min. Create number.is-infinite object and make power and ln
+  #  objects use it. number.is-infinite must check either ^.n is
+  #  positive-infinity or negative-infinity
   [x] > power
     if. > @
       or.

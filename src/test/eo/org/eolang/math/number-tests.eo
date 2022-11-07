@@ -855,6 +855,10 @@
       1
     $.equal-to positive-infinity
 
+# @todo #53:30 min. Enable the test when stack is inreased
+#  or log perfomance is better. Now it fails with
+#  stackoverflow error undeterminetely so we need keep
+#  it with nop.
 [] > log-of-positive-infinity-on-base-of-float-one-is-positive-infinity
   assert-that > @
     log.

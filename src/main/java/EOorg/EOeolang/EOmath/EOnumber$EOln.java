@@ -62,9 +62,9 @@ public final class EOnumber$EOln extends PhDefault {
                     if (base instanceof Double) {
                         final double self = (Double) base;
                         if (self < 0.0d) {
-                            phi = new EOnan(sigma);
+                            phi = new EOnan(rho);
                         } else if (self == 0.0d) {
-                            phi = new EOnegative_infinity(sigma);
+                            phi = new EOnegative_infinity(rho);
                         } else if (self == 1.0d) {
                             phi = new Data.ToPhi(0.0d);
                         } else {
@@ -73,9 +73,9 @@ public final class EOnumber$EOln extends PhDefault {
                     } else if (base instanceof Long) {
                         final long self = (Long) base;
                         if (self < 0L) {
-                            phi = new EOnan(sigma);
+                            phi = new EOnan(rho);
                         } else if (self == 0L) {
-                            phi = new EOnegative_infinity(sigma);
+                            phi = new EOnegative_infinity(rho);
                         } else if (self == 1L) {
                             phi = new Data.ToPhi(0L);
                         } else {

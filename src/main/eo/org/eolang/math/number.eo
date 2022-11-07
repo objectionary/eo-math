@@ -184,7 +184,7 @@
   #  `exp` and `ln` objects are needed.  sqr(n,x) = exp(n * ln(x))
   #
   # @todo #51:30min. Create number.is-infinite object and make power and ln
-  #  objects use it. number.is-infinite must check either ^.n is
+  #  objects use it. number.is-infinite has to check either ^.n is
   #  positive-infinity or negative-infinity
   [x] > power
     if. > @

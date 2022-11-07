@@ -324,8 +324,7 @@
     if. > @
       or.
         is-nan
-        is-positive-infinity
-        is-negative-infinity
+        is-infinite
         distance.is-nan
         distance.is-infinite
         distance.is-infinite

@@ -68,6 +68,16 @@
       ^.n.as-bytes
       7F-C0-00-00
 
+  [] > is-positive-infinity
+    eq. > @
+      ^.n.as-bytes
+      positive-infinity.as-bytes
+
+  [] > is-negative-infinity
+    eq. > @
+      ^.n.as-bytes
+      negative-infinity.as-bytes
+
   [x] > xor
     if. > @
       is-int
@@ -303,21 +313,32 @@
       value.minus value
     memory > current-power
       power start
-    while. > @
-      lt.
-        iterator
-        finish
-      [i]
-        seq > @
-          iterator.write
-            iterator.plus 1
-          product.write
-            plus.
-              product
-              times.
-                f
-                  i
-                current-power
-          current-power.write
-            current-power.times value
-          product
+    number > distance!
+      finish.minus start
+    if. > @
+      or.
+        is-nan
+        is-positive-infinity
+        is-negative-infinity
+        distance.is-nan
+        distance.is-positive-infinity
+        distance.is-negative-infinity
+      nan
+      while.
+        lt.
+          iterator
+          finish
+        [i]
+          seq > @
+            iterator.write
+              iterator.plus 1
+            product.write
+              plus.
+                product
+                times.
+                  f
+                    i
+                  current-power
+            current-power.write
+              current-power.times value
+            product

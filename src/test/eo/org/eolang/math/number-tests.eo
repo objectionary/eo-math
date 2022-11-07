@@ -693,3 +693,25 @@
     $.all-of
       $.less-than 0.00000001
       $.greater-than 0.0
+
+[] > taylor-check-nan-1
+  taylor. > sum!
+    (number nan)
+    0
+    30
+    [i]
+      1.0 > @
+  assert-that > @
+    (number sum).is-nan
+    $.equal-to TRUE
+
+[] > taylor-check-nan-2
+  taylor. > sum!
+    (number 5)
+    negative-infinity
+    positive-infinity
+    [i]
+      1.0 > @
+  assert-that > @
+    (number sum).is-nan
+    $.equal-to TRUE

@@ -68,21 +68,15 @@
       ^.n.as-bytes
       7F-C0-00-00
 
-  [] > is-positive-infinity
-    eq. > @
-      ^.n.as-bytes
-      positive-infinity.as-bytes
-
-  [] > is-negative-infinity
-    eq. > @
-      ^.n.as-bytes
-      negative-infinity.as-bytes
-
   # Checking if number is infinite
   [] > is-infinite
     or. > @
-      is-positive-infinity
-      is-negative-infinity
+      eq.
+        ^.n > value!
+        positive-infinity
+      eq.
+        value
+        negative-infinity
 
   [x] > xor
     if. > @

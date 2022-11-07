@@ -90,9 +90,6 @@ SOFTWARE
       <url>https://github.com/objectionary/eo-math</url>
     </site>
   </distributionManagement>
-  <properties>
-    <stack-size>256M</stack-size>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.eolang</groupId>
@@ -172,7 +169,6 @@ SOFTWARE
             <artifactId>qulice-maven-plugin</artifactId>
             <version>0.22.0</version>
             <configuration>
-              <argLine>-Xss${stack-size}</argLine>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>
               </excludes>

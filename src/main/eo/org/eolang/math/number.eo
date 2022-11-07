@@ -78,6 +78,12 @@
       ^.n.as-bytes
       negative-infinity.as-bytes
 
+  # Checking if number is infinite
+  [] > is-infinite
+    or. > @
+      is-positive-infinity
+      is-negative-infinity
+
   [x] > xor
     if. > @
       is-int
@@ -321,8 +327,8 @@
         is-positive-infinity
         is-negative-infinity
         distance.is-nan
-        distance.is-positive-infinity
-        distance.is-negative-infinity
+        distance.is-infinite
+        distance.is-infinite
       nan
       while.
         lt.
@@ -342,3 +348,71 @@
             current-power.write
               current-power.times value
             product
+
+  # Take logarithm of ^.n
+  # @todo #53:30min. Remove unnecessary checks and move some of them to ln
+  #  when ln is implemented in EO and Double.NaN, Double.POSITIVE_INFINITY,
+  #  Double.NEGATIVE_INFINITY are converted to eolang objects.
+  [base] > log
+    number base > base-as-number!
+
+    if. > @
+      or.
+        is-nan
+        base-as-number.is-nan
+      nan
+      []
+        if. > base-as-float!
+          base-as-number.is-infinite
+          base
+          base-as-number.as-float
+
+        if. > self-as-float!
+          is-infinite
+          ^.^.n
+          as-float
+
+        switch > @
+          *
+            or.
+              self-as-float.lt 0.0
+              base-as-float.lt 0.0
+              and.
+                eq. > self-is-inf!
+                  positive-infinity
+                  self-as-float
+                or. > base-is-inf-or-zero!
+                  positive-infinity.eq base-as-float
+                  base-as-float.eq 0.0
+              and.
+                self-as-float.eq 0.0 > self-is-zero!
+                base-is-inf-or-zero
+              and.
+                self-as-float.eq 1.0 > self-is-one!
+                base-as-float.eq 1.0 > base-is-one!
+            nan
+          *
+            and.
+              self-is-inf
+              base-is-one
+            positive-infinity
+          *
+            and.
+              self-is-zero
+              base-is-one
+            negative-infinity
+          *
+            and.
+              self-is-one
+              base-is-inf-or-zero
+            0.0
+          *
+            TRUE
+            div.
+              (number self-as-float).ln
+              (number base-as-float).ln
+
+  # Natural logarithm of ^.n
+  # @todo #53:30min. Natural logarithm should be implemented in EO when there
+  #  is an object or an atorm that can calculate a series.
+  [] > ln /float

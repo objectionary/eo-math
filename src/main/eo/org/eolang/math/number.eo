@@ -407,5 +407,5 @@
 
   # Natural logarithm of ^.n
   # @todo #53:30min. Natural logarithm should be implemented in EO when there
-  #  is an object or an atom that can calculate a series.
+  #  is an object or an atorm that can calculate a series.
   [] > ln /float

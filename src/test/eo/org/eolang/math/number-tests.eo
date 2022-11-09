@@ -801,6 +801,54 @@
         0.0
     $.equal-to (nan.as-bytes)
 
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-2
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-3
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-4
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-5
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-6
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
+[] > log-of-float-zero-on-base-of-float-zero-is-nan-7
+  assert-that > @
+    as-bytes.
+      log.
+        number 0.0
+        0.0
+    $.equal-to (nan.as-bytes)
+
 [] > log-of-int-zero-on-base-of-positive-infinity-is-nan
   assert-that > @
     as-bytes.

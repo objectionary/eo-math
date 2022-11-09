@@ -336,7 +336,7 @@
         number -42
     $.equal-to (nan.as-bytes)
 
-[] > ln-6of-int-zero-is-negative-infinity
+[] > ln-7
   assert-that > @
     ln.
       number 0

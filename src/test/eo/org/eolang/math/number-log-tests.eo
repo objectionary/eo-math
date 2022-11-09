@@ -33,7 +33,7 @@
 +package org.eolang.math
 +version 0.0.0
 
-[] > log-of-num-on-base-of-nan-is-nan
+[] > log-1
   assert-that > @
     as-bytes.
       log.
@@ -41,7 +41,7 @@
         nan
     $.equal-to (nan.as-bytes)
 
-[] > log-of-nan-on-base-of-num-is-nan
+[] > log-2
   assert-that > @
     as-bytes.
       log.
@@ -49,7 +49,7 @@
         42
     $.equal-to (nan.as-bytes)
 
-[] > log-of-nan-on-base-of-nan-is-nan
+[] > log-3
   assert-that > @
     as-bytes.
       log.
@@ -57,7 +57,7 @@
         nan
     $.equal-to (nan.as-bytes)
 
-[] > log-of-negative-int-on-base-of-not-nan-is-nan
+[] > log-4
   assert-that > @
     as-bytes.
       log.
@@ -65,7 +65,7 @@
         2
     $.equal-to (nan.as-bytes)
 
-[] > log-of-negative-float-on-base-of-not-nan-is-nan
+[] > log-5
   assert-that > @
     as-bytes.
       log.
@@ -73,7 +73,7 @@
         2
     $.equal-to (nan.as-bytes)
 
-[] > log-of-not-nan-on-base-of-negative-int-is-nan
+[] > log-6
   assert-that > @
     as-bytes.
       log.
@@ -81,7 +81,7 @@
         -2
     $.equal-to (nan.as-bytes)
 
-[] > log-of-not-nan-on-base-of-negative-float-is-nan
+[] > log-7
   assert-that > @
     as-bytes.
       log.
@@ -89,7 +89,7 @@
         -4.2
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-one-on-base-of-int-one-is-nan
+[] > log-8
   assert-that > @
     as-bytes.
       log.
@@ -97,7 +97,7 @@
         1
     $.equal-to (nan.as-bytes)
 
-[] > log-of-float-one-on-base-of-int-one-is-nan
+[] > log-9
   assert-that > @
     as-bytes.
       log.
@@ -105,7 +105,7 @@
         1
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-one-on-base-of-float-one-is-nan
+[] > log-10
   assert-that > @
     as-bytes.
       log.
@@ -113,7 +113,7 @@
         1.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-float-one-on-base-of-float-one-is-nan
+[] > log-11
   assert-that > @
     as-bytes.
       log.
@@ -121,7 +121,7 @@
         1.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-positive-infinity-on-base-of-int-zero-is-nan
+[] > log-12
   assert-that > @
     as-bytes.
       log.
@@ -129,7 +129,7 @@
         0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-positive-infinity-on-base-of-float-zero-is-nan
+[] > log-13
   assert-that > @
     as-bytes.
       log.
@@ -137,7 +137,7 @@
         0.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-positive-infinity-on-base-of-positive-infinity-is-nan
+[] > log-14
   assert-that > @
     as-bytes.
       log.
@@ -145,7 +145,7 @@
         positive-infinity
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-zero-on-base-of-int-zero-is-nan
+[] > log-15
   assert-that > @
     as-bytes.
       log.
@@ -153,7 +153,7 @@
         0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-float-zero-on-base-of-int-zero-is-nan
+[] > log-16
   assert-that > @
     as-bytes.
       log.
@@ -161,7 +161,7 @@
         0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-zero-on-base-of-float-zero-is-nan
+[] > log-17
   assert-that > @
     as-bytes.
       log.
@@ -169,7 +169,7 @@
         0.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-float-zero-on-base-of-float-zero-is-nan
+[] > log-18
   assert-that > @
     as-bytes.
       log.
@@ -177,7 +177,7 @@
         0.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-zero-on-base-of-positive-infinity-is-nan
+[] > log-19
   assert-that > @
     as-bytes.
       log.
@@ -185,7 +185,7 @@
         positive-infinity
     $.equal-to (nan.as-bytes)
 
-[] > log-of-float-zero-on-base-of-positive-infinity-is-nan
+[] > log-20
   assert-that > @
     as-bytes.
       log.
@@ -193,7 +193,7 @@
         positive-infinity
     $.equal-to (nan.as-bytes)
 
-[] > log-of-negative-infinity-on-base-of-int-one-is-nan
+[] > log-21
   assert-that > @
     as-bytes.
       log.
@@ -201,7 +201,7 @@
         1
     $.equal-to (nan.as-bytes)
 
-[] > log-of-negative-infinity-on-base-of-float-one-is-negative-infinity
+[] > log-22
   assert-that > @
     as-bytes.
       log.
@@ -209,148 +209,148 @@
         1.0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-positive-infinity-on-base-of-int-one-is-positive-infinity
+[] > log-23
   assert-that > @
     log.
       number positive-infinity
       1
     $.equal-to positive-infinity
 
-[] > log-of-positive-infinity-on-base-of-float-one-is-positive-infinity
+[] > log-24
   assert-that > @
     log.
       number positive-infinity
       1.0
     $.equal-to positive-infinity
 
-[] > log-of-int-zero-on-base-of-int-one-is-negative-infinity
+[] > log-25
   assert-that > @
     log.
       number 0
       1
     $.equal-to negative-infinity
 
-[] > log-of-float-zero-on-base-of-int-one-is-negative-infinity
+[] > log-26
   assert-that > @
     log.
       number 0.0
       1
     $.equal-to negative-infinity
 
-[] > log-of-int-zero-on-base-of-float-one-is-negative-infinity
+[] > log-27
   assert-that > @
     log.
       number 0
       1.0
     $.equal-to negative-infinity
 
-[] > log-of-float-zero-on-base-of-float-one-is-negative-infinity
+[] > log-28
   assert-that > @
     log.
       number 0.0
       1.0
     $.equal-to negative-infinity
 
-[] > log-of-int-one-on-base-of-positive-infinity-is-zero
+[] > log-29
   assert-that > @
     log.
       number 1
       positive-infinity
     $.equal-to 0.0
 
-[] > log-of-float-one-on-base-of-positive-infinity-is-zero
+[] > log-30
   assert-that > @
     log.
       number 1.0
       positive-infinity
     $.equal-to 0.0
 
-[] > log-of-int-one-on-base-of-int-zero-is-zero
+[] > log-31
   assert-that > @
     log.
       number 1
       0
     $.equal-to 0.0
 
-[] > log-of-float-one-on-base-of-float-zero-is-zero
+[] > log-32
   assert-that > @
     log.
       number 1.0
       0.0
     $.equal-to 0.0
 
-[] > log-of-two-on-base-of-two-is-one
+[] > log-33
   assert-that > @
     log.
       number 2
       2.0
     $.equal-to 1.0
 
-[] > log-of-e-on-base-of-e-is-one
+[] > log-34
   assert-that > @
     log.
       number e
       e
     $.equal-to 1.0
 
-[] > log-of-two-five-six-on-base-of-two-is-eight
+[] > log-35
   assert-that > @
     log.
       number 256
       2
     $.equal-to 8.0
 
-[] > ln-of-negative-float-is-nan
+[] > ln-1
   assert-that > @
     as-bytes.
       ln.
         number -2.2
     $.equal-to (nan.as-bytes)
 
-[] > ln-of-float-zero-is-negative-infinity
+[] > ln-2
   assert-that > @
     ln.
       number 0.0
     $.equal-to negative-infinity
 
-[] > ln-of-float-one-is-float-zero
+[] > ln-3
   assert-that > @
     ln.
       number 1.0
     $.equal-to 0.0
 
-[] > ln-of-e-one-is-float-one
+[] > ln-4
   assert-that > @
     ln.
       number e
     $.equal-to 1.0
 
-[] > ln-of-float-ten
+[] > ln-5
   assert-that > @
     ln.
       number 10.0
     $.equal-to 2.302585092994046
 
-[] > ln-of-negative-int-is-nan
+[] > ln-6
   assert-that > @
     as-bytes.
       ln.
         number -42
     $.equal-to (nan.as-bytes)
 
-[] > ln-of-int-zero-is-negative-infinity
+[] > ln-6of-int-zero-is-negative-infinity
   assert-that > @
     ln.
       number 0
     $.equal-to negative-infinity
 
-[] > ln-of-int-one-is-int-zero
+[] > ln-8
   assert-that > @
     ln.
       number 1
     $.equal-to 0
 
-[] > ln-of-int-twenty
+[] > ln-9
   assert-that > @
     ln.
       number 20

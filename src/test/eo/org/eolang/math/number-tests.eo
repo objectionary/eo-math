@@ -22,7 +22,6 @@
 
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
-+alias org.eolang.math.e
 +alias org.eolang.math.nan
 +alias org.eolang.math.number
 +alias org.eolang.math.positive-infinity

@@ -311,45 +311,42 @@
           ^.^.n
           as-float
 
-        switch > @
-          *
-            or.
-              self-as-float.lt 0.0
-              base-as-float.lt 0.0
-              and.
-                eq. > self-is-inf!
-                  positive-infinity
-                  self-as-float
-                or. > base-is-inf-or-zero!
-                  positive-infinity.eq base-as-float
-                  base-as-float.eq 0.0
-              and.
-                self-as-float.eq 0.0 > self-is-zero!
-                base-is-inf-or-zero
-              and.
-                self-as-float.eq 1.0 > self-is-one!
-                base-as-float.eq 1.0 > base-is-one!
-            nan
-          *
+        if. > @
+          or.
+            self-as-float.lt 0.0
+            base-as-float.lt 0.0
+            and.
+              eq. > self-is-inf!
+                positive-infinity
+                self-as-float
+              or. > base-is-inf-or-zero!
+                positive-infinity.eq base-as-float
+                base-as-float.eq 0.0
+            and.
+              self-as-float.eq 0.0 > self-is-zero!
+              base-is-inf-or-zero
+            and.
+              self-as-float.eq 1.0 > self-is-one!
+              base-as-float.eq 1.0 > base-is-one!
+          nan
+          if.
             and.
               self-is-inf
               base-is-one
             positive-infinity
-          *
-            and.
-              self-is-zero
-              base-is-one
-            negative-infinity
-          *
-            and.
-              self-is-one
-              base-is-inf-or-zero
-            0.0
-          *
-            TRUE
-            div.
-              (number self-as-float).ln
-              (number base-as-float).ln
+            if.
+              and.
+                self-is-zero
+                base-is-one
+              negative-infinity
+              if.
+                and.
+                  self-is-one
+                  base-is-inf-or-zero
+                0.0
+                div.
+                  (number self-as-float).ln
+                  (number base-as-float).ln
 
   # Natural logarithm of ^.n
   # @todo #53:30min. Natural logarithm should be implemented in EO when there

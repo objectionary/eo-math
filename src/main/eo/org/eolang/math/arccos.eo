@@ -40,7 +40,7 @@
       0.0
     memory > cosmid
       0.0
-    0.000000001 > precision
+    0.000000001 > precision!
     memory > running
       TRUE
     seq > @

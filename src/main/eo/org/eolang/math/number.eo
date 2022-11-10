@@ -196,12 +196,12 @@
     if. > @
       or.
         is-nan.
-          number x > x-as-num
+          number x > x-as-num!
         is-nan
       nan
       []
         if. > x-as-float!
-          x-as-num.is-infinite > x-is-inf
+          x-as-num.is-infinite > x-is-inf!
           x
           if.
             x-as-num.is-int > x-is-int!

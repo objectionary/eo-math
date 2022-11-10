@@ -133,7 +133,6 @@ SOFTWARE
             </goals>
             <configuration>
               <keepBinaries>
-                <argLine>-Xss256M</argLine>
                 <glob>EOorg/EOeolang/EOmath/**</glob>
               </keepBinaries>
               <failOnWarning>true</failOnWarning>

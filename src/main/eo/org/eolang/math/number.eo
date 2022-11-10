@@ -321,7 +321,6 @@
         is-infinite
         distance.is-nan
         distance.is-infinite
-        distance.is-infinite
       nan
       while.
         lt.

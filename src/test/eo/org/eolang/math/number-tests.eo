@@ -777,14 +777,6 @@
         0
     $.equal-to (nan.as-bytes)
 
-[] > log-of-int-zero-on-base-of-int-zero-is-nan-1
-  assert-that > @
-    as-bytes.
-      log.
-        number 0
-        0
-    $.equal-to (nan.as-bytes)
-
 [] > log-of-float-zero-on-base-of-int-zero-is-nan
   assert-that > @
     as-bytes.

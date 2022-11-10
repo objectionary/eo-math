@@ -20,55 +20,24 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#+alias org.eolang.math.number
-#+alias org.eolang.math.positive-infinity
-+alias org.eolang.collections.list
-+alias org.eolang.nop
-+alias org.eolang.try
++alias org.eolang.hamcrest.assert-that
++alias org.eolang.math.positive-infinity
 +home https://github.com/objectionary/eo-math
++junit
 +package org.eolang.math
-+rt jvm org.eolang:eo-math:0.0.0
 +version 0.0.0
 
-# Series
-[arr] > series
-  arr > @
+[] > positive-infinity-eq-positive-infinity
+  assert-that > @
+    positive-infinity.eq positive-infinity
+    $.equal-to TRUE
 
-  # Find max element in the array
-  # @todo #36:30min. The array may consist of objects of any type. `max`
-  #  and `min` objects should work only with an array of numbers.
-  [] > max
-    list ^ > self-as-list!
+[] > positive-infinity-gt-float
+  assert-that > @
+    positive-infinity.gt 10.5
+    $.equal-to TRUE
 
-    if. > @
-      self-as-list.is-empty
-      error "Can't get max of empty array"
-      try
-        []
-          reduced. > @
-            self-as-list
-            self-as-list.at 0
-            [maximum item]
-              if. > @
-                item.gt maximum
-                item
-                maximum
-        [e]
-          e > @
-        nop
-
-  # Find min element in the array
-  [] > min
-    list ^ > self-as-list!
-
-    if. > @
-      self-as-list.is-empty
-      error "Can't get min of empty array"
-      reduced.
-        self-as-list
-        self-as-list.at 0
-        [min item]
-          if. > @
-            min.gt item
-            item
-            min
+[] > positive-infinity-not-gt-positive-infinity
+  assert-that > @
+    positive-infinity.gt positive-infinity
+    $.equal-to FALSE

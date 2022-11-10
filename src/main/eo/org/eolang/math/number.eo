@@ -304,8 +304,9 @@
   #  You need to code a function for coefficient of nth term.
   #  Accuracy can be decreased because of stack limitation.
 
-  # Computes series buy the numbers for start and finish
-  # terms and function of coefficient of nth term.
+  # Computes series buy the numbers for start and finish and function of
+  # coefficient of nth term. It is NaN if infinity passed because the
+  # implementation would get infinity time to calculate sum of infinity terms
   [start finish f] > taylor
     ^.n > value!
     memory start > iterator

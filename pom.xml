@@ -27,7 +27,7 @@ SOFTWARE
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.61.0</version>
+    <version>0.64.1</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-math</artifactId>
@@ -94,18 +94,18 @@ SOFTWARE
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.28.0</version>
+      <version>0.28.10</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.9.0</version>
+      <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>5.9.0</version>
+      <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -117,9 +117,16 @@ SOFTWARE
         <configuration combine.self="override"/>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>-Xss256M</argLine>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.28.0</version>
+        <version>0.28.10</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -167,7 +174,7 @@ SOFTWARE
           <plugin>
             <groupId>com.qulice</groupId>
             <artifactId>qulice-maven-plugin</artifactId>
-            <version>0.21.1</version>
+            <version>0.22.0</version>
             <configuration>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>

@@ -8,7 +8,6 @@
 [![PDD status](http://www.0pdd.com/svg?name=objectionary/eo-math)](http://www.0pdd.com/p?name=objectionary/eo-math)
 [![codecov](https://codecov.io/gh/objectionary/eo-math/branch/master/graph/badge.svg)](https://codecov.io/gh/objectionary/eo-math)
 [![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-math.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-math)
-
 [![Hits-of-Code](https://hitsofcode.com/github/objectionary/eo-math)](https://hitsofcode.com/view/github/objectionary/eo-math)
 ![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-math)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/objectionary/eo-math/blob/master/LICENSE.txt)

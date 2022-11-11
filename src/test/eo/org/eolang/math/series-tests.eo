@@ -121,7 +121,7 @@
   * > xs
     12
     5
-    negative-infinity
+    2
   assert-that > @
     series xs
     .min

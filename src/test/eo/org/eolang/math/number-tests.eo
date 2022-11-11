@@ -1039,3 +1039,9 @@
   assert-that > @
     (number sum).is-nan
     $.equal-to TRUE
+
+[] > exp-check-1
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "exp(1.0) = %f"
+      (number 1.0).exp

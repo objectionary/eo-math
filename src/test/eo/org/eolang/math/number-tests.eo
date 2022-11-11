@@ -998,17 +998,62 @@
       number 20
     $.equal-to 2.995732273553991
 
-[] > number-is-infinite
+# 1*0 + 1*1 + 1*2 == 3
+[] > taylor-check-1
+  taylor. > result
+    number 1
+    0
+    3
+    [num]
+      num > @
   assert-that > @
-    and.
-      is-infinite.
-        number positive-infinity
-      is-infinite.
-        number negative-infinity
-      not.
-        is-infinite.
-          number nan
-      not.
-        is-infinite.
-          number 10
+    result
+    $.equal-to 6
+
+[] > taylor-check-2
+  taylor. > result
+    number 1.0
+    0
+    3
+    [num]
+      (number num).as-float > @
+  assert-that > @
+    result
+    $.equal-to 6.0
+
+# The sum of a geometric progression
+[] > taylor-check-3
+  taylor. > sum!
+    number 0.5
+    0
+    30
+    [i]
+      1.0 > @
+  assert-that > @
+    2.0.minus
+      sum
+    $.all-of
+      $.less-than 0.00000001
+      $.greater-than 0.0
+
+[] > taylor-check-nan-1
+  taylor. > sum!
+    (number nan)
+    0
+    30
+    [i]
+      1.0 > @
+  assert-that > @
+    (number sum).is-nan
+    $.equal-to TRUE
+
+[] > taylor-check-nan-2
+  taylor. > sum!
+    (number 5)
+    negative-infinity
+    positive-infinity
+    [i]
+      1.0 > @
+  assert-that > @
+    (number sum).is-nan
     $.equal-to TRUE

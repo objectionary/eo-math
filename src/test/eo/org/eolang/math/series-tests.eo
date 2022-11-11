@@ -20,9 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#+alias org.eolang.math.nan
-#+alias org.eolang.math.number
-+alias org.eolang.collections.list
 +alias org.eolang.nop
 +alias org.eolang.try
 +alias org.eolang.math.negative-infinity
@@ -130,50 +127,37 @@
     .min
     $.equal-to 2
 
-[] > max-ready
-  * positive-infinity > arr
-  list arr > self-as-list!
-
-  reduced. > r
-    self-as-list
-    self-as-list.at 0
-    [max item]
-      if. > @
-        item.gt max
-        item
-        max
-
-  assert-that > @
-    r
-    $.equal-to positive-infinity
-
-[] > try-inf
-  assert-that > @
-    try
-      []
-        positive-infinity > @
-      [e]
-        e > @
-      nop
-    $.equal-to positive-infinity
-
 [] > max-of-array-of-ints-and-floats
   * > xs
     1
     2.5
-    4.2
+    99.2
     2
+    4.2
   assert-that > @
     series xs
     .max
-    $.equal-to 4.2
+    $.equal-to 99.2
+
+[] > min-of-array-of-ints-and-floats
+  * > xs
+    1
+    2.5
+    99.2
+    2
+    4.2
+  assert-that > @
+    series xs
+    .min
+    $.equal-to 1
 
 [] > max-of-array-of-multiple-values-without-nan
-  * 1 positive-infinity > xs
-  assert-that > @
-    series xs
-    .max
-    $.equal-to positive-infinity
+  * 1 positive-infinity negative-infinity > xs
+  nop > @
+    assert-that
+      series xs
+      .max
+      $.equal-to positive-infinity
 
 [] > max-of-array-with-non-number
   * > xs
@@ -181,7 +165,20 @@
     "Hello"
     negative-infinity
     []
-  assert-that > @
-    series xs
-    .max
-    $.equal-to 1
+  nop > @
+    assert-that
+      series xs
+      .max
+      $.equal-to "Can't get max of array of non numbers"
+
+[] > min-of-array-with-non-number
+  * > xs
+    10
+    "Hello"
+    negative-infinity
+    []
+  nop > @
+    assert-that
+      series xs
+      .min
+      $.equal-to "Can't get min of array of non numbers"

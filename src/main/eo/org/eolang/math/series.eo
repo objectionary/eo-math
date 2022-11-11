@@ -20,9 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#+alias org.eolang.math.number
-#+alias org.eolang.math.positive-infinity
 +alias org.eolang.collections.list
++alias org.eolang.math.number
 +alias org.eolang.nop
 +alias org.eolang.try
 +home https://github.com/objectionary/eo-math
@@ -35,8 +34,6 @@
   arr > @
 
   # Find max element in the array
-  # @todo #36:30min. The array may consist of objects of any type. `max`
-  #  and `min` objects should work only with an array of numbers.
   [] > max
     list ^ > self-as-list!
 
@@ -45,16 +42,25 @@
       error "Can't get max of empty array"
       try
         []
+          [num] > comparable
+            if. > @
+              is-int.
+                number num > num-as-number!
+              num-as-number.as-float
+              num
+
           reduced. > @
             self-as-list
             self-as-list.at 0
             [maximum item]
               if. > @
-                item.gt maximum
+                gt.
+                  comparable item
+                  comparable maximum
                 item
                 maximum
         [e]
-          e > @
+          "Can't get max of array of non numbers" > @
         nop
 
   # Find min element in the array
@@ -64,11 +70,25 @@
     if. > @
       self-as-list.is-empty
       error "Can't get min of empty array"
-      reduced.
-        self-as-list
-        self-as-list.at 0
-        [min item]
-          if. > @
-            min.gt item
-            item
-            min
+      try
+        []
+          [num] > comparable
+            if. > @
+              is-int.
+                number num > num-as-number!
+              num-as-number.as-float
+              num
+
+          reduced. > @
+            self-as-list
+            self-as-list.at 0
+            [minimum item]
+              if. > @
+                gt.
+                  comparable minimum
+                  comparable item
+                item
+                minimum
+        [e]
+          "Can't get min of array of non numbers" > @
+        nop

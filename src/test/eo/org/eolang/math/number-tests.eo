@@ -1038,6 +1038,7 @@
   assert-that > @
     is-nan.
       number ((number -2.0).arccos)
+    $.equal-to TRUE
 
 # 1*0 + 1*1 + 1*2 == 3
 [] > taylor-check-1

@@ -26,6 +26,7 @@
 +alias org.eolang.math.nan
 +alias org.eolang.math.number
 +alias org.eolang.math.positive-infinity
++alias org.eolang.math.pi
 +alias org.eolang.math.negative-infinity
 +alias org.eolang.nop
 +home https://github.com/objectionary/eo-math
@@ -979,3 +980,62 @@
     ln.
       number 20
     $.equal-to 2.995732273553991
+
+[] > arccos-negative-one-test
+  assert-that > @
+    arccos.
+      number -1.0
+    $.equal-to
+      pi
+
+[] > arccos-zero-test
+  assert-that > @
+    arccos.
+      number 0.0
+    $.equal-to
+      div.
+        pi
+        2.0
+
+[] > arccos-one-test
+  assert-that > @
+    arccos.
+      number 1.0
+    $.equal-to
+      0.0
+
+[] > arccos-positive-calculated-test
+  assert-that > @
+    abs.
+      seq
+        minus. > val
+          arccos.
+            number 0.6
+          0.927295
+        number val
+    $.less-than
+      0.000001
+
+[] > arccos-negative-calculated-test
+  assert-that > @
+    abs.
+      seq
+        minus. > val
+          arccos.
+            number -0.6
+          2.214297
+        number val
+    $.less-than
+      0.000001
+
+[] > arccos-nan-positive-value-test
+  assert-that > @
+    is-nan.
+      number ((number 2.0).arccos)
+    $.equal-to TRUE
+
+[] > arccos-nan-negative-value-test
+  assert-that > @
+    is-nan.
+      number ((number -2.0).arccos)
+    $.equal-to TRUE

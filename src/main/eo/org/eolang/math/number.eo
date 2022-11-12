@@ -30,6 +30,8 @@
 +version 0.0.0
 
 [n] > number
+  n > @
+
   # Checking type of the number's decorator.
   # If $.n is int, return true, otherwise false.
   [] > is-int
@@ -68,15 +70,23 @@
       ^.n.as-bytes
       7F-C0-00-00
 
+  # Checking if number is positive-infinity
+  [] > is-positive-infinity
+    eq. > @
+      ^.n > value!
+      positive-infinity
+
+  # Checking if number is negative-infinity
+  [] > is-negative-infinity
+    eq. > @
+      ^.n > value!
+      negative-infinity
+
   # Checking if number is infinite
   [] > is-infinite
     or. > @
-      eq.
-        ^.n > value!
-        positive-infinity
-      eq.
-        value
-        negative-infinity
+      is-positive-infinity
+      is-negative-infinity
 
   [x] > xor
     if. > @
@@ -301,10 +311,23 @@
   #  Accuracy can be decreased because of stack limitation.
 
   [] > exp
-    times. > @
-      exp-x0
-      exp-x1
-    (number n).as-float > value!
+    switch > @
+      *
+        is-nan
+        nan
+      *
+        is-positive-infinity
+        number
+          positive-infinity
+      *
+        is-negative-infinity
+        0.0
+      *
+        TRUE
+        times.
+          exp-x0
+          exp-x1
+    as-float > value!
     0.69314718055994530941 > ln-2!
     as-int. > m!
       number

@@ -1083,4 +1083,19 @@
         minus.
           (number e).pow -10.0
           (number -10.0).exp
-    $.less-than 0.00000001
+    $.less-than 0.000000000001
+
+[] > exp-check-nan
+  assert-that > @
+    (number (number nan).exp).is-nan
+    $.equal-to TRUE
+
+[] > exp-check-infinity-1
+  assert-that > @
+    ((number positive-infinity).exp).is-positive-infinity
+    $.equal-to TRUE
+
+[] > exp-check-infinity-2
+  assert-that > @
+    (number negative-infinity).exp
+    $.equal-to 0.0

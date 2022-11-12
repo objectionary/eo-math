@@ -290,6 +290,60 @@
           0.0
           1.0
 
+  # @todo #56:90 min. Implement sin using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement cos using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement tg using this taylor object.
+  #  You need to code function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # @todo #56:90 min. Implement exp using this taylor object.
+  #  You need to code a function for coefficient of nth term.
+  #  Accuracy can be decreased because of stack limitation.
+
+  # Computes series buy the numbers for start and finish and function of
+  # coefficient of nth term. It is NaN if infinity passed because the
+  # implementation would get infinity time to calculate sum of infinity terms
+  [start finish f] > taylor
+    ^.n > value!
+    memory start > iterator
+    memory > product
+      value.minus value
+    memory > current-power
+      power start
+    number > distance!
+      finish.minus start
+    if. > @
+      or.
+        is-nan
+        is-infinite
+        distance.is-nan
+        distance.is-infinite
+      nan
+      while.
+        lt.
+          iterator
+          finish
+        [i]
+          seq > @
+            iterator.write
+              iterator.plus 1
+            product.write
+              plus.
+                product
+                times.
+                  f
+                    i
+                  current-power
+            current-power.write
+              current-power.times value
+            product
+
   # Take logarithm of ^.n
   # @todo #53:30min. Remove unnecessary checks and move some of them to ln
   #  when ln is implemented in EO and Double.NaN, Double.POSITIVE_INFINITY,

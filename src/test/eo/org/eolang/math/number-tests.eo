@@ -1077,7 +1077,10 @@
     $.less-than 0.00005
 
 [] > exp-check-5
-  QQ.io.stdout > @
-    QQ.txt.sprintf
-      "-2.6 as-int = %d\n"
-      (number -2.6).as-int
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow -10.0
+          (number -10.0).exp
+    $.less-than 0.00000001

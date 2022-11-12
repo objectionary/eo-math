@@ -1047,21 +1047,36 @@
         minus.
           e
           (number 1.0).exp
-    $.less-than 0.000001
+    $.less-than 0.00000001
 
 [] > exp-check-2
-  QQ.io.stdout > @
-    QQ.txt.sprintf
-      "exp(5.0) = %f\n"
-      (number 5.0).exp
+  assert-that > @
+    abs.
+      number
+        minus.
+          1.0.div e
+          (number -1.0).exp
+    $.less-than 0.00000001
 
 [] > exp-check-3
-  QQ.io.stdout > @
-    QQ.txt.sprintf
-      "e = %f\n"
-      number.exp.ln-2
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow 5.0
+          (number 5.0).exp
+    $.less-than 0.0000001
 
 [] > exp-check-4
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow 10.0
+          (number 10.0).exp
+    $.less-than 0.0000001
+
+[] > exp-check-5
   QQ.io.stdout > @
     QQ.txt.sprintf
       "-2.6 as-int = %d\n"

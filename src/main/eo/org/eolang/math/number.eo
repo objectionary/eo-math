@@ -308,13 +308,13 @@
       exp-x0
       exp-x1
     (number n).as-float > value!
-    0.6931471805599453 > ln-2!
+    0.69314718055994530941 > ln-2!
     as-int. > m!
       number
         div.
           value
           number.exp.ln-2
-    150000.0 > count!
+    15000000.0 > count!
     pow. > exp-x0!
       (number 2.0)
       (number m).as-float

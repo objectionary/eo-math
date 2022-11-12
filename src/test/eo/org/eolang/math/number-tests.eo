@@ -1040,13 +1040,22 @@
     (number sum).is-nan
     $.equal-to TRUE
 
-[] > exp-check-1
+[] > exp-check-0
   assert-that > @
     abs.
       number
         minus.
           e
           (number 1.0).exp
+    $.less-than 0.00000001
+
+[] > exp-check-1
+  assert-that > @
+    abs.
+      number
+        minus.
+          e
+          (number 1).exp
     $.less-than 0.00000001
 
 [] > exp-check-2

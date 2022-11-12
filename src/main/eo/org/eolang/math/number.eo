@@ -300,9 +300,6 @@
   #  You need to code function for coefficient of nth term.
   #  Accuracy can be decreased because of stack limitation.
 
-  # @todo #56:90 min. Implement exp using this taylor object.
-  #  You need to code a function for coefficient of nth term.
-  #  Accuracy can be decreased because of stack limitation.
   [] > exp
     times. > @
       exp-x0

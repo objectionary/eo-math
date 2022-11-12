@@ -1074,7 +1074,7 @@
         minus.
           (number e).pow 10.0
           (number 10.0).exp
-    $.less-than 0.0000001
+    $.less-than 0.00005
 
 [] > exp-check-5
   QQ.io.stdout > @

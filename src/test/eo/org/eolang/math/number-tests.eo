@@ -1041,7 +1041,28 @@
     $.equal-to TRUE
 
 [] > exp-check-1
+  assert-that > @
+    abs.
+      number
+        minus.
+          e
+          (number 1.0).exp
+    $.less-than 0.000001
+
+[] > exp-check-2
   QQ.io.stdout > @
     QQ.txt.sprintf
-      "exp(1.0) = %f"
-      (number 1.0).exp
+      "exp(5.0) = %f\n"
+      (number 5.0).exp
+
+[] > exp-check-3
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "e = %f\n"
+      number.exp.ln-2
+
+[] > exp-check-4
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "-2.6 as-int = %d\n"
+      (number -2.6).as-int

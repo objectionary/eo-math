@@ -1039,3 +1039,72 @@
   assert-that > @
     (number sum).is-nan
     $.equal-to TRUE
+
+[] > exp-check-0
+  assert-that > @
+    abs.
+      number
+        minus.
+          e
+          (number 1.0).exp
+    $.less-than 0.00000001
+
+[] > exp-check-1
+  assert-that > @
+    abs.
+      number
+        minus.
+          e
+          (number 1).exp
+    $.less-than 0.00000001
+
+[] > exp-check-2
+  assert-that > @
+    abs.
+      number
+        minus.
+          1.0.div e
+          (number -1.0).exp
+    $.less-than 0.00000001
+
+[] > exp-check-3
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow 5.0
+          (number 5.0).exp
+    $.less-than 0.0000001
+
+[] > exp-check-4
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow 10.0
+          (number 10.0).exp
+    $.less-than 0.00005
+
+[] > exp-check-5
+  assert-that > @
+    abs.
+      number
+        minus.
+          (number e).pow -10.0
+          (number -10.0).exp
+    $.less-than 0.000000000001
+
+[] > exp-check-nan
+  assert-that > @
+    (number (number nan).exp).is-nan
+    $.equal-to TRUE
+
+[] > exp-check-infinity-1
+  assert-that > @
+    (number positive-infinity).exp
+    $.equal-to positive-infinity
+
+[] > exp-check-infinity-2
+  assert-that > @
+    (number negative-infinity).exp
+    $.equal-to 0.0

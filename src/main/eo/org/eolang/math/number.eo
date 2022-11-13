@@ -30,6 +30,8 @@
 +version 0.0.0
 
 [n] > number
+  n > @
+
   # Checking type of the number's decorator.
   # If $.n is int, return true, otherwise false.
   [] > is-int
@@ -300,9 +302,50 @@
   #  You need to code function for coefficient of nth term.
   #  Accuracy can be decreased because of stack limitation.
 
-  # @todo #56:90 min. Implement exp using this taylor object.
-  #  You need to code a function for coefficient of nth term.
-  #  Accuracy can be decreased because of stack limitation.
+  [] > exp
+    switch > @
+      *
+        is-nan
+        nan
+      *
+        eq.
+          positive-infinity
+          n
+        number
+          positive-infinity
+      *
+        eq.
+          negative-infinity
+          n
+        0.0
+      *
+        TRUE
+        times.
+          exp-x0
+          exp-x1
+    as-float > value!
+    0.69314718055994530941 > ln-2!
+    as-int. > m!
+      number
+        div.
+          value
+          number.exp.ln-2
+    15000000.0 > count!
+    pow. > exp-x0!
+      (number 2.0)
+      (number m).as-float
+    pow. > exp-x1!
+      number
+        plus.
+          1.0
+          div.
+            minus.
+              value
+              times.
+                (number m).as-float
+                ln-2
+            count
+      count
 
   # Computes series buy the numbers for start and finish and function of
   # coefficient of nth term. It is NaN if infinity passed because the

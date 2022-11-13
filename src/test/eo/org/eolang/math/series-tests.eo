@@ -151,6 +151,9 @@
     .min
     $.equal-to 1
 
+# @todo #54:30min. Remove nop object from series tests when object try is ready
+#  to work with objects that don't decorate anything (like positive-infinity,
+#  or negative-infinity)
 [] > max-of-array-of-multiple-values-without-nan
   * 1 positive-infinity negative-infinity > xs
   nop > @

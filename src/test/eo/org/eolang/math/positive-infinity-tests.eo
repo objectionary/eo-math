@@ -29,7 +29,9 @@
 
 # @todo #54:30min. Positive infinity and negative infinity tests are needed.
 #  They were missed for some reason but to aviod potential bugs these objects
-#  has to be tested
+#  has to be tested. Also needs to remove nop object from series test where
+#  series works with infinities (when object try is able to work with
+#  infinities)
 [] > positive-infinity-eq-positive-infinity
   assert-that > @
     positive-infinity.eq positive-infinity

@@ -194,72 +194,144 @@
   # Make ^.n power x
   # @todo #21:30 min. Add an ability to raise a number to float power.
   #  `exp` and `ln` objects are needed.  sqr(n,x) = exp(n * ln(x))
-  #
-  # @todo #21:30 min. Improve performance to be able to work with big numbers.
-  #  Should use binary exponentiation. It allows to raise any number to the n'th
-  #  power in O(log n) multiplications
   [x] > power
-    as-float > self-as-float!
-
-    and. > both-are-int!
-      (number x).is-int
-      is-int
-
-    if. > x-as-float!
-      (number x).is-nan > x-is-nan!
+    if. > @
+      or.
+        is-nan.
+          number x > x-as-num!
+        is-nan
       nan
-      (number x).as-float
+      []
+        if. > x-as-float!
+          x-as-num.is-infinite > x-is-inf!
+          x
+          if.
+            x-as-num.is-int > x-is-int!
+            x-as-num.as-float
+            x
 
-    [y] > powf
-      if. > @
-        y.gt 0.0
-        times.
-          self-as-float
-          ^.powf (y.minus 1.0)
-        1.0
+        if. > self-as-float!
+          is-infinite > self-is-inf!
+          ^.^.n > value!
+          if.
+            is-int > self-is-int!
+            as-float
+            value
 
-    [y] > powi
-      if. > @
-        y.gt 0
-        times.
-          ^.^.n
-          ^.powi (y.minus 1)
-        1
+        and. > both-are-int!
+          x-is-int
+          self-is-int
 
-    switch > @
-      *
-        or.
-          x-is-nan
-          is-nan
-        nan
-      *
-        x-as-float.eq 0.0
-        if.
-          both-are-int
-          1
-          1.0
-      *
-        x-as-float.lt 0.0
-        if.
-          self-as-float.eq 0.0
-          positive-infinity
-          div.
+        [n p] > bin-powi
+          if. > @
+            p.eq 0
+            1
+            []
+              bin-powi > res!
+                n
+                p.div 2
+
+              res.times res > res-x-res!
+
+              if. > @
+                eq.
+                  mod.
+                    number p
+                    2
+                  1
+                res-x-res.times n
+                res-x-res
+
+        [n p] > bin-powf
+          if. > @
+            p.eq 0.0
             1.0
-            powf
-              neg.
-                x-as-float
-      *
-        x-as-float.gt 0.0
-        if.
-          self-as-float.eq 0.0
-          if.
-            both-are-int
-            0
-            0.0
-          if.
-            both-are-int
-            powi x
-            powf x-as-float
+            []
+              bin-powf > res!
+                n
+                as-float.
+                  number
+                    as-int.
+                      number
+                        div.
+                          p
+                          2.0
+
+              res.times res > res-x-res!
+
+              if. > @
+                eq.
+                  mod.
+                    number
+                      (number p).as-int
+                    2
+                  1
+                res-x-res.times n
+                res-x-res
+
+        switch > @
+          *
+            x-as-float.eq 0.0
+            if.
+              both-are-int
+              1
+              1.0
+          *
+            x-as-float.lt 0.0
+            if.
+              self-as-float.eq 0.0 > self-is-zero!
+              positive-infinity
+              if.
+                or. > self-or-x-is-inf!
+                  self-is-inf
+                  x-is-inf
+                0.0
+                div.
+                  1.0
+                  bin-powf
+                    self-as-float
+                    neg.
+                      x-as-float
+          *
+            x-as-float.gt 0.0
+            if.
+              self-is-zero
+              if.
+                both-are-int
+                0
+                0.0
+              switch
+                *
+                  and.
+                    self-as-float.lt 0.0
+                    x-is-inf
+                  nan
+                *
+                  and.
+                    self-as-float.gt 0.0
+                    self-or-x-is-inf
+                  positive-infinity
+                *
+                  and.
+                    self-as-float.eq negative-infinity
+                    x-is-inf.not
+                  if.
+                    x-is-int.not
+                    positive-infinity
+                    if.
+                      eq.
+                        mod.
+                          x-as-num
+                          2
+                        0
+                      positive-infinity
+                      negative-infinity
+                *
+                  TRUE
+                  if.
+                    both-are-int
+                    bin-powi value x
+                    bin-powf self-as-float x-as-float
 
   # Converts ^.n to float
   [] > as-float /float

@@ -1064,11 +1064,35 @@
       number e
     $.equal-to 1.0
 
-[] > ln-of-float-ten
+[] > ln-of-float-1
   assert-that > @
-    ln.
-      number 10.0
-    $.equal-to 2.302585092994046
+    abs.
+      number
+        minus.
+          2.302585092994046
+          ln.
+            number 10.0
+    $.less-than 0.000000001
+
+[] > ln-of-float-2
+  assert-that > @
+    abs.
+      number
+        minus.
+          9.210340371976184
+          ln.
+            number 10000.0
+    $.less-than 0.0000000001
+
+[] > ln-of-float-3
+  assert-that > @
+    abs.
+      number
+        minus.
+          -4.605170185988091
+          ln.
+            number 0.01
+    $.less-than 0.0000000001
 
 [] > ln-of-negative-int-is-nan
   assert-that > @
@@ -1083,11 +1107,11 @@
       number 0
     $.equal-to negative-infinity
 
-[] > ln-of-int-one-is-int-zero
+[] > ln-of-int-one-is-float-zero
   assert-that > @
     ln.
       number 1
-    $.equal-to 0
+    $.equal-to 0.0
 
 [] > ln-of-int-twenty
   assert-that > @
@@ -1282,3 +1306,28 @@
   assert-that > @
     (number negative-infinity).exp
     $.equal-to 0.0
+
+[] > eo-ln-check-1
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "ln 4.2 = %f\n"
+      (number 0.0).ln.ln-if-greater-1 4.2
+
+[] > eo-ln-check-2
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "ln 4.0 = %f\n"
+      (number 0.0).ln.ln-if-greater-1 4.0
+
+[] > eo-ln-check-3
+  assert-that > @
+    number.ln.ln-if-greater-1.term-2.ln-taylor
+      0.5
+      50
+    $.equal-to 0.4054651081081644
+
+[] > eo-ln-check-of-e-one-is-float-one
+  assert-that > @
+    ln.
+      number e
+    $.equal-to 1.0

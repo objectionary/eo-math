@@ -525,7 +525,7 @@
   # Natural logarithm of ^.n
   # @todo #53:30min. Natural logarithm should be implemented in EO when there
   #  is an object or an atorm that can calculate a series.
-  [] > ln /float
+  [] > ln1 /float
 
   # Arccosinus of a n.
   [] > arccos
@@ -606,3 +606,109 @@
             0.0
             binary-method
               n
+
+  [] > ln
+    as-float > value!
+    switch > @
+      *
+        is-nan
+        number nan
+      *
+        eq.
+          positive-infinity
+          n
+        number
+          positive-infinity
+      *
+        eq.
+          negative-infinity
+          n
+        nan
+      *
+        lt.
+          n
+          n.minus n
+        number nan
+      *
+        eq.
+          n
+          n.minus n
+        number
+          negative-infinity
+      *
+        eq.
+          value
+          1.0
+        number 0.0
+      *
+        TRUE
+        number
+          if.
+            gt.
+              value
+              1.0
+            ln-if-greater-1
+              value
+            neg.
+              ln-if-greater-1
+                1.0.div value
+
+    # ln(x) = ln((2^a) * y) = a*ln(2) + ln(y)
+    [x] > ln-if-greater-1
+      plus. > @
+        term-1
+        term-2
+      [] > term-1!
+        memory 1.0 > pow-2
+        memory 0 > iterator
+        seq > @
+          while.
+            lte.
+              pow-2
+              x
+            [i]
+              seq > @
+                QQ.io.stdout
+                  QQ.txt.sprintf
+                    "Looking for y, iterator = %d\n"
+                    iterator
+                pow-2.write
+                  pow-2.times 2.0
+                iterator.write
+                  iterator.plus 1
+          (x.times 2.0).div pow-2 > y!
+          QQ.io.stdout
+            QQ.txt.sprintf
+              "y = %f\nterm-1 = %f\n"
+              y
+              (number (iterator.minus 1)).as-float.times
+                number.exp.ln-2
+          (number (iterator.minus 1)).as-float.times
+            number.exp.ln-2
+
+      [] > term-2!
+        ln-taylor > @
+          minus.
+            term-1.y
+            1.0
+          50
+        # ln(1 + t) = t * {1/1 - t[1/2 - t(1/3 -t(1/4 -...))]}
+        # terms is numbber of calculating terms in taylor series
+        [t terms] > ln-taylor
+          memory 0.0 > sum
+          memory > iterator
+            (number terms).as-float
+          seq > @
+            while.
+              iterator.gt 0.1
+              [i]
+                seq > @
+                  sum.write
+                    times.
+                      t
+                      minus.
+                        1.0.div iterator
+                        sum
+                  iterator.write
+                    iterator.minus 1.0
+            sum

@@ -1068,7 +1068,7 @@
   assert-that > @
     abs.
       number
-        minus
+        minus.
           number.ln.ln-if-greater-than-1.term-2.ln-taylor
             0.5
             50

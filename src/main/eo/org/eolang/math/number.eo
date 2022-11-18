@@ -668,21 +668,11 @@
               x
             [i]
               seq > @
-                QQ.io.stdout
-                  QQ.txt.sprintf
-                    "Looking for y, iterator = %d\n"
-                    iterator
                 pow-2.write
                   pow-2.times 2.0
                 iterator.write
                   iterator.plus 1
           (x.times 2.0).div pow-2 > y!
-          QQ.io.stdout
-            QQ.txt.sprintf
-              "y = %f\nterm-1 = %f\n"
-              y
-              (number (iterator.minus 1)).as-float.times
-                number.exp.ln-2
           (number (iterator.minus 1)).as-float.times
             number.exp.ln-2
 

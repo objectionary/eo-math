@@ -1313,4 +1313,3 @@
   assert-that > @
     (number negative-infinity).exp
     $.equal-to 0.0
-

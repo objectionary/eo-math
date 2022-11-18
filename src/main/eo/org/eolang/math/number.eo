@@ -523,90 +523,6 @@
               (number base-as-float).ln
 
   # Natural logarithm of ^.n
-  # @todo #53:30min. Natural logarithm should be implemented in EO when there
-  #  is an object or an atorm that can calculate a series.
-  [] > ln1 /float
-
-  # Arccosinus of a n.
-  [] > arccos
-    [x] > binary-method
-      memory > low
-        0.0
-      memory > high
-        pi
-      memory > mid
-        0.0
-      memory > cosmid
-        0.0
-      0.000000001 > precision!
-      memory > running
-        TRUE
-      seq > @
-        while.
-          running
-          [i]
-            seq > @
-              mid.write
-                div.
-                  plus.
-                    low
-                    high
-                  2.0
-              cosmid.write
-                number
-                  angle mid
-                  .cos
-                .as-float
-              if.
-                gt.
-                  abs.
-                    seq
-                      minus. > val
-                        cosmid
-                        x
-                      number val
-                  precision
-                if.
-                  gt.
-                    cosmid
-                    x
-                  low.write
-                    mid
-                  high.write
-                    mid
-                running.write
-                  FALSE
-        mid
-
-    if. > @
-      or.
-        gt.
-          n
-          1.0
-        lt.
-          n
-          -1.0
-      nan
-      if.
-        eq.
-          n
-          -1.0
-        pi
-        if.
-          eq.
-            n
-            0.0
-          div.
-            pi
-            2.0
-          if.
-            eq.
-              n
-              1.0
-            0.0
-            binary-method
-              n
-
   [] > ln
     as-float > value!
     switch > @
@@ -702,3 +618,83 @@
                   iterator.write
                     iterator.minus 1.0
             sum
+
+  # Arccosinus of a n.
+  [] > arccos
+    [x] > binary-method
+      memory > low
+        0.0
+      memory > high
+        pi
+      memory > mid
+        0.0
+      memory > cosmid
+        0.0
+      0.000000001 > precision!
+      memory > running
+        TRUE
+      seq > @
+        while.
+          running
+          [i]
+            seq > @
+              mid.write
+                div.
+                  plus.
+                    low
+                    high
+                  2.0
+              cosmid.write
+                number
+                  angle mid
+                  .cos
+                .as-float
+              if.
+                gt.
+                  abs.
+                    seq
+                      minus. > val
+                        cosmid
+                        x
+                      number val
+                  precision
+                if.
+                  gt.
+                    cosmid
+                    x
+                  low.write
+                    mid
+                  high.write
+                    mid
+                running.write
+                  FALSE
+        mid
+
+    if. > @
+      or.
+        gt.
+          n
+          1.0
+        lt.
+          n
+          -1.0
+      nan
+      if.
+        eq.
+          n
+          -1.0
+        pi
+        if.
+          eq.
+            n
+            0.0
+          div.
+            pi
+            2.0
+          if.
+            eq.
+              n
+              1.0
+            0.0
+            binary-method
+              n

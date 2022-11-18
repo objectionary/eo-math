@@ -525,52 +525,50 @@
   # Natural logarithm of ^.n
   [] > ln
     as-float > value!
-    switch > @
-      *
-        is-nan
-        number nan
-      *
-        eq.
+    number > @
+      switch
+        *
+          is-nan
+          nan
+        *
+          eq.
+            positive-infinity
+            n
           positive-infinity
-          n
-        number
-          positive-infinity
-      *
-        eq.
+        *
+          eq.
+            negative-infinity
+            n
+          nan
+        *
+          lt.
+            n
+            n.minus n
+          nan
+        *
+          eq.
+            n
+            n.minus n
           negative-infinity
-          n
-        number nan
-      *
-        lt.
-          n
-          n.minus n
-        number nan
-      *
-        eq.
-          n
-          n.minus n
-        number
-          negative-infinity
-      *
-        eq.
-          value
-          1.0
-        number 0.0
-      *
-        TRUE
-        number
+        *
+          eq.
+            value
+            1.0
+          0.0
+        *
+          TRUE
           if.
             gt.
               value
               1.0
-            ln-if-greater-1
+            ln-if-greater-than-1
               value
             neg.
-              ln-if-greater-1
+              ln-if-greater-than-1
                 1.0.div value
 
     # ln(x) = ln((2^a) * y) = a*ln(2) + ln(y)
-    [x] > ln-if-greater-1
+    [x] > ln-if-greater-than-1
       plus. > @
         term-1
         term-2

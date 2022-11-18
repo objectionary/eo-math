@@ -1066,7 +1066,7 @@
 
 [] > ln-taylor-check
   assert-that > @
-    number.ln.ln-if-greater-1.term-2.ln-taylor
+    number.ln.ln-if-greater-than-1.term-2.ln-taylor
       0.5
       50
     $.equal-to 0.4054651081081644

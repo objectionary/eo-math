@@ -1064,6 +1064,13 @@
       number e
     $.equal-to 1.0
 
+[] > ln-taylor-check
+  assert-that > @
+    number.ln.ln-if-greater-1.term-2.ln-taylor
+      0.5
+      50
+    $.equal-to 0.4054651081081644
+
 [] > ln-of-float-1
   assert-that > @
     abs.
@@ -1307,27 +1314,3 @@
     (number negative-infinity).exp
     $.equal-to 0.0
 
-[] > eo-ln-check-1
-  QQ.io.stdout > @
-    QQ.txt.sprintf
-      "ln 4.2 = %f\n"
-      (number 0.0).ln.ln-if-greater-1 4.2
-
-[] > eo-ln-check-2
-  QQ.io.stdout > @
-    QQ.txt.sprintf
-      "ln 4.0 = %f\n"
-      (number 0.0).ln.ln-if-greater-1 4.0
-
-[] > eo-ln-check-3
-  assert-that > @
-    number.ln.ln-if-greater-1.term-2.ln-taylor
-      0.5
-      50
-    $.equal-to 0.4054651081081644
-
-[] > eo-ln-check-of-e-one-is-float-one
-  assert-that > @
-    ln.
-      number e
-    $.equal-to 1.0

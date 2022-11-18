@@ -1066,10 +1066,14 @@
 
 [] > ln-taylor-check
   assert-that > @
-    number.ln.ln-if-greater-than-1.term-2.ln-taylor
-      0.5
-      50
-    $.equal-to 0.4054651081081644
+    abs.
+      number
+        minus
+          number.ln.ln-if-greater-than-1.term-2.ln-taylor
+            0.5
+            50
+          0.4054651081081644
+    $.less-than 0.0000000001
 
 [] > ln-of-float-1
   assert-that > @

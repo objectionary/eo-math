@@ -335,6 +335,42 @@
                     bin-powi value x
                     bin-powf self-as-float x-as-float
 
+  # @todo #89:90 min. Implement sqrt without using number.pow.
+  #  We need it because pow is atom and supposed to be removed.
+  #  You can use Heron's iterative formula with a quite good
+  #  convergence rate.
+  [] > sqrt
+    as-float > value!
+    number > @
+      switch
+        *
+          is-nan
+          nan
+        *
+          eq.
+            positive-infinity
+            n
+          positive-infinity
+        *
+          eq.
+            negative-infinity
+            n
+          nan
+        *
+          lt.
+            n
+            n.minus n
+          nan
+        *
+          TRUE
+          seq
+            QQ.io.stdout
+              "In switch\n"
+            pow.
+              number
+                value
+              0.5
+
   # Converts ^.n to float
   [] > as-float /float
 

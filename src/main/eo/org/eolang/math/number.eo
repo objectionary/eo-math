@@ -363,13 +363,10 @@
           nan
         *
           TRUE
-          seq
-            QQ.io.stdout
-              "In switch\n"
-            pow.
-              number
-                value
-              0.5
+          pow.
+            number
+              value
+            0.5
 
   # Converts ^.n to float
   [] > as-float /float

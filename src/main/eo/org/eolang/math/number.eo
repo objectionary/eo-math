@@ -365,7 +365,7 @@
           TRUE
           babylonian-metod
             value
-    [a] > babylonian-metod
+    [a] > babylonian-method
       memory 1.0 > x-new
       memory 0.0 > x-old
       memory 1.0 > diff

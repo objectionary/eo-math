@@ -372,12 +372,7 @@
       seq > @
         while.
           gt.
-            seq
-              QQ.io.stdout
-                QQ.txt.sprintf
-                  "minus = %f\n"
-                  diff
-              diff
+            diff
             1.0e-15
           [i]
             seq > @

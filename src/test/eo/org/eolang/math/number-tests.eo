@@ -681,10 +681,10 @@
     abs.
       number
         minus.
-          10000.0
+          9.0
           sqrt.
             number
-              100000000
+              81
     $.less-than 0.00000000001
 
 [] > sqrt-check-5
@@ -693,6 +693,18 @@
       sqrt.
         number nan
     $.equal-to TRUE
+
+[] > sqrt-check-6
+  9223372036854775807 > max-int!
+  assert-that > @
+    abs.
+      number
+        minus.
+          3037000499.97605
+          sqrt.
+            number
+              max-int
+    $.less-than 0.00001
 
 [] > sqrt-check-infinity-1
   assert-that > @

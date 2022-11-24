@@ -363,11 +363,45 @@
           nan
         *
           TRUE
-          pow.
-            number
-              value
-            0.5
-
+          babylonian-metod
+            value
+    [a] > babylonian-metod
+      memory 1.0 > x-new
+      memory 0.0 > x-old
+      memory 1.0 > diff
+      seq > @
+        while.
+          gt.
+            seq
+              QQ.io.stdout
+                QQ.txt.sprintf
+                  "minus = %f\n"
+                  diff
+              diff
+            1.0e-15
+          [i]
+            seq > @
+              QQ.io.stdout
+                QQ.txt.sprintf
+                  "x-new = %f, x-old = %f, i = %d\n"
+                  x-new
+                  x-old
+                  i
+              x-old.write
+                x-new
+              x-new.write
+                times.
+                  0.5
+                  plus.
+                    div.
+                      a
+                      x-old
+                    x-old
+              diff.write
+                abs.
+                  number
+                    x-new.minus x-old
+        x-new
   # Converts ^.n to float
   [] > as-float /float
 

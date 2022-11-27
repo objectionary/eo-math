@@ -510,3 +510,23 @@
                 b
               2.0
         foo b
+
+  # Counts integral from a to b
+  [foo a b] > integral
+    times. > @
+      div.
+        minus.
+          b
+          a
+        6.0
+      plus.
+        foo a
+        times.
+          4.0
+          foo
+            div.
+              plus.
+                a
+                b
+              2.0
+        foo b

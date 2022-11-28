@@ -28,7 +28,7 @@
 
 # Counts integral from a to b  
 [fun a b] > integral
-  [fun a b] > poly
+  [fun a b] > subsection
     times. > @
       div.
         minus.
@@ -70,7 +70,7 @@
           sum.write
             plus.
               sum
-              poly
+              subsection
                 fun
                 x
                 plus.

@@ -76,7 +76,7 @@
 
 [] > two-random-numbers-with-increment
   random.pseudo.plus 3.1416 > r
-  if.
+  if. > @
     QQ.sys.uname.is-windows
     nop
     assert-that

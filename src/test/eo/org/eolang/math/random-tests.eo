@@ -76,7 +76,10 @@
 
 [] > two-random-numbers-with-increment
   random.pseudo.plus 3.1416 > r
-  assert-that > @
-    r
-    $.not
-      $.equal-to r
+  if.
+    QQ.sys.uname.is-windows
+    nop
+    assert-that
+      r
+      $.not
+        $.equal-to r

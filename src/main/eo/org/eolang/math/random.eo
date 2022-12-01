@@ -22,6 +22,7 @@
 
 +alias org.eolang.math.number
 +alias org.eolang.sys.call
++alias org.eolang.sys.uname
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -63,15 +64,21 @@
           1
 
   # New random with pseudo-random seed
+  # @todo #35:30min. Add a case if there is windows. Improve
+  #  imlementation for windows if there is ability to get
+  #  time for windows and enable tests for these cases.
   [] > pseudo
     35 > const-1!
     53 > const-2!
     17 > const-3!
     random > @
       time-seed
-    as-bytes. > time-bytes
-      call
-        "gettimeofday"
+    if. > time-bytes
+      uname.is-windows
+      1.as-bytes
+      as-bytes.
+        call
+          "gettimeofday"
     plus. > time-seed
       as-int.
         and.

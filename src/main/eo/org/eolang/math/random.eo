@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 +alias org.eolang.math.number
++alias org.eolang.sys.call
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +rt jvm org.eolang:eo-math:0.0.0
@@ -62,4 +63,50 @@
           1
 
   # New random with pseudo-random seed
-  [] > pseudo /random
+  [] > pseudo
+    35 > const-1!
+    53 > const-2!
+    17 > const-3!
+    random > @
+      time-seed
+    as-bytes. > time-bytes
+      call
+        "gettimeofday"
+    plus. > time-seed
+      as-int.
+        and.
+          left.
+            time-bytes
+            const-1
+          as-bytes.
+            minus.
+              as-int.
+                left.
+                  as-bytes.
+                    1
+                  const-2
+              1
+      as-int.
+        and.
+          left.
+            time-bytes
+            const-3
+          as-bytes.
+            minus.
+              as-int.
+                left.
+                  as-bytes.
+                    1
+                  const-1
+              1
+      as-int.
+        and.
+          time-bytes
+          as-bytes.
+            minus.
+              as-int.
+                left.
+                  as-bytes.
+                    1
+                  const-3
+              1

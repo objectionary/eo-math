@@ -21,10 +21,10 @@
 # SOFTWARE.
 
 +alias org.eolang.math.angle
-+alias org.eolang.math.nan
-+alias org.eolang.math.negative-infinity
 +alias org.eolang.math.pi
-+alias org.eolang.math.positive-infinity
++alias org.eolang.nan
++alias org.eolang.negative-infinity
++alias org.eolang.positive-infinity
 +alias org.eolang.switch
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
@@ -462,7 +462,7 @@
           number.exp.ln-2
     15000000.0 > count!
     pow. > exp-x0!
-      (number 2.0)
+      number 2.0
       (number m).as-float
     pow. > exp-x1!
       number

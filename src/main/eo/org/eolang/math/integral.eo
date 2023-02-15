@@ -26,6 +26,9 @@
 +rt jvm org.eolang:eo-math:0.0.0
 +version 0.0.0
 
+# @todo #105:30min. Fix integral tests. Since new declarative "while" was
+#  introduced current implementation of integral is not relevant anymore. Need
+#  to remake it and unwrap tests
 # Counts integral from a to b  
 [fun a b] > integral
   [fun a b] > subsection

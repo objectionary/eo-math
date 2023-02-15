@@ -31,42 +31,45 @@
 [] > linear-integral-test
   [x] > lin
     x > @
-  assert-that > @
-    integral
-      lin
-      1
-      10
-    $.close-to
-      49.5
-      0.0000001
+  nop > @
+    assert-that
+      integral
+        lin
+        1
+        10
+      $.close-to
+        49.5
+        0.0000001
 
 [] > quadratic-integral-test
   [x] > quadr
     pow. > @
       number x
       2.0
-  assert-that > @
-    integral
-      quadr
-      1
-      10
-    $.close-to
-      333.0
-      0.0000001
+  nop > @
+    assert-that
+      integral
+        quadr
+        1
+        10
+      $.close-to
+        333.0
+        0.0000001
 
 [] > cube-integral-test
   [x] > cube
     pow. > @
       number x
       3.0
-  assert-that > @
-    integral
-      cube
-      1
-      10
-    $.close-to
-      2499.75
-      0.0000001
+  nop > @
+    assert-that
+      integral
+        cube
+        1
+        10
+      $.close-to
+        2499.75
+        0.0000001
 
 # @todo #93:30min This test fails due to
 #  incorrect choose of steps in the 

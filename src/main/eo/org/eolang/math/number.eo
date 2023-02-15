@@ -68,9 +68,10 @@
 
   # Checking if number is NaN
   [] > is-nan
-    eq. > @
-      ^.n.as-bytes
-      7F-C0-00-00
+    not. > @
+      eq.
+        ^.n
+        ^.n
 
   # Checking if number is infinite
   [] > is-infinite

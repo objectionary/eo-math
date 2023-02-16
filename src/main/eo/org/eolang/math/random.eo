@@ -29,7 +29,6 @@
 +version 0.0.0
 
 [seed] > random
-
   # Get float value for current seed
   # Divide seed to maximum possible value of the seed
   [] > @

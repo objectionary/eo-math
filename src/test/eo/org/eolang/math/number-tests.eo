@@ -34,6 +34,9 @@
 +package org.eolang.math
 +version 0.0.0
 
+# @todo #99:30min. To fix failed tests.
+#  Sometests here are wrapped by nop object. We need
+#  find out the reason and fix them all.
 [] > check-is-int-positive-int
   assert-that > @
     (number 3).is-int
@@ -1142,7 +1145,7 @@
 
 [] > ln-taylor-check
   nop > @
-    assert-that > @
+    assert-that
       abs.
         number
           minus.
@@ -1313,7 +1316,7 @@
 
 [] > taylor-check-nan-1
   taylor. > sum!
-    (number nan)
+    number nan
     0
     30
     [i]
@@ -1324,7 +1327,7 @@
 
 [] > taylor-check-nan-2
   taylor. > sum!
-    (number 5)
+    number 5
     negative-infinity
     positive-infinity
     [i]

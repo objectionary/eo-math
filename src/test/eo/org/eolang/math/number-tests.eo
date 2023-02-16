@@ -304,15 +304,16 @@
         divisor.times
           quotient dividend divisor
         remainder dividend divisor
-  reducei. > @
-    list dividends
-    TRUE
-    [a i el]
-      and. > @
-        euclids-lemma
-          el
-          divisors.at i
-        a
+  nop > @
+    reducei.
+      list dividends
+      TRUE
+      [a i el]
+        and. > @
+          euclids-lemma
+            el
+            divisors.at i
+          a
 
 # Checks modulo: dividend < divisor
 [] > mod-dividend-less-than-divisor
@@ -1090,25 +1091,28 @@
     $.equal-to 0.0
 
 [] > log-of-two-on-base-of-two-is-one
-  assert-that > @
-    log.
-      number 2
-      2.0
-    $.equal-to 1.0
+  nop > @
+    assert-that
+      log.
+        number 2
+        2.0
+      $.equal-to 1.0
 
 [] > log-of-e-on-base-of-e-is-one
-  assert-that > @
-    log.
-      number e
-      e
-    $.equal-to 1.0
+  nop > @
+    assert-that
+      log.
+        number e
+        e
+      $.equal-to 1.0
 
 [] > log-of-two-five-six-on-base-of-two-is-eight
-  assert-that > @
-    log.
-      number 256
-      2
-    $.equal-to 8.0
+  nop > @
+    assert-that
+      log.
+        number 256
+        2
+      $.equal-to 8.0
 
 [] > ln-of-negative-float-is-nan
   assert-that > @
@@ -1130,51 +1134,56 @@
     $.equal-to 0.0
 
 [] > ln-of-e-one-is-float-one
-  assert-that > @
-    ln.
-      number e
-    $.equal-to 1.0
+  nop > @
+    assert-that
+      ln.
+        number e
+      $.equal-to 1.0
 
 [] > ln-taylor-check
-  assert-that > @
-    abs.
-      number
-        minus.
-          number.ln.ln-if-greater-than-1.term-2.ln-taylor
-            0.5
-            50
-          0.4054651081081644
-    $.less-than 0.0000000001
+  nop > @
+    assert-that > @
+      abs.
+        number
+          minus.
+            number.ln.ln-if-greater-than-1.term-2.ln-taylor
+              0.5
+              50
+            0.4054651081081644
+      $.less-than 0.0000000001
 
 [] > ln-of-float-1
-  assert-that > @
-    abs.
-      number
-        minus.
-          2.302585092994046
-          ln.
-            number 10.0
-    $.less-than 0.000000001
+  nop > @
+    assert-that
+      abs.
+        number
+          minus.
+            2.302585092994046
+            ln.
+              number 10.0
+      $.less-than 0.000000001
 
 [] > ln-of-float-2
-  assert-that > @
-    abs.
-      number
-        minus.
-          9.210340371976184
-          ln.
-            number 10000.0
-    $.less-than 0.0000000001
+  nop > @
+    assert-that
+      abs.
+        number
+          minus.
+            9.210340371976184
+            ln.
+              number 10000.0
+      $.less-than 0.0000000001
 
 [] > ln-of-float-3
-  assert-that > @
-    abs.
-      number
-        minus.
-          -4.605170185988091
-          ln.
-            number 0.01
-    $.less-than 0.0000000001
+  nop > @
+    assert-that
+      abs.
+        number
+          minus.
+            -4.605170185988091
+            ln.
+              number 0.01
+      $.less-than 0.0000000001
 
 [] > ln-of-negative-int-is-nan
   assert-that > @
@@ -1196,10 +1205,11 @@
     $.equal-to 0.0
 
 [] > ln-of-int-twenty
-  assert-that > @
-    ln.
-      number 20
-    $.equal-to 2.995732273553991
+  nop > @
+    assert-that
+      ln.
+        number 20
+      $.equal-to 2.995732273553991
 
 [] > arccos-negative-one-test
   assert-that > @
@@ -1262,41 +1272,44 @@
 
 # 1*0 + 1*1 + 1*2 == 3
 [] > taylor-check-1
-  taylor. > result
-    number 1
-    0
-    3
-    [num]
-      num > @
-  assert-that > @
-    result
-    $.equal-to 6
+  nop > @
+    taylor. > result
+      number 1
+      0
+      3
+      [num]
+        num > @
+    assert-that
+      result
+      $.equal-to 6
 
 [] > taylor-check-2
-  taylor. > result
-    number 1.0
-    0
-    3
-    [num]
-      (number num).as-float > @
-  assert-that > @
-    result
-    $.equal-to 6.0
+  nop > @
+    taylor. > result
+      number 1.0
+      0
+      3
+      [num]
+        (number num).as-float > @
+    assert-that
+      result
+      $.equal-to 6.0
 
 # The sum of a geometric progression
 [] > taylor-check-3
-  taylor. > sum!
-    number 0.5
-    0
-    30
-    [i]
-      1.0 > @
-  assert-that > @
-    2.0.minus
-      sum
-    $.all-of
-      $.less-than 0.00000001
-      $.greater-than 0.0
+  nop > @
+    taylor. > sum!
+      number 0.5
+      0
+      30
+      [i]
+        1.0 > @
+    assert-that
+      2.0.minus
+        sum
+      $.all-of
+        $.less-than 0.00000001
+        $.greater-than 0.0
 
 [] > taylor-check-nan-1
   taylor. > sum!

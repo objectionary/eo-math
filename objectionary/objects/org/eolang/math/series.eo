@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2016-2022 Yegor Bugayenko
+# Copyright (c) 2021-2022 Max Trunnikov
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,51 +20,46 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.hamcrest.assert-that
-+alias org.eolang.math.angle
-+alias org.eolang.math.number
++alias org.eolang.collections.list
 +home https://github.com/objectionary/eo-math
-+junit
 +package org.eolang.math
++rt jvm org.eolang:eo-math:0.3.0
 +version 0.3.0
 
-[] > sin-zero
-  assert-that > @
-    angle 0.0
-    .sin
-    $.equal-to 0.0
+# Series
+[arr] > series
+  arr > @
 
-[] > sin-pi-div-2
-  assert-that > @
-    angle 1.5707963267948966
-    .sin
-    $.equal-to 1.0
+  # Find max element in the array
+  # @todo #36:30min. The array may consist of objects of any type. `max`
+  #  and `min` objects should work only with an array of numbers.
+  [] > max
+    list ^ > self-as-list!
 
-[] > sin-pi-as-int
-  assert-that > @
-    number
-      angle 3.141592653589793
-      .sin
-    .as-int
-    $.equal-to 0
+    if. > @
+      self-as-list.is-empty
+      error "Can't get max of empty array"
+      reduced.
+        self-as-list
+        self-as-list.at 0
+        [max item]
+          if. > @
+            item.gt max
+            item
+            max
 
-[] > cos-zero
-  assert-that > @
-    angle 0.0
-    .cos
-    $.equal-to 1.0
+  # Find min element in the array
+  [] > min
+    list ^ > self-as-list!
 
-[] > cos-pi-div-2-as-int
-  assert-that > @
-    number
-      angle 1.5707963267948966
-      .cos
-    .as-int
-    $.equal-to 0
-
-[] > cos-pi
-  assert-that > @
-    angle 3.141592653589793
-    .cos
-    $.equal-to -1.0
-
+    if. > @
+      self-as-list.is-empty
+      error "Can't get min of empty array"
+      reduced.
+        self-as-list
+        self-as-list.at 0
+        [min item]
+          if. > @
+            min.gt item
+            item
+            min

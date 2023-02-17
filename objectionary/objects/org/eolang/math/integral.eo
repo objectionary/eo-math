@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2016-2022 Yegor Bugayenko
+# Copyright (c) 2021-2022 Max Trunnikov
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,51 +20,64 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.hamcrest.assert-that
-+alias org.eolang.math.angle
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-math
-+junit
 +package org.eolang.math
++rt jvm org.eolang:eo-math:0.3.0
 +version 0.3.0
 
-[] > sin-zero
-  assert-that > @
-    angle 0.0
-    .sin
-    $.equal-to 0.0
+# Counts integral from a to b  
+[fun a b] > integral
+  [fun a b] > subsection
+    times. > @
+      div.
+        minus.
+          b
+          a
+        6.0
+      plus.
+        fun a
+        times.
+          4.0
+          fun
+            div.
+              plus.
+                a
+                b
+              2.0
+        fun b
 
-[] > sin-pi-div-2
-  assert-that > @
-    angle 1.5707963267948966
-    .sin
-    $.equal-to 1.0
-
-[] > sin-pi-as-int
-  assert-that > @
-    number
-      angle 3.141592653589793
-      .sin
-    .as-int
-    $.equal-to 0
-
-[] > cos-zero
-  assert-that > @
-    angle 0.0
-    .cos
-    $.equal-to 1.0
-
-[] > cos-pi-div-2-as-int
-  assert-that > @
-    number
-      angle 1.5707963267948966
-      .cos
-    .as-int
-    $.equal-to 0
-
-[] > cos-pi
-  assert-that > @
-    angle 3.141592653589793
-    .cos
-    $.equal-to -1.0
-
+  memory > sum
+    0.0
+  memory > x
+    (number a).as-float
+  (number b).as-float > y!
+  100.0 > n!
+  div. > h!
+    minus.
+      y
+      x
+    n
+  seq > @
+    while.
+      lt.
+        plus.
+          x
+          h
+        y
+      [i]
+        seq > @
+          sum.write
+            plus.
+              sum
+              subsection
+                fun
+                x
+                plus.
+                  x
+                  h
+          x.write
+            plus.
+              x
+              h
+    sum

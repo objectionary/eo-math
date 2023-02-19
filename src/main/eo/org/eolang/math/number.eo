@@ -482,12 +482,12 @@
             count
       count
 
-  # @todo #105:30min. Fix taylor and its tests. Since new declarative "while"
-  #  was introduced current implementation of taylor is not relevant anymore.
-  #  Need to remake it and unwrap tests
   # Computes series buy the numbers for start and finish and function of
   # coefficient of nth term. It is NaN if infinity passed because the
   # implementation would get infinity time to calculate sum of infinity terms
+  # @todo #105:30min. Fix taylor and its tests. Since new declarative "while"
+  #  was introduced current implementation of taylor is not relevant anymore.
+  #  Need to remake it and unwrap tests
   [start finish f] > taylor
     ^.n > value!
     memory start > iterator
@@ -586,10 +586,10 @@
               (number self-as-float).ln
               (number base-as-float).ln
 
+  # Natural logarithm of ^.n
   # @todo #105:30min. Fix "ln" and its tests. Since new declarative "while"
   #  was introduced current implementation of "ln" is not relevant anymore.
   #  Need to remake it and unwrap tests
-  # Natural logarithm of ^.n
   [] > ln
     as-float > value!
     number > @

@@ -23,12 +23,8 @@
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.math.e
-+alias org.eolang.math.nan
 +alias org.eolang.math.number
-+alias org.eolang.math.positive-infinity
 +alias org.eolang.math.pi
-+alias org.eolang.math.negative-infinity
-+alias org.eolang.nop
 +home https://github.com/objectionary/eo-math
 +junit
 +package org.eolang.math
@@ -54,6 +50,12 @@
     (number nan).is-nan
     $.equal-to TRUE
     "check is nan of nan"
+
+[] > check-is-nan-of-not-nan
+  assert-that > @
+    (number 42).is-nan
+    $.equal-to FALSE
+    "check is nan of not nan"
 
 [] > check-is-int-of-int-zero
   assert-that > @
@@ -1264,7 +1266,9 @@
 [] > arccos-nan-positive-value-test
   assert-that > @
     is-nan.
-      number ((number 2.0).arccos)
+      number
+        arccos.
+          number 2.0
     $.equal-to TRUE
 
 [] > arccos-nan-negative-value-test

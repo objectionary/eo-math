@@ -35,7 +35,7 @@ SOFTWARE
   <packaging>jar</packaging>
   <name>eo-math</name>
   <properties>
-    <stack-size>32M</stack-size>
+    <stack-size>256M</stack-size>
   </properties>
   <description>Math Primitives for EO Programming Language</description>
   <url>https://github.com/objectionary/eo-math</url>

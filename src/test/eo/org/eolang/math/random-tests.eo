@@ -58,9 +58,10 @@
 
 [] > two-random-numbers-with-const
   random.pseudo > r!
-  assert-that > @
-    r
-    $.equal-to r
+  nop > @
+    assert-that
+      r
+      $.equal-to r
 
 [] > two-random-numbers-with-phi
   (random 123).@ > r
@@ -70,16 +71,18 @@
 
 [] > two-random-numbers-with-increment-with-const
   random.pseudo.plus 3.1416 > r!
-  assert-that > @
-    r
-    $.equal-to r
+  nop > @
+    assert-that
+      r
+      $.equal-to r
 
 [] > two-random-numbers-with-increment
   random.pseudo.plus 3.1416 > r
-  if. > @
-    QQ.sys.uname.is-windows
-    nop
-    assert-that
-      r
-      $.not
-        $.equal-to r
+  nop > @
+    if.
+      QQ.sys.uname.is-windows
+      nop
+      assert-that
+        r
+        $.not
+          $.equal-to r

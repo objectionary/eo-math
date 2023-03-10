@@ -1,4 +1,3 @@
-objectionary/tests/org/eolang/math/nan-tests.eo
 objectionary/tests/org/eolang/math/angle-tests.eo
 objectionary/tests/org/eolang/math/e-tests.eo
 objectionary/tests/org/eolang/math/integral-tests.eo
@@ -6,9 +5,6 @@ objectionary/tests/org/eolang/math/random-tests.eo
 objectionary/tests/org/eolang/math/series-tests.eo
 objectionary/tests/org/eolang/math/number-tests.eo
 objectionary/tests/org/eolang/math/pi-tests.eo
-objectionary/objects/org/eolang/math/nan.eo
-objectionary/objects/org/eolang/math/negative-infinity.eo
-objectionary/objects/org/eolang/math/positive-infinity.eo
 objectionary/objects/org/eolang/math/e.eo
 objectionary/objects/org/eolang/math/integral.eo
 objectionary/objects/org/eolang/math/random.eo

@@ -23,8 +23,8 @@
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.math.random
 +home https://github.com/objectionary/eo-math
-+junit
 +package org.eolang.math
++tests
 +version 0.0.0
 
 # @todo #105:30min. Remove nop objects. All of these three tests

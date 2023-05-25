@@ -24,9 +24,9 @@
 +alias org.eolang.math.angle
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-math
-+junit
 +package org.eolang.math
-+version 0.3.1
++tests
++version 0.4.0
 
 [] > sin-zero
   assert-that > @

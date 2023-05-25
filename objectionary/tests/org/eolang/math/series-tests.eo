@@ -23,9 +23,9 @@
 +alias org.eolang.math.series
 +alias org.eolang.hamcrest.assert-that
 +home https://github.com/objectionary/eo-math
-+junit
 +package org.eolang.math
-+version 0.3.1
++tests
++version 0.4.0
 
 [] > max-of-empty-array
   assert-that > @

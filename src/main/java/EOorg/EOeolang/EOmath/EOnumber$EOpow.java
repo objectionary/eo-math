@@ -24,7 +24,6 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOmath;
 
-import EOorg.EOeolang.EOerror;
 import org.eolang.AtComposite;
 import org.eolang.AtFree;
 import org.eolang.Data;
@@ -89,7 +88,11 @@ public final class EOnumber$EOpow extends PhDefault {
                             )
                         );
                     }
-                    return phi;
+                    return new PhWith(
+                        new EOnumber(Phi.Φ),
+                        "n",
+                        phi
+                    );
                 }
             )
         );

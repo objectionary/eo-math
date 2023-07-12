@@ -192,7 +192,7 @@
           self-as-int.plus 1
 
   # Make ^.n power x
-  [x] > pow /?
+  [x] > pow /number
 
   # Make ^.n power x
   # @todo #21:30 min. Add an ability to raise a number to float power.

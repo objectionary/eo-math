@@ -93,6 +93,24 @@
     $.equal-to FALSE
     "check is-int of negative float"
 
+[] > check-is-int-of-positive-infinity
+  assert-that > @
+    (number positive-infinity).is-int
+    $.equal-to FALSE
+    "check is-int of positive-infinity"
+
+[] > check-is-int-of-negative-infinity
+  assert-that > @
+    (number negative-infinity).is-int
+    $.equal-to FALSE
+    "check is-int of negative-infinity"
+
+[] > check-is-int-of-nan
+  assert-that > @
+    (number nan).is-int
+    $.equal-to FALSE
+    "check is-int of positive-infinity"
+
 [] > xor-int-3-6
   assert-that > @
     number 3

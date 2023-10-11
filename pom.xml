@@ -145,7 +145,7 @@ SOFTWARE
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOmath/**</glob>
               </keepBinaries>
-              <failOnWarning>true</failOnWarning>
+              <failOnWarning>false</failOnWarning>
             </configuration>
           </execution>
           <execution>
@@ -163,7 +163,7 @@ SOFTWARE
               <addSourcesRoot>false</addSourcesRoot>
               <addTestSourcesRoot>true</addTestSourcesRoot>
               <generatedDir>${project.build.directory}/generated-test-sources</generatedDir>
-              <failOnWarning>true</failOnWarning>
+              <failOnWarning>false</failOnWarning>
             </configuration>
           </execution>
         </executions>

@@ -35,7 +35,6 @@
   #  and `min` objects should work only with an array of numbers.
   [] > max
     list ^ > self-as-list!
-
     if. > @
       self-as-list.is-empty
       error "Can't get max of empty array"
@@ -51,7 +50,6 @@
   # Find min element in the array
   [] > min
     list ^ > self-as-list!
-
     if. > @
       self-as-list.is-empty
       error "Can't get min of empty array"

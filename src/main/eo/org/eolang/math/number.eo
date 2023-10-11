@@ -138,7 +138,6 @@
   [x] > mod
     ^.n > dividend!
     x > divisor!
-
     if. > @
       divisor.eq 0
       error "mod by zero"
@@ -259,9 +258,7 @@
                         div.
                           p
                           2.0
-
               res.times res > res-x-res!
-
               if. > @
                 eq.
                   mod.
@@ -271,7 +268,6 @@
                   1
                 res-x-res.times n
                 res-x-res
-
         switch > @
           *
             x-as-float.eq 0.0
@@ -377,7 +373,7 @@
       seq > @
         while.
           gt.
-            diff
+            diff.as-float
             1.0e-15
           [i]
             seq > @
@@ -389,13 +385,13 @@
                   plus.
                     div.
                       a
-                      x-old
-                    x-old
+                      x-old.as-float
+                    x-old.as-float
               diff.write
                 abs.
                   number
-                    x-new.minus x-old
-        x-new
+                    x-new.as-float.minus x-old.as-float
+        x-new.as-float
 
   # Converts ^.n to float
   [] > as-float /float
@@ -529,7 +525,6 @@
   #  Double.NEGATIVE_INFINITY are converted to eolang objects.
   [base] > log
     number base > base-as-number!
-
     if. > @
       or.
         is-nan
@@ -540,12 +535,10 @@
           base-as-number.is-infinite
           base
           base-as-number.as-float
-
         if. > self-as-float!
           is-infinite
           ^.^.n
           as-float
-
         switch > @
           *
             or.
@@ -639,22 +632,23 @@
       plus. > @
         term-1
         term-2
+
       [] > term-1!
         memory 1.0 > pow-2
         memory 0 > iterator
         seq > @
           while.
             lte.
-              pow-2
+              pow-2.as-float
               x
             [i]
               seq > @
                 pow-2.write
-                  pow-2.times 2.0
+                  pow-2.as-float.times 2.0
                 iterator.write
-                  iterator.plus 1
-          (x.times 2.0).div pow-2 > y!
-          (number (iterator.minus 1)).as-float.times
+                  iterator.as-int.plus 1
+          (x.times 2.0).div pow-2.as-float > y!
+          (number (iterator.as-int.minus 1)).as-float.times
             number.exp.ln-2
 
       [] > term-2!
@@ -672,17 +666,17 @@
             (number terms).as-float
           seq > @
             while.
-              iterator.gt 0.1
+              iterator.as-float.gt 0.1
               [i]
                 seq > @
                   sum.write
                     times.
                       t
                       minus.
-                        1.0.div iterator
-                        sum
+                        1.0.div iterator.as-float
+                        sum.as-float
                   iterator.write
-                    iterator.minus 1.0
+                    iterator.as-float.minus 1.0
             sum
 
   # Arccosinus of a n.
@@ -701,18 +695,18 @@
         TRUE
       seq > @
         while.
-          running
+          running.as-bool
           [i]
             seq > @
               mid.write
                 div.
                   plus.
-                    low
-                    high
+                    low.as-float
+                    high.as-float
                   2.0
               cosmid.write
                 number
-                  angle mid
+                  angle mid.as-float
                   .cos
                 .as-float
               if.
@@ -720,13 +714,13 @@
                   abs.
                     seq
                       minus. > val
-                        cosmid
+                        cosmid.as-float
                         x
                       number val
                   precision
                 if.
                   gt.
-                    cosmid
+                    cosmid.as-float
                     x
                   low.write
                     mid
@@ -734,8 +728,7 @@
                     mid
                 running.write
                   FALSE
-        mid
-
+        mid.as-float
     if. > @
       or.
         gt.

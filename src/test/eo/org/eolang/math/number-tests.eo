@@ -340,17 +340,15 @@
       condition
       [i]
         body > @
-
   memory 0 > n
-
   assert-that > @
     seq
       n.write 0
       while-loop
-        n.lt 5
+        n.as-int.lt 5
         seq
-          n.write (n.plus 1)
-          ((number n).mod 2).eq 0
+          n.write (n.as-int.plus 1)
+          ((number n.as-int).mod 2).eq 0
     $.equal-to FALSE
 
 [] > pow-test

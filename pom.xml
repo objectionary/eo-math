@@ -97,7 +97,7 @@ SOFTWARE
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.30.0</version>
+      <version>0.32.0</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -129,7 +129,7 @@ SOFTWARE
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.29.4</version>
+        <version>0.32.0</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -163,6 +163,7 @@ SOFTWARE
               <addSourcesRoot>false</addSourcesRoot>
               <addTestSourcesRoot>true</addTestSourcesRoot>
               <generatedDir>${project.build.directory}/generated-test-sources</generatedDir>
+              <failOnWarning>true</failOnWarning>
             </configuration>
           </execution>
         </executions>

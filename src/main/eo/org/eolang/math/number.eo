@@ -76,16 +76,18 @@
   # Checking if number is floatint point 0.0 or -0.0
   [] > is-float-zero
     ^.n > value!
+    0.0.as-bytes > pos-zero-as-bytes!
+    -0.0.as-bytes > neg-zero-as-bytes!
     if. > @
       eq.
         value.as-bytes
-        0.0.as-bytes
+        pos-zero-as-bytes
       eq.
         value.neg.as-bytes
-        -0.0.as-bytes
+        neg-zero-as-bytes
       eq.
         value.neg.as-bytes
-        0.0.as-bytes
+        pos-zero-as-bytes
 
   # Checking if number is NaN
   [] > is-nan

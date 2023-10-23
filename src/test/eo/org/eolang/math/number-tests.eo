@@ -57,6 +57,90 @@
     $.equal-to FALSE
     "check is nan of not nan"
 
+[] > check-is-float-zero-of-float-zero
+  assert-that > @
+    (number 0.0).is-float-zero
+    $.equal-to TRUE
+    "check is float zero of float zero"
+
+[] > check-is-float-zero-of-float-neg-zero
+  assert-that > @
+    (number -0.0).is-float-zero
+    $.equal-to TRUE
+    "check is float zero of float negative zero"
+
+[] > check-is-float-zero-of-positive-float
+  assert-that > @
+    (number 4.26).is-float-zero
+    $.equal-to FALSE
+    "check is float zero of positive float"
+
+[] > check-is-float-zero-of-negative-float
+  assert-that > @
+    (number -2.07).is-float-zero
+    $.equal-to FALSE
+    "check is float zero of negative float"
+
+[] > check-is-float-zero-of-int-zero
+  assert-that > @
+    (number 0).is-float-zero
+    $.equal-to FALSE
+    "check is float zero of int zero"
+
+[] > check-is-float-zero-of-positive-int
+  assert-that > @
+    (number 414).is-float-zero
+    $.equal-to FALSE
+    "check is float zero of positive int"
+
+[] > check-is-float-zero-of-negative-int
+  assert-that > @
+    (number -201).is-float-zero
+    $.equal-to FALSE
+    "check is float zero of negative int"
+
+[] > check-is-int-zero-of-float-zero
+  assert-that > @
+    (number 0.0).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of float zero"
+
+[] > check-is-int-zero-of-float-neg-zero
+  assert-that > @
+    (number -0.0).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of float negative zero"
+
+[] > check-is-int-zero-of-positive-float
+  assert-that > @
+    (number 4.26).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of positive float"
+
+[] > check-is-int-zero-of-negative-float
+  assert-that > @
+    (number -2.07).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of negative float"
+
+[] > check-is-int-zero-of-int-zero
+  assert-that > @
+    (number 0).is-int-zero
+    $.equal-to TRUE
+    "check is int zero of int zero"
+
+[] > check-is-int-zero-of-positive-int
+  assert-that > @
+    (number 414).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of positive int"
+
+[] > check-is-int-zero-of-negative-int
+  assert-that > @
+    (number -201).is-int-zero
+    $.equal-to FALSE
+    "check is int zero of negative int"
+
 [] > check-is-int-of-int-zero
   assert-that > @
     (number 0).is-int
@@ -80,6 +164,18 @@
     (number 0.0).is-float
     $.equal-to TRUE
     "check is-float of float zero"
+
+[] > check-is-float-of-float-neg-zero
+  assert-that > @
+    (number -0.0).is-float
+    $.equal-to TRUE
+    "check is-float of float negative zero"
+
+[] > check-is-int-of-float-neg-zero
+  assert-that > @
+    (number -0.0).is-int
+    $.equal-to FALSE
+    "check is-int of float negative zero"
 
 [] > check-is-int-positive-float
   assert-that > @

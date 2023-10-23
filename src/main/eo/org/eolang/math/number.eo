@@ -39,10 +39,10 @@
   [] > is-int
     ^.n > value!
     if. > @
-      value.eq 0
+      ^.is-int-zero
       TRUE
       if.
-        value.eq 0.0
+        ^.is-float-zero
         FALSE
         eq.
           div.
@@ -55,16 +55,37 @@
   [] > is-float
     ^.n > value!
     if. > @
-      value.eq 0.0
+      ^.is-float-zero
       TRUE
       if.
-        value.eq 0
+        ^.is-int-zero
         FALSE
         eq.
           div.
             value
             value
           1.0
+
+  # Checking if number is integer 0
+  [] > is-int-zero
+    ^.n > value!
+    eq. > @
+      value.as-bytes
+      value.neg.as-bytes
+
+  # Checking if number is floatint point 0.0 or -0.0
+  [] > is-float-zero
+    ^.n > value!
+    if. > @
+      eq.
+        value.as-bytes
+        0.0.as-bytes
+      eq.
+        value.neg.as-bytes
+        -0.0.as-bytes
+      eq.
+        value.neg.as-bytes
+        0.0.as-bytes
 
   # Checking if number is NaN
   [] > is-nan

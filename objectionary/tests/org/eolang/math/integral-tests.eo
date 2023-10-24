@@ -26,7 +26,7 @@
 +home https://github.com/objectionary/eo-math
 +package org.eolang.math
 +tests
-+version 0.4.1
++version 0.5.0
 
 # @todo #99:30min. To fix failed tests.
 #  Sometests here are wrapped by nop object. We need

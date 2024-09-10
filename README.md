@@ -12,6 +12,9 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-math)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/objectionary/eo-math/blob/master/LICENSE.txt)
 
+**This repository is deprecated! We've moved all EO objects from this repository
+to [objectionary/eo](https://github.com/objectionary/eo).**
+
 [EOLANG](https://www.eolang.org) objects for trigonometry and floating point opeartions.
 
 This is how you can manipulate with `sin`, `cos`, `tan` and `ctan` via `angle`:
